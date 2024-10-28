@@ -17,7 +17,7 @@
     <!--
         List of the simulated worlds in the 'alpha_sci_stonefish'
     -->
-    <arg name="scenario" default="ocean"/>
+    <arg name="scenario" default="ocean_rise"/>
 
     <include file="$(find world_of_stonefish)/launch/simulation.launch">
         <arg name="robot_name" value="$(arg robot_name)"/>

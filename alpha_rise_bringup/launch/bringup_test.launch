@@ -27,8 +27,12 @@
     </include>  -->
 
     <!-- Bring up madgwick filter-->
-    <include file="$(find alpha_rise_bringup)/launch/include/madgwick_filter.launch.xml">
+    <!-- <include file="$(find alpha_rise_bringup)/launch/include/madgwick_filter.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include> 
+    </include>  -->
+
+    <include file="$(find alpha_rise_bringup)/launch/include/joystick.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
 
 </launch>
