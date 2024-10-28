@@ -12,20 +12,20 @@ waypoints:
 
 update_topic: update_waypoints
 append_topic: append_waypoints
-surge_velocity: 0.50
+surge_velocity: 0.5
 
 
 state_done: start
 state_fail: kill
 
 
-lookahead_distance: 5.0
-beta_gain: 0.75 # cross-error rate gain
+lookahead_distance: 3.0
+beta_gain: 0.0 # cross-error rate gain
 #integral term.
-sigma: 0.01
+sigma: 0.00
 
 
-lookahead_adaptive_flag: true
+lookahead_adaptive_flag: false
 lookahead_max: 15.0
 lookahead_min: 3.0
 lookahead_gamma: 1.0

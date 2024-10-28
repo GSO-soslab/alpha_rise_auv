@@ -31,4 +31,4 @@ tele_d_yaw: 10.0
 tele_d_pitch: 10.0
 tele_d_depth: 1.0
 
-no_joy_timeout: 10
+no_joy_timeout: 600
