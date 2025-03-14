@@ -21,7 +21,7 @@
 
     <link name="cg_link"/>
     <joint name="cg_joint" type="fixed">
-        <origin xyz="0.0 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.06 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="cg_link"/>
     </joint>
@@ -101,7 +101,7 @@
     <!-- thrusters -->
     <link name="surge_thruster_link"/>
     <joint name="surge_thruster_joint" type="fixed">
-        <origin xyz="-0.77 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.77 0.0 0.02" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="surge_thruster_link"/>
     </joint>

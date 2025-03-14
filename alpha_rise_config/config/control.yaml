@@ -3,6 +3,8 @@ generator_type: tf
 # controller_frequency: 20
 controller_frequency: 10
 
+controller_no_setpoint_timeout: 1
+
 # tf_prefix: alpha_rise
 
 cg_link: cg_link
