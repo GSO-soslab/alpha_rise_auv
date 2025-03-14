@@ -20,10 +20,10 @@ control_modes:
   #   pitch_rate: {p: 2.0,  i: 0.5,   d: 3.0,  i_max: 20, i_min: -20}
 
   flight:
-    surge:    {p: 50.0,    i: 1.0,   d: 2.0,   i_max: 20, i_min: -20}
-    z:        {p: 20.0,   i: 1.0 ,  d: 5.0,  i_max: 20, i_min: -20}
-    pitch:    {p: 10.0,   i: 0.01,  d: 5.0,  i_max: 20, i_min: -20}
-    yaw:      {p: 10.0,   i: 0.2,   d: 5.0,  i_max: 20, i_min: -20}
+    surge:    {p: 50.0,    i: 1.0,   d: 2.0,   pid_max: 60, pid_min: -20}
+    z:        {p: 20.0,   i: 1.25 ,  d: 5.0,  pid_max: 30, pid_min: -20}
+    pitch:    {p: 10.0,   i: 0.1,  d: 10.0,  pid_max: 20, pid_min: -20}
+    yaw:      {p: 10.0,   i: 1.0,   d: 10.0,  pid_max: 20, pid_min: -20}
 
   # hold_xyz:
   #   x:        {p: 2.5,    i: 1.0,   d: 5.0,  i_max: 10, i_min: -10}
@@ -44,10 +44,10 @@ control_modes:
   hold_dof:
     # x:        {p: 2.5,    i: 1.0,   d: 5.0,  i_max: 10, i_min: -10}
     # y:        {p: 2.5,    i: 1.0 ,  d: 5.0,  i_max: 10, i_min: -10}
-    surge:    {p: 50.0,    i: 1.0,   d: 2.0,   i_max: 20, i_min: -20}
-    z:        {p: 20.0,   i: 1.0 ,  d: 5.0,  i_max: 20, i_min: -20}
-    pitch:    {p: 10.0,   i: 0.01,  d: 5.0,  i_max: 20, i_min: -20}
-    yaw:      {p: 10.0,   i: 0.2,   d: 5.0,  i_max: 20, i_min: -20}
+    surge:    {p: 50.0,    i: 1.0,   d: 2.0,   pid_max: 50, pid_min: -20}
+    z:        {p: 30.0,   i: 1.25 ,  d: 5.0,  pid_max: 30, pid_min: -20}
+    pitch:    {p: 15.0,   i: 0.1,  d: 10.0,  pid_max: 20, pid_min: -20}
+    yaw:      {p: 10.0,   i: 1.0,   d: 10.0,  pid_max: 20, pid_min: -20}
 
 ##
 # THRUSTERS
@@ -132,8 +132,8 @@ thruster_limits:
     max: 25
     min: -25
   heave_bow:
-    max: 10
-    min: -10
+    max: 15
+    min: -15
   heave_stern:
-    max: 10
-    min: -10
+    max: 15
+    min: -15

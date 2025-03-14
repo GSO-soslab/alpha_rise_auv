@@ -25,7 +25,7 @@ current:
 
 system:
     #
-    rate: 5
+    rate: 10
     # 
     voltage_ratio: 0.090082
     #
