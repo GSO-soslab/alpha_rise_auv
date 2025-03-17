@@ -14,7 +14,7 @@ local_link: alpha_rise/cg_link
 max_z: 100
 max_roll: 1.5707963 
 max_pitch: 1.5707963
-max_surge: 0.8
+max_surge: 1.0
 max_sway: 0.8
 
 ####tele-op, ang in degrees####
