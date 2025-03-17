@@ -81,6 +81,21 @@
         <parent link="base_link"/>
         <child link="ping360_link_sf"/>
     </joint>
+    
+    <link name="fls_link"/>
+    <joint name="fls_link_joint" type="fixed">
+        <origin xyz="0.4 -0.2 0.0" rpy="1.57 0.0 -1.57"/>
+        <parent link="base_link"/>
+        <child link="fls_link"/>
+    </joint>
+
+    <link name="fls_link_sf"/>
+    <joint name="fls_link_joint_sf" type="fixed">
+        <origin xyz="0.4 -0.2 0.0" rpy="1.57 0.0 -1.57"/>
+        <parent link="base_link"/>
+        <child link="fls_link_sf"/>
+    </joint>
+
 
     <link name="fls_link_sf"/>
     <joint name="fls_sf_joint" type="fixed">
