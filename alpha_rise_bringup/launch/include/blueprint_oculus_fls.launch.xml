@@ -12,7 +12,7 @@
     <!--Blueprint FLS driver-->
     <arg name="robot_name" default="changeme"/>
 
-    <arg name="range" default="2"/>
+    <arg name="range" default="40"/>
     <arg name="gain_percent" default="100"/>
     <arg name="gamma" default="127"/>
     <arg name="ping_rate" default="0"/>
@@ -48,12 +48,14 @@
 
     </group>
 
-    <!--FLS_MSIS-->
-    <include file="$(find fls_pcl)/launch/fls_pcl.launch">
-        <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
-
-
-
-
+    <!--FLS_PCL-->
+    <node ns="$(arg robot_name)" pkg="fls_pcl" type="fls_pcl.py" 
+        name ="fls_pcl_node" output="screen">
+        <!--Sub-->
+        <remap from="/alpha_rise/fls/data/image" to="$(arg robot_name)/oculus/raw_image"/>
+        <!--Pub-->
+        <remap from="/alpha_rise/fls/pointcloud" to="$(arg robot_name)/oculus/pointcloud"/>
+        
+        <rosparam command="load" file="$(find alpha_rise_config)/config/fls_pcl.yaml"/>
+    </node>
 </launch>

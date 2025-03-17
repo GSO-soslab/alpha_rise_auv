@@ -19,7 +19,8 @@
     </node>
 
     <!--Filtering node for pointcloud-->
-    <include file="$(find pcl_proc)/launch/filter.launch">
-        <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    <node ns="$(arg robot_name)" pkg="pcl_proc" type="processing.py" 
+        name ="msis_pcl_filter_node" output="screen">
+        <rosparam command="load" file="$(find alpha_rise_config)/config/msis_filter.yaml"/>
+    </node>
 </launch>
