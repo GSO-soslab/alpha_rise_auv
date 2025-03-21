@@ -87,8 +87,12 @@
         <param name = "tf_prefix" value="$(arg robot_name)"/>
         <param name = "acceptable_var" value = "5" />
         <param name = "m_gps_wait_time" value ="30"/>
-        <param name = "datum_latitude" value="41.621609"/>
-        <param name = "datum_longitude" value="-71.410977"/>
+        <!--Allen Harbor-->
+        <!-- <param name = "datum_latitude" value="41.621623"/> 
+        <param name = "datum_longitude" value="-71.4116317"/> -->
+        <!--Salt Pond-->
+        <param name = "datum_latitude" value="41.4271"/> 
+        <param name = "datum_longitude" value="-71.4966"/>
         <param name = "position_accuracy" value="3.0"/>
         <remap from = "odometry" to ="odometry/filtered/local" />
         <param name = "mag_model_path" value = "$(find mvp_localization_utilities)/config/magnetic"/>

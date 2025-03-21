@@ -1,0 +1,18 @@
+path_generator:
+  odom_frame: "alpha_rise/odom"
+  base_frame: "alpha_rise/base_link"
+  costmap_topic: 'move_base/local_costmap/costmap'
+  path_topic: 'path'
+  debug: false
+
+  canny_min_threshold: 200
+  canny_max_threshold: 255
+
+  #To change polynomial, find model_f function in path_utils.py
+  standoff_distance_meters: 20
+  points_to_sample_from_curve: 20
+
+  min_scan_angle: -90 #degrees
+  max_scan_angle: 90
+  distance_constraint: 15 #meters
+  max_yaw_rate: 0.8 #rad/s #0.8rad is 45degree
