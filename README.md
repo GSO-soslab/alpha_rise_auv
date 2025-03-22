@@ -17,11 +17,11 @@ This is the configuration for our ALPHA RISE AUV.
 ## Installation
 
 ### Install the Stonefish simulator
-- We use [Stonefish](https://stonefish.readthedocs.io/en/latest/install.html) Simulator. You can clone it from [here](https://github.com/uri-ocean-robotics/stonefish), a fork from the [original_repo](https://github.com/patrykcieslak/stonefish).
+- We use [Stonefish](https://stonefish.readthedocs.io/en/latest/install.html) Simulator. You can clone it from [here](https://github.com/GSO-soslab/stonefish), a fork from the [original_repo](https://github.com/patrykcieslak/stonefish).
 
 - Download the stonefish simulator **to another location outside your ROS workspace**
 ```bash
-git clone https://github.com/uri-ocean-robotics/stonefish
+git clone https://github.com/GSO-soslab/stonefish
 ```
 
 - Install dependencies using `sudo apt install` (instruction from the [Stonefish](https://github.com/patrykcieslak/stonefish))
@@ -76,7 +76,7 @@ git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-rob
 **stonefish_mvp** is a wrapper modified from [stonefish_ros](https://github.com/patrykcieslak/stonefish_ros) for ROS interface with ROS-MVP.
 
 ### Hardware drivers (Not needed for simulation)
-- Clone [mvp_core] repo which include other hardware related source code, sensor drivers, and other utilities.
+- Clone **mvp_hardware_drivers** repo which include other hardware related source code, sensor drivers, and other utilities.
 
     ```bash
     git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_hardware_drivers.git
@@ -87,9 +87,9 @@ git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-rob
 ```bash
 rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
 ```
-Install dependencies for `mvp_core`
+Install dependencies for **mvp_hardware_drivers**
 ```
-cd mvp_core
+cd mvp_hardware_drivers
 git submodule update --init --recursive
 ```
 
@@ -117,7 +117,7 @@ roslaunch alpha_rise_bringup bringup_simulation.launch
 rosservice call /alpha_rise/controller/enable
 ```
 
-- Start a path following mission in local frame where your waypoint is defined in `alpha_std_config/mission/param/path_local.yaml`
+- Start a path following mission in local frame where your waypoint is defined in `alpha_rise_config/mission/param/path_local.yaml`
 
 ```bash
 rosservice call /alpha_rise/helm/change_state "state: 'survey_3d'"

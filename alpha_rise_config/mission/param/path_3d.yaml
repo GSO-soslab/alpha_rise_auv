@@ -12,8 +12,9 @@ waypoints:
 
 update_topic: update_waypoints
 append_topic: append_waypoints
-surge_velocity: 0.5
-
+surge_velocity: 0.8
+turning_surge_velocity: 0.5
+turning_angle_sector: 1.57 #rad
 
 state_done: start
 state_fail: kill
