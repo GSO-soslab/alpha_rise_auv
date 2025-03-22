@@ -11,6 +11,7 @@ finite_state_machine:
       - survey_3d
       - kill
       - teleop
+      - surge_teleop
 
   - name: survey_3d
     mode: flight
@@ -25,6 +26,12 @@ finite_state_machine:
 
   - name: teleop
     mode: hold_dof
+    transitions:
+      - start
+      - kill
+
+  - name: surge_teleop
+    mode: hold_depth
     transitions:
       - start
       - kill
@@ -49,6 +56,8 @@ behaviors:
     plugin: helm::Teleoperation
     states:
       - { name: teleop, priority: 2 }
+      - { name: surge_teleop, priority: 1 }
+
       # - { name: survey_3d, priority: 3}
   # - name: timer
   #   plugin: helm::Timer
