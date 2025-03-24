@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of ALPHA AUV project.
+
+    Author: Emir Cem Gezer
+    Email: emircem@uri.edu;emircem.gezer@gmail.com
+    Year: 2022
+
+    Copyright (C) 2022 Smart Ocean Systems Laboratory
+-->
+<launch>
+
+    <arg name="robot_name" default="alpha_rise"/>
+
+    <node ns="$(arg robot_name)" pkg="joy_thruster_map" type="joy_thruster_map.py" 
+        name="joy_thruster_map_node" output="screen">
+        <!--Sub-->
+        <remap from="joy" to="helm/teleop/joy"/>
+        <!--Pub-->
+        <remap from="surge_thruster" to="control/thruster/surge"/>
+    </node>
+
+</launch>
