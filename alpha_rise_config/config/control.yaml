@@ -139,3 +139,83 @@ thruster_limits:
   heave_stern:
     max: 15
     min: -15
+  
+# #### FOR HOLD_DEPTH
+# thruster_ids:
+#   - sway_bow
+#   - heave_bow
+#   - heave_stern
+
+# control_tf:
+#   sway_bow: sway_bow_thruster_link
+#   heave_bow: heave_bow_thruster_link
+#   heave_stern: heave_stern_thruster_link
+
+# thruster_command_topics:
+#   sway_bow: control/thruster/sway_bow
+#   heave_bow: control/thruster/heave_bow
+#   heave_stern: control/thruster/heave_stern
+
+# thruster_force_topics:
+#   sway_bow: control/force/sway_bow
+#   heave_bow: control/force/heave_bow
+#   heave_stern: control/force/heave_stern
+
+
+# ##
+# # Polynomials for each thruster.
+# #
+# # Quadratic Programming Optimization computes the thrust
+# # required. We need to turn that number into thruster command.
+# # Setpoint commands in this system defined between -1 and 1.
+# #
+# # y axis of the polynomial , f(x) = y, should be in Newton.
+# #
+# # Take the polynomial
+# # f(x) = a_n x^n + a_(n-1) x^(n-1) + ... + a_1 x + a_0
+# #
+# # Array would hold the lower degrees in lower indexes. Shown below:
+# # [a_0, a_1, ... ,a_(n-1), a(n)]
+# #   f(x) = a5*x^5 + a4*x^4 + a3*x^3 + a2*x^2 + a1*x + a0
+# #
+# # For T200 bluerobotics thrusters:
+# # Curve fitting results:
+# #   a0 =      0.06165
+# #   a1 =      20.32
+# #   a2 =      9.632
+# #   a3 =      93.05
+# #   a4 =      -2.856
+# #   a5 =      -74.1
+# #
+# # For T500 bluerobotics thrusters:
+# # Curve fitting results:
+# #   a0 =      -0.03703
+# #   a1 =      4.217
+# #   a2 =      2.84
+# #   a3 =      4.976
+# #   a4 =      -0.4119
+# #   a5 =      -0.8448
+# #
+# ##
+# thruster_polynomials:
+#   # surge:        [0.5038, 31.49, 29.78, 139.5, -18.66, -113.1]
+#   # sway_bow:     [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+#   # heave_bow:    [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+#   # heave_stern:  [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+#   sway_bow:     [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
+#   heave_bow:    [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
+#   heave_stern:  [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
+  
+# ## Force limits
+# ## T200 limit is +-25 N beyond that will cause nan solution in QP
+
+# thruster_limits:
+#   sway_bow:
+#     max: 25
+#     min: -25
+#   heave_bow:
+#     max: 30
+#     min: -30
+#   heave_stern:
+#     max: 30
+#     min: -30
