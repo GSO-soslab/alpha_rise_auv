@@ -11,12 +11,12 @@
 <launch>
     <arg name="robot_name" default="alpha_rise"/>
 
-    <!-- Bring up the Blueprint Oculus FLS -->
+    <!-- Bring up the Costmap -->
     <include file="$(find alpha_rise_bringup)/launch/include/costmap.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 
-    <!-- Bring up the MSIS Ping360 -->
+    <!-- Bring up the Path Generation Node -->
     <include file="$(find alpha_rise_bringup)/launch/include/path_gen.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
