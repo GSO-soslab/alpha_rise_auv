@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of ALPHA AUV project.
+
+    Author: Tony Jacob
+    Email: tony.jacob@uri.edu
+    Year: 2024
+
+    Copyright (C) 2023-2024 Smart Ocean Systems Laboratory
+-->
+<launch>
+    <arg name="robot_name" default="alpha_rise"/>
+    
+    <!-- Bring up the Power Minotor  -->
+    <include file="$(find alpha_rise_bringup)/launch/include/power_monitor.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <!-- Bringup computer monitor node-->
+    <include file="$(find alpha_rise_bringup)/launch/include/monitor.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <!-- Bringup power switch node-->
+    <include file="$(find alpha_rise_bringup)/launch/bringup_power_switch.launch">
+            <arg name="robot_name" value="$(arg robot_name)"/>
+    </include> 
+
+    <!-- Bringup foxglove bridge-->
+    <include file="$(find foxglove_bridge)/launch/foxglove_bridge.launch">
+        <arg name="port" value="8765"/>
+    </include>
+
+</launch>
