@@ -31,7 +31,7 @@ finite_state_machine:
       - kill
 
   - name: surge_teleop
-    mode: hold_depth
+    mode: manual_surge
     transitions:
       - start
       - kill
