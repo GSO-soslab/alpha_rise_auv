@@ -52,9 +52,9 @@
     <node ns="$(arg robot_name)" pkg="fls_pcl" type="fls_pcl.py" 
         name ="fls_pcl_node" output="screen">
         <!--Sub-->
-        <remap from="/alpha_rise/fls/data/image" to="oculus/raw_image"/>
+        <remap from="/alpha_rise/fls/data/image" to="/alpha_rise/oculus/raw_image"/>
         <!--Pub-->
-        <remap from="/alpha_rise/fls/pointcloud" to="oculus/pointcloud"/>
+        <remap from="/alpha_rise/fls/pointcloud" to="/alpha_rise/oculus/pointcloud"/>
         
         <rosparam command="load" file="$(find alpha_rise_config)/config/fls_pcl.yaml"/>
     </node>
