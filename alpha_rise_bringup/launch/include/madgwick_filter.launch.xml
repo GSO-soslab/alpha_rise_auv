@@ -9,9 +9,14 @@
         <!-- <param name = "mag_bias_x" value="-0.38582065"/>
         <param name = "mag_bias_y" value="0.07612294"/>
         <param name = "mag_bias_z" value="-0.24741555"/> -->
-        <param name = "mag_bias_x" value="-0.05600781"/>
-        <param name = "mag_bias_y" value="-0.01262096"/>
-        <param name = "mag_bias_z" value="-0.00444176"/>
+        <param name = "mag_bias_x" value="-0.04086899"/>
+        <param name = "mag_bias_y" value="-0.00584006"/>
+        <param name = "mag_bias_z" value="-0.00959535"/>
+        <rosparam param="soft_iron_matrix" >
+        [0.9874, 0.0080, -0.0180, 
+         0.0080, 1.0117, -0.0136, 
+        -0.0180, -0.0136, 1.006]
+        </rosparam>
         <param name = "publish_tf" value ="false"/>
         <!-- <param name = "mag_bias_x" value="-0.2807"/>
         <param name = "mag_bias_y" value="-0.00691885"/>
