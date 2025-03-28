@@ -33,7 +33,7 @@ Configuration:
 
   # Note: Sonar max range [m], from 1 to 50
   # Default: 2
-  range: 10
+  range: 50
 
   # Note: Sonar angular resolution [degrees], from 1 to 20.
   # Default: 1
@@ -57,12 +57,12 @@ Sector:
   custom_mode:
     enabled: true
     angle_min: 0
-    angle_max: 270
+    angle_max: 210
     # The transducer reads from 0->angle_max->angle_min.
     # Set slice to true, if you want to restrict the angle_min to min_angle after the first reading. 
     # (Useful for scans that doesn't require 0 angle reading)
     slice: yes
-    min_angle: 90
+    min_angle: 45
 
 ###################################################################
 ########################### ROS Driver ############################
@@ -74,7 +74,7 @@ Driver:
 
   # Note: Publish images on Sensors_msgs/Image
   # Default: true
-  image_publish: false
+  image_publish: true
 
   # Note: Output image size [pixels], from 100 to 1000
   # Default: 300

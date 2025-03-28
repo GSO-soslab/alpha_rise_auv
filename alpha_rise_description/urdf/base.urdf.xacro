@@ -28,7 +28,7 @@
 
     <link name="imu"/>
     <joint name="imu_joint" type="fixed">
-        <origin xyz="-0.2 -0.0 0.0" rpy="0 0.0 0.0"/>
+        <origin xyz="-0.18 -0.0 0.15" rpy="0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="imu"/>
     </joint>
@@ -63,40 +63,38 @@
 
     <link name="pressure"/>
     <joint name="pressure_joint" type="fixed">
-        <origin xyz="0.3 0.0 0.05" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="0.17 -0.07 0.05" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="pressure"/>
     </joint>
 
     <link name="ping360_link"/>
     <joint name="ping360_joint" type="fixed">
-        <origin xyz="0.63 0.0 -0.085" rpy="0.0 0.0 3.1415926"/>
+        <origin xyz="0.63 0.0 -0.11" rpy="0.0 0.0 3.1415926"/>
         <parent link="base_link"/>
         <child link="ping360_link"/>
     </joint>
 
     <link name="ping360_link_sf"/>
     <joint name="ping360_sf_joint" type="fixed">
-        <origin xyz="0.63 0.0 -0.085" rpy="3.14 0.0 0.0"/>
+        <origin xyz="0.63 0.0 -0.11" rpy="3.14 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="ping360_link_sf"/>
     </joint>
     
     <link name="fls_link"/>
     <joint name="fls_link_joint" type="fixed">
-        <origin xyz="0.4 -0.2 0.0" rpy="1.57 0.0 -1.57"/>
+        <origin xyz="-0.3 -0.2 0.0" rpy="1.57 0.0 -1.57"/>
         <parent link="base_link"/>
         <child link="fls_link"/>
     </joint>
 
     <link name="fls_link_sf"/>
     <joint name="fls_link_joint_sf" type="fixed">
-        <origin xyz="0.4 -0.2 0.0" rpy="1.57 0.0 -1.57"/>
+        <origin xyz="-0.3 -0.2 0.0" rpy="1.57 0.0 -1.57"/>
         <parent link="base_link"/>
         <child link="fls_link_sf"/>
     </joint>
-
-
 
     <!-- thrusters -->
     <link name="surge_thruster_link"/>

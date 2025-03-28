@@ -1,0 +1,14 @@
+waypoint_admin:
+  update_waypoint_topic: "helm/path_3d/update_waypoints"
+  odom_topic: "/alpha_rise/odometry/filtered/local"
+  get_state_service: "/alpha_rise/helm/get_state"
+  change_state_service: "/alpha_rise/helm/change_state"
+  get_waypoint_service: "/alpha_rise/helm/path_3d/get_next_waypoints"
+  check_state_update_rate: 1 #sec
+  search_mode_timer: 1200 #sec
+  follow_mode_timer: 1500 #sec
+  fls_beamwidth: 35 #degrees 
+  search_mode_initial_radius: 10 #m
+  exit_mode_distance: 30 #m
+  reacquisition_s_param: 0.5
+  path_topic: "/alpha_rise/path"

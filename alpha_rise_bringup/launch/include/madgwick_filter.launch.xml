@@ -9,21 +9,26 @@
         <!-- <param name = "mag_bias_x" value="-0.38582065"/>
         <param name = "mag_bias_y" value="0.07612294"/>
         <param name = "mag_bias_z" value="-0.24741555"/> -->
-        <param name = "mag_bias_x" value=" 0.0238"/>
-        <param name = "mag_bias_y" value="-0.0473"/>
-        <param name = "mag_bias_z" value="-0.0860"/>
+        <param name = "mag_bias_x" value="-0.04086899"/>
+        <param name = "mag_bias_y" value="-0.00584006"/>
+        <param name = "mag_bias_z" value="-0.00959535"/>
+        <rosparam param="soft_iron_matrix" >
+        [0.9874, 0.0080, -0.0180, 
+         0.0080, 1.0117, -0.0136, 
+        -0.0180, -0.0136, 1.006]
+        </rosparam>
         <param name = "publish_tf" value ="false"/>
         <!-- <param name = "mag_bias_x" value="-0.2807"/>
         <param name = "mag_bias_y" value="-0.00691885"/>
         <param name = "mag_bias_z" value="0.49370753"/> -->
 
         <!-- <param name = "mag_bias_z" value="0.0"/> -->
-        <param name = "gyro_bias_x" value="-0.001825272311978311"/>
-        <param name = "gyro_bias_y" value="-0.0009239439244435975"/>
-        <param name = "gyro_bias_z" value="9.110814339260668e-05"/>
-        <param name = "accel_bias_x" value="-8.43794e-06"/>
-        <param name = "accel_bias_y" value="-5.6206e-06"/>
-        <param name = "accel_bias_z" value="0.00026198"/>
+        <param name = "gyro_bias_x" value="-0.00018509930130395467"/>
+        <param name = "gyro_bias_y" value="0.0005395704411902745"/>
+        <param name = "gyro_bias_z" value="0.0004095127465556349"/>
+        <param name = "accel_bias_x" value="0.000388858"/>
+        <param name = "accel_bias_y" value="0.000218914"/>
+        <param name = "accel_bias_z" value="-0.019213"/>
         <param name = "use_mag" value = "true" />
         <!-- <remap from="imu/data_raw" to="imu/data"/>
         <remap from="imu/data" to="imu/data_filtered"/>

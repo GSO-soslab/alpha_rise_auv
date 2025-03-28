@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of ALPHA AUV project.
+
+    Author: Tony Jacob
+    Email: tony.jacob@uri.edu
+    Year: 2024
+
+    Copyright (C) 2023-2024 Smart Ocean Systems Laboratory
+-->
+<launch>
+    <arg name="robot_name" default="alpha_rise"/>
+
+    <!-- Bring up the Waypoint_admin -->
+    <include file="$(find alpha_rise_bringup)/launch/include/wp_admin.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+
+</launch>

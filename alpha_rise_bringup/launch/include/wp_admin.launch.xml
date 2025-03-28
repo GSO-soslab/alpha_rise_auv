@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of ALPHA AUV project.
+
+    Author: Lin Zhao
+    Email: linzhao@uri.edu
+    Year: 2023
+
+    Copyright (C) 2022-2023 Smart Ocean Systems Laboratory
+-->
+<launch>
+
+    <arg name="robot_name" default="changeme"/>
+
+    <node ns="$(arg robot_name)" pkg="pcl_proc" type="wp_admin.py" name = "waypoint_administrator" output="screen">
+        <rosparam command="load" file="$(find alpha_rise_config)/config/wp_admin.yaml"/>
+    </node>
+</launch>

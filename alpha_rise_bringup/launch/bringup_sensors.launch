@@ -16,10 +16,6 @@
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 
-    <!-- Bring up the Power Minotor  -->
-    <include file="$(find alpha_rise_bringup)/launch/include/power_monitor.launch.xml">
-        <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
 
     <!-- Bring up the microstrain ahrs  -->
     <include file="$(find alpha_rise_bringup)/launch/include/microstrain.launch.xml">
@@ -40,10 +36,6 @@
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include>
 
-    <!-- Bringup computer monitor node-->
-    <include file="$(find alpha_rise_bringup)/launch/include/monitor.launch.xml">
-        <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
 
     <!-- Bring up Waterlinked DVL -->
     <include file="$(find alpha_rise_bringup)/launch/include/waterlinked_dvl.launch.xml">
