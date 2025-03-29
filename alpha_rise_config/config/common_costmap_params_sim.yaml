@@ -1,0 +1,41 @@
+#https://wiki.ros.org/costmap_2d/hydro
+global_frame: alpha_rise/odom
+robot_base_frame: alpha_rise/base_link
+transform_tolerance: 2.0
+update_frequency: 5.0
+static_map: false
+rolling_window: true
+always_send_full_costmap: true
+#The dimensions of the costmap(cells) is width(m) * 1/resolution(m/cell) x height(m) * 1/resolution(m/cell)  
+width: 100.0
+height: 100.0 #100x100 for sf #20x20 for real # 2*number of bins or 2*range
+resolution: 1 #0.5 #meters per cell #0.05 for real. #0.5 for sf
+
+plugins:
+  - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+  # - {name: inflation,  type: "costmap_2d::InflationLayer"}
+
+obstacles:
+  observation_sources: pointcloud_sf
+  pointcloud_sf: {
+    sensor_frame: alpha_rise/ping360_link_sf,
+    data_type: PointCloud2,
+    topic: /alpha_rise/msis/stonefish/data/pointcloud/filtered,
+    #How long to keep each sensor reading in seconds. A value of 0.0 will only keep the most recent reading.
+    observation_persistance: 0,
+    #Whether or not this observation should be used to mark obstacles.
+    marking: true,
+    #Whether or not this observation should be used to clear out freespace
+    clearing: true,
+    #The maximum height in meters of a sensor reading considered valid. 
+    max_obstacle_height: 5,
+    #The minimum height in meters of a sensor reading considered valid
+    min_obstacle_height: -20,
+    obstacle_range: 50,
+    raytrace_range: 50
+  }
+
+  inflation:
+    enabled:              true
+    cost_scaling_factor:  0.1  # exponential rate at which the obstacle cost drops off (default: 10)
+    inflation_radius:     0.1  # max. distance from an obstacle at which costs are incurred for planning paths.

@@ -1,7 +1,7 @@
 pcl_filter:
-  stonefish: false
-
   sub_topic: 'msis/pointcloud'
   radial_filter_param: 2 #2meters.
   std_dev_multiplier: 2.25
   pub_topic: 'msis/pointcloud/filtered'
+  range_max: 50
+  number_of_bins: 1200
