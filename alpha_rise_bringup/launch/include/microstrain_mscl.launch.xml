@@ -105,7 +105,6 @@
     <!-- (see: filter_enable_external_gps_time_update) -->
     <param name="publish_gps_corr"  value="false" type="bool" />
 
-
     <!-- ****************************************************************** -->
     <!-- Kalman Filter Settings (only applicable for devices with a Kalman Filter) -->
     <!-- ****************************************************************** -->
@@ -113,45 +112,6 @@
     <param name="publish_filter"       value="false"                   type="bool" />
     <param name="filter_data_rate"     value="10"                     type="int" />
     <param name="filter_frame_id"      value="$(arg filter_frame_id)" type="str" />
-
-    <!-- Sensor2vehicle frame transformation selector
-         0 = None, 1 = Euler Angles, 2 - matrix, 3 - quaternion
-         Notes: These are different ways of setting the same parameter in the device.
-                The different options are provided as a convenience.
-                Support for matrix and quaternion options is firmware version dependent (Quaternion not currently supported on GQ7)
-                Quaternion order is [i, j, k, w]
-     -->
-    <param name="filter_sensor2vehicle_frame_selector" value="1" type="int" />
-
-    <rosparam param="filter_sensor2vehicle_frame_transformation_euler">      [0.0, 0.0, 0.0]</rosparam>
-    <rosparam param="filter_sensor2vehicle_frame_transformation_matrix">     [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]</rosparam>
-    <rosparam param="filter_sensor2vehicle_frame_transformation_quaternion"> [0.0, 0.0, 0.0, 1.0]</rosparam>
-
-
-     <!-- Controls if the Kalman filter is reset after the settings are configured-->
-    <param name="filter_reset_after_config" value="true" type="bool" />
-
-     <!-- Controls if the Kalman filter will auto-init or requires manual initialization-->
-    <param name="filter_auto_init" value="true" type="bool" />
-
-    <!-- (All, except -10, and -15 products) Declination Source 1 = None, 2 = magnetic model, 3 = manual -->
-    <param name="filter_declination_source" value="1" type="int" />
-    <param name="filter_declination"        value="0.0" type="double" />
-
-    <!-- (All, except GQ7, -10, and -15 products) Heading Source 0 = None, 1 = magnetic, 2 = GNSS velocity (note: see manual for limitations)  -->
-    <param name="filter_heading_source" value="1" type="int" />
-
-    <!-- (GX5 and previous,-45 models only) Dynamics Mode 1 = Portable (default), 2 = Automotive, 3 = Airborne (<2Gs), 4 = Airborne High G (<4Gs) -->
-    <param name="filter_dynamics_mode" value="1" type="int" />
-
-
-    <!-- (GQ7 full support, GX5-45 limited support) Adaptive filter settings
-          Adaptive level: 0 - off, 1 - Conservative, 2 = Moderate (default), 3 = agressive
-          Time limit: Max duration of measurement rejection prior to recovery, in milliseconds - default = 15000
-     -->
-
-    <param name="filter_adaptive_level"         value="2" type="int" />
-    <param name="filter_adaptive_time_limit_ms" value="15000" type="int" />
 
   </node>
 
