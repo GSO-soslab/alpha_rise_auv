@@ -12,28 +12,27 @@
 
   <arg name="robot_name" default="alpha_rise"/>
       <!-- Bring up the Bluerobotics Pressure sensor -->
-    <include file="$(find alpha_rise_bringup)/launch/include/bluerobotics_bar30.launch.xml">
+    <!-- <include file="$(find alpha_rise_bringup)/launch/include/bluerobotics_bar30.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    </include> -->
 
     <!-- Bring up the Power Minotor  -->
     <!-- <include file="$(find alpha_rise_bringup)/launch/include/power_monitor.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include> -->
-    
+    </include>
+     -->
     <!-- Bringup computer monitor node-->
     <!-- <include file="$(find alpha_rise_bringup)/launch/include/monitor.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include> -->
     <!-- Bring up the microstrain ahrs  -->
-    <!-- <include file="$(find alpha_rise_bringup)/launch/include/microstrain.launch.xml">
+    <include file="$(find alpha_rise_bringup)/launch/include/microstrain.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>  -->
+    </include> 
 
     <!-- Bring up madgwick filter-->
     <!-- <include file="$(find alpha_rise_bringup)/launch/include/madgwick_filter.launch.xml">
-
-    <arg name="robot_name" value="$(arg robot_name)"/>
+        <arg name="robot_name" value="$(arg robot_name)"/>
     </include>  -->
     <!-- <include file="$(find alpha_rise_bringup)/launch/include/gps_gpsd.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
@@ -43,15 +42,15 @@
         <arg name="robot_name" value="$(arg robot_name)"/>
     </include> -->
 
-    <include file="$(find alpha_rise_bringup)/launch/include/joystick.launch.xml">
+    <!-- <include file="$(find alpha_rise_bringup)/launch/include/joystick.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    </include> -->
     
 
 
-    <include file="$(find alpha_rise_bringup)/launch/include/joystick.launch.xml">
+    <!-- <include file="$(find alpha_rise_bringup)/launch/include/joystick.launch.xml"> -->
     <!-- <include file="$(find alpha_rise_bringup)/launch/include/madgwick_filter.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    </include> -->
 
 </launch>

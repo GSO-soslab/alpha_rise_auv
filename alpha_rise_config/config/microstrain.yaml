@@ -200,7 +200,7 @@ filter_declination        : 0.0
 # (All, except GQ7, CV7, -10, and -15 products) Heading Source 0 = None, 1 = magnetic, 2 = GNSS velocity (note: see manual for limitations)  
 # Note: For the GQ7, this setting has no effect. See filter_auto_heading_alignment_selector
 # Note: When using a -10/-AR product. This MUST be set to 0 or the node will not start
-# filter_heading_source : 0
+filter_heading_source : 1
 
 # (GX5 and previous,-45 models only) Dynamics Mode 1 = Portable (default), 2 = Automotive, 3 = Airborne (<2Gs), 4 = Airborne High G (<4Gs)
 # filter_dynamics_mode : 1
@@ -243,7 +243,7 @@ imu_wheel_speed_data_rate : 0    # Rate of imu/wheel_Speed topic
 
 # The speed at which the individual Filter publishers will publish at.
 # filter_human_readable_status_data_rate : 0  # Rate of ekf/status
-# filter_imu_data_rate                   : 0 # Rate of ekf/imu/data topic
+filter_imu_data_rate                   : 100 # Rate of ekf/imu/data topic
 #                                             # Note: Both filter_odometry_earth_data_rate and filter_odometry_map_data_rate depend on the contents of this message.
 #                                             #       If either are set to a higher value, this message will be published at that rate.
 # filter_llh_position_data_rate          : 0  # Rate of ekf/llh_position topic
