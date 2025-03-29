@@ -1,0 +1,7 @@
+pcl_filter:
+  sub_topic: 'msis/stonefish/data/pointcloud'
+  radial_filter_param: 2 #2meters.
+  std_dev_multiplier: 1
+  pub_topic: 'msis/stonefish/data/pointcloud/filtered'
+  range_max: 50
+  number_of_bins: 100
