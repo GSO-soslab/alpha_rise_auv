@@ -9,12 +9,11 @@
     Copyright (C) 2022-2023 Smart Ocean Systems Laboratory
 -->
 <launch>
-
-  <arg name="robot_name" default="alpha_rise"/>
-    <!-- Bring up the microstrain ahrs  -->
-    <include file="$(find alpha_rise_bringup)/launch/include/microstrain.launch.xml">
-        <arg name="robot_name" value="$(arg robot_name)"/>
-    </include> 
-
+  <!-- Specify our custom params file to the microstrin launch file -->
+  <include file="$(find alpha_rise_bringup)/launch/include/microstrain.launch.xml">
+    <arg name="namespace" value="/" />
+    <arg name="params_file" value="$(find alpha_rise_config)/config/microstrain_cv7.yaml" />
+  </include>
 
 </launch>
+

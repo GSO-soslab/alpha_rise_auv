@@ -1,0 +1,63 @@
+# You should change this section of config to match your setup
+port : '/dev/ttyACM1'
+baudrate : 115200
+set_baud : True
+poll_port      : True
+poll_rate_hz   : 1.0
+poll_max_tries : 60
+reconnect_attempts : 10
+configure_after_reconnect : True
+
+# This will cause the node to convert any NED measurements to ENU
+# This will also cause the node to convert any vehicle frame measurements to the ROS definition of a vehicle frame
+use_enu_frame : True
+
+# Configure some frame IDs
+frame_id : 'alpha_rise/imu'  # Frame ID of all of the filter messages. Represents the location of the CV7-INS in the tf tree
+
+
+# The mode in which we will publish transforms to the below frame IDs
+#     0 - No transforms will be published between any of the non static frame ids. (if publish_mount_to_frame_id_transform is true, it will still be published, and so will the antenna and odometer transforms)
+#     1 - Global mode:
+#             Transform will be published from earth_frame_id to target_frame_id containing global position
+#     2 - Relative mode:
+#             Note: In order to use relative mode, you must configure filter_relative_position
+#             Transform will be published from earth_frame_id to map_frame_id using relative position configuration
+#             Transform between map_frame_id and target_frame_id will be published using position information reported by the device
+# for more information, see: https://wiki.ros.org/microstrain_inertial_driver/transforms
+tf_mode : 0
+
+# Disable the transform from the mount to frame id transform as it will be handled in the launch file
+publish_mount_to_frame_id_transform : False
+
+# During operation, we will assume that we are in a wheeled vehicle for more accurate heading
+# If using a drone, disable this option, and enable "filter_enable_magnetometer_aiding"
+filter_enable_wheeled_vehicle_constraint : False
+filter_enable_magnetometer_aiding: True
+
+# Disable some heading options that do not work for this device
+filter_enable_gnss_pos_vel_aiding : False
+filter_enable_gnss_heading_aiding : False
+
+# This example shows a very basic setup with no PPS sync, so this will disable PPS on the device.
+# Note that if you have any way to provide PPS, you should setup PPS
+filter_pps_source : 0
+filter_dynamics_mode : 3
+# Disable the filter declination source. This is required to get the node to start, and isn't doing anything special
+filter_declination_source : 3
+filter_declination        : 0.0
+
+filter_heading_source : 1
+
+
+# The speed at which the individual IMU publishers will publish at.
+imu_data_raw_rate         : 0    # Rate of imu/data_raw topic
+imu_data_rate             : 100  # Rate of imu/data topic
+imu_mag_data_rate         : 100    # Rate of imu/mag topic
+imu_pressure_data_rate    : 0    # Rate of imu/pressure topic
+imu_wheel_speed_data_rate : 0    # Rate of imu/wheel_Speed topic
+
+
+filter_imu_data_rate                   : 100  # Rate of ekf/imu/data topic
+
+
