@@ -4,7 +4,8 @@ path_generator:
   costmap_topic: 'move_base/local_costmap/costmap'
   path_topic: 'path'
   debug: false
-
+  enable_search_mode: true
+  msis_vertical_beamwidth: 25 #degree
   canny_min_threshold: 200
   canny_max_threshold: 255
 
@@ -16,3 +17,4 @@ path_generator:
   max_scan_angle: 90
   distance_constraint: 15 #meters
   max_yaw_rate: 0.8 #rad/s #0.8rad is 45degree
+  surge_velocity: 0.8 #m/s 

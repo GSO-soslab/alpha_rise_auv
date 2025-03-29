@@ -12,3 +12,5 @@ waypoint_admin:
   exit_mode_distance: 30 #m
   reacquisition_s_param: 0.5
   path_topic: "/alpha_rise/path"
+  stand_off_distance_param: "/alpha_rise/path_generator_node/path_generator/standoff_distance_meters"
+  n_points_param: "/alpha_rise/path_generator_node/path_generator/points_to_sample_from_curve"
