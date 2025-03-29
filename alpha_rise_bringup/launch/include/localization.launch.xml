@@ -23,7 +23,7 @@
         <remap from="odometry/filtered" to="odometry/filtered/local"/>
         <remap from="accel/filtered" to="accel/filtered/local"/>
 
-        <param name="imu0" value="imu/data"/>
+        <param name="imu0" value="ekf/imu/data"/>
         <rosparam param="imu0_config">
         [false, false, false,
          true,   true,  true,

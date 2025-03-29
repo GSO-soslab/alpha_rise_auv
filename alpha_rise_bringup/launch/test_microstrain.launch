@@ -11,7 +11,7 @@
 <launch>
   <!-- Specify our custom params file to the microstrin launch file -->
   <include file="$(find alpha_rise_bringup)/launch/include/microstrain.launch.xml">
-    <arg name="namespace" value="/" />
+    <arg name="namespace" value="alpha_rise" />
     <arg name="params_file" value="$(find alpha_rise_config)/config/microstrain_cv7.yaml" />
   </include>
 
