@@ -18,14 +18,17 @@
 
 
     <!-- Bring up the microstrain ahrs  -->
+    <!-- <include file="$(find alpha_rise_bringup)/launch/include/microstrain.launch.xml">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>  -->
+
     <include file="$(find alpha_rise_bringup)/launch/include/microstrain.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include> 
-
+    </include>
     <!-- Bring up madgwick filter-->
-    <include file="$(find alpha_rise_bringup)/launch/include/madgwick_filter.launch.xml">
+    <!-- <include file="$(find alpha_rise_bringup)/launch/include/madgwick_filter.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
-    </include> 
+    </include>  -->
 
     <!-- Bring up GPS -->
     <!-- <include file="$(find alpha_rise_bringup)/launch/include/gps_nmea.launch.xml">

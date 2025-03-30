@@ -4,29 +4,21 @@
 <!-- Note: Feature support is device-dependent and some of the following settings may have no affect on your device. -->
 <!--  Please consult your device's documentation for supported features -->
 <launch>
-   <arg name="robot_name" default="changeme"/>
-  <!-- Declare arguments with default values -->
-  <arg name="node_name"   default = "microstrain_inertial_driver" doc = "Name to give the Microstrain Inertial Driver" />
-  <arg name="debug"       default = "true"                       doc = "Whether or not to log debug information." />
-  <arg name="params_file" default = ""                            doc = "Path to file that will load additional parameters" />
+  <arg name="robot_name" default="alpha_rise"/>
 
-  <!-- Set the log level to debug -->
-  <!-- <env name="ROSCONSOLE_CONFIG_FILE" value="$(find mvp_localization_utilities)/config/custom_rosconsole.conf" if="$(arg debug)" /> -->
+  <!-- <env name="ROSCONSOLE_CONFIG_FILE" value="$(find microstrain_inertial_driver)/config/custom_rosconsole.conf" if="$(arg debug)" /> -->
 
-  <!-- ****************************************************************** -->
-  <!-- Microstrain sensor node -->
-  <!-- ****************************************************************** -->
-  <node ns="$(arg robot_name)" name="$(arg node_name)" pkg="microstrain_inertial_driver" type="microstrain_inertial_driver_node" output="screen">
+  <node name="microstrain_inertial_driver" pkg="microstrain_inertial_driver" type="microstrain_inertial_driver_node" output="screen" ns="$(arg robot_name)">
 
     <!-- Load the default params file. -->
-    <rosparam file="$(find alpha_rise_config)/config/microstrain.yaml" command="load" />
+    <!-- <rosparam file="$(find alpha_rise_config)/config/microstrain_common.yaml" command="load" /> -->
 
     <!-- If you want to override any settings specified in the params.yml file, make a new yaml file, and set the value via the params_file arg -->
     <!-- <rosparam file="$(arg params_file)" command="load" unless="$(eval arg('params_file') == '')" subst_value="true" /> -->
+    <rosparam command="load" file="$(find alpha_rise_config)/config/microstrain_cv7.yaml"/>
 
     <!-- Supported overrides -->
-    <param name="debug" value="$(arg debug)" type="bool" />
-    <remap from="imu/data" to="imu/data_raw"/>
+    <param name="debug" value="false" type="bool" />
   </node>
 
 </launch>

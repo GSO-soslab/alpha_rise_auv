@@ -1,87 +1,53 @@
 ## Pre-requisite
-- Download `ROS_MSCL`, this has services to set the imu bias
-    ```
-    git clone https://github.com/GSO-soslab/ROS_MSCL
-    ```
-- follow the instruction there to install the `mscl.deb` file under dependency (Note: choose the one that is compatible with your computer).
-
-- Download microstrain-inertial-driver which is used for final testing
-    ```
-    sudo apt install ros-noetic-microstrain-inertial-driver
-    ```
+- Install SensorConnect Software on a Windows computer
+- Enable magnetometer aid in estimation filter
 
 ## Calibration
-- launch the ROS_MSCL driver
+- Optional: Launch calib_accel node
     ```
-    roslaunch alpha_rise_bringup calibration_microstrain.launch
-    ```
-
-- make sure `save_settings` parameter in the launch file is set to true so your setting can be saved.
-
-- save original bias setting
-    ```
-    rosservice call /alpha_rise/get_accel_bias
-
-    rosservice call /alpha_rise/get_gyro_bias
-
-    rosservice call /alpha_rise/get_hard_iron_values
-
-    rosservice call /alpha_rise/get_soft_iron_matrix
-    ```
-
-- clear all bias param in the IMU
+    <node ns="$(arg robot_name)" pkg="calib_accelerometer" type="calib_accel" name="accl_calibrator" output="screen">
+      <remap from="/imu_input" to="imu/data_raw"/>
+      <param name="max_samples" value="1000" />
+      <param name="log" value="false" />
+    </node> 
 
     ```
-    rosservice call /alpha_rise/set_accel_bias  [to 0.0, 0.0, 0.0]
-    rosservice call /alpha_rise/set_gyro_bias  [to 0.0, 0.0, 0.0]
-    rosservice call /alpha_rise/set_hard_iron_values [to 0.0, 0.0, 0.0]
-    rosservice call /alpha_rise/set_soft_iron_matrix [to 1.0, 0.0, 0,0; 0.0, 1.0, 0.0; 0.0, 0.0, 1.0];
-    ```
-
-- calibrate accelerometer
+-   calibrate accelerometer
     ```
     rosservice call /alpha_rise/accl_calibrator/start_sampling
     # keep imu steady
     rosservice call /alpha_rise/accl_calibrator/stop_sampling
     rosservice call /alpha_rise/accl_calibrator/calibrate_accl
     ```
-- calibrate gyro
-    ```
-    rosservice call /alpha_rise/gyro_calibrator/start_sampling
-    #keey imu steady
-    rosservice call /alpha_rise/gyro_calibrator/stop_sampling
-    ```
-    - The gyro bias is printed in the terminal
+- Write down the accelerometer bias
 
-- calibrate magnetometer 
-   - option:1
-        - record a rosbag while you are rotating imu in all direction.
-        - run matlab script under `alpha_rise_config/sh`
+- Open SenseConnect on Windows PC
+    - Go to `Device` tab -> `Configure` menu
+    - Type in accelerometer bias under `Accelerometer/Gyro Bias section
 
-    - option: 2
-        ```
-        rosservice call /alpha_rise/mag_calibrator/start_sampling
-        # rotate imu in all directions
-        rosservice call /alpha_rise/mag_calibrator/stop_sampling
-        rosservice call /alpha_rise/mag_calibrator/calibrate_mag
-        ```
-        - bias and soft-iron matrix will print in the terminal
-        - note: the software will only show the upper part, and you can fill the zero elements.
-    We tested both options, and also left zeros in the lower part in option2. All yield similar results.
-        
+- In the same place, click `capture gyro bias` tab and have IMU stay steady to obtain the gyro bias.
 
+- Go to `Device` tab -> `Magnetic Calibration` menu
+    - Click `start` under `collect data`
+    - Rotate your IMU around all three axes.
+    - If the spatial coverage has exceeded `95%`, you can click `stop`
+    - Then click `Start` under `Verify data`
+    - Choose `Ellipsodial Fit` under Device Calibration section.
+    - If the soft and hard-iron are reasonable, you can click `write` to store it to the IMU
 
-- set all bias param in the IMU in terminal with the following services
+## Configuration 
+- Go back to `Device` tab -> `Configure` menu and turn on the following settings for good EKF filtered IMU data
+    - Under `Estimation Filter`, make sure you have selected `Magnetometer aiding` under `aiding source enable`
+    - Under `IMU-AHRS` Section, Make sure you selected `Enable up compensation` and `Enable North Compensation`
+    - Under `Low-pass filter Settings` make sure you have applied all the filters.
+- Go to `Device` tab -> `Save/load Settings`
+    - CLick `Save as startup settings` such that all configurations are stored on the AHRS..
 
-    ```
-    rosservice call /alpha_rise/set_accel_bias 
-    rosservice call /alpha_rise/set_gyro_bias  
-    rosservice call /alpha_rise/set_hard_iron_values 
-    rosservice call /alpha_rise/set_soft_iron_matrix
-    ```
-    - wait for at least 20 seconds for the configuration to be set to the memory.
-    - make sure `device_setup` is set to `true` in `microstrain_mscl.launch.xml`
-- You can replug the microstrain back in and run the driver and make sure the params are saved by calling get_xx_bias services.
+- `Reboot device`
+
+- Recheck the settings under `Configure` make sure they are stored.
+
+- Also go to `Status QuickView` to make sure Magnetometer is enabled and used in `aiding measurements`
 
 ## Test
 
