@@ -10,10 +10,12 @@
 -->
 <launch>
     <arg name="robot_name" default="alpha_rise"/>
+    <arg name="is_sim" default="false"/>
 
     <!-- Bring up the Costmap -->
     <include file="$(find alpha_rise_bringup)/launch/include/costmap.launch.xml">
         <arg name="robot_name" value="$(arg robot_name)"/>
+        <arg name="is_sim" value="$(arg is_sim)"/>
     </include>
 
     <!-- Bring up the Path Generation Node -->
