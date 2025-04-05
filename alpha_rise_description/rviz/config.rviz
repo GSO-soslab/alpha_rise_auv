@@ -32,7 +32,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: PointCloud2
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -102,6 +102,14 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        fls_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        fls_link_sf:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         gps:
           Alpha: 1
           Show Axes: false
@@ -168,6 +176,10 @@ Visualization Manager:
           Value: false
         alpha_rise/dvl_sf:
           Value: false
+        alpha_rise/fls_link:
+          Value: true
+        alpha_rise/fls_link_sf:
+          Value: true
         alpha_rise/gps:
           Value: false
         alpha_rise/heave_bow_thruster_link:
@@ -197,7 +209,7 @@ Visualization Manager:
         alpha_rise/world_ned:
           Value: false
       Marker Alpha: 1
-      Marker Scale: 20
+      Marker Scale: 5
       Name: TF
       Show Arrows: true
       Show Axes: true
@@ -211,6 +223,10 @@ Visualization Manager:
               alpha_rise/dvl:
                 {}
               alpha_rise/dvl_sf:
+                {}
+              alpha_rise/fls_link:
+                {}
+              alpha_rise/fls_link_sf:
                 {}
               alpha_rise/gps:
                 {}
@@ -378,7 +394,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 142.30709838867188
+      Distance: 61.46474838256836
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -394,9 +410,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5697963237762451
+      Pitch: 0.4947971701622009
       Target Frame: alpha/base_link
-      Yaw: 4.688583850860596
+      Yaw: 4.65358304977417
     Saved: ~
 Window Geometry:
   Displays:
@@ -414,5 +430,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1920
-  X: 0
-  Y: 0
+  X: 72
+  Y: 27

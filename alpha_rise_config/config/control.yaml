@@ -11,6 +11,11 @@ cg_link: cg_link
 
 odometry_source: /odometry/filtered/local
 
+#xyz,rpy, uvw, pqr for integral term reset
+integral_reset_limit: [0.01, 0.01, 0.5, 
+                       0.01, 0.01, 0.4,
+                       0.1, 0.01, 0.01,
+                       0.01, 0.01, 0.01]
 enabled: false
 
 control_modes:
