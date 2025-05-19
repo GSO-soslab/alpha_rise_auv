@@ -61,6 +61,7 @@ def generate_launch_description():
                             mvp_mission_param_file,
                             bhv_prefixed_params
                         ]
+                         emulate_tty=True
                     )
             ])
         

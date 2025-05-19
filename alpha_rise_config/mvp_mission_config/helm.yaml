@@ -4,22 +4,32 @@ finite_state_machine:
     initial: true
     control_mode: idle
     transitions: [kill, teleop, direct_control, survey]
+    # max_duration: 100
+    # exit_state: start
   
   kill:
     control_mode: idle
     transitions: [start]
+    # max_duration: 100
+    # exit_state: start
 
   teleop:
     control_mode: teleop
     transitions: [start, kill] 
+    # max_duration: 100
+    # exit_state: start
 
   direct_control:
     control_mode: teleop
     transitions: [start, kill] 
+    # max_duration: 100
+    # exit_state: start
     
   survey:
     control_mode: 4dof
     transitions: [start, kill, teleop]
+    # max_duration: 100
+    # exit_state: start
 
 behaviors:
 
