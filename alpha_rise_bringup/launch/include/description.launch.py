@@ -20,11 +20,11 @@ def generate_launch_description():
     robot_description = robot_name + '_description'
 
     path_to_urdf = os.path.join( get_package_share_directory(robot_description), 'urdf', 'base.urdf' )
-    rviz_config_dir = os.path.join( get_package_share_directory(robot_description), 'config', 'config.rviz' )
+    rviz_config_dir = os.path.join( get_package_share_directory(robot_description), 'rviz', 'config.rviz' )
     with open(path_to_urdf, 'r') as infp:
         robot_desc = infp.read()
 
-
+    print(rviz_config_dir)
     return LaunchDescription([
         Node(
             package='rviz2',

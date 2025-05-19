@@ -12,7 +12,8 @@ find_package(tf2_ros REQUIRED)
 
 install(DIRECTORY 
   mesh
-  urdf 
+  urdf
+  rviz 
   # config
   DESTINATION share/${PROJECT_NAME}
 )
