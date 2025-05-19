@@ -1,0 +1,8 @@
+/alpha_rise/mvp_control_ros_node:
+  ros__parameters:
+    generator_type: tf
+    controller_frequency: 20.0
+    enabled: false
+    child_link_initial: cg_link
+    world_link_initial: world_ned
+    controller_no_setpoint_timeout: 1.0

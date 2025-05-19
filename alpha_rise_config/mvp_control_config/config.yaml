@@ -1,0 +1,49 @@
+control_modes:
+  idle: false
+
+  teleop:
+    z:        {p: 20.0,    i: 2.0 ,  d: 5.0,  pid_max: 30, pid_min: -30}
+    u:        {p: 50.0,    i: 20.0,   d: 0.0,   pid_max: 50, pid_min: -50}
+    pitch:    {p: 10.0,   i: 0.5,  d: 2.0,  pid_max: 20, pid_min: -20}
+    yaw:      {p: 10.0,   i: 0.2,   d: 5.0,  pid_max: 20, pid_min: -20}
+
+  flight:
+    # z:        {p: 20.0,    i: 2.0 ,  d: 5.0,  i_max: 30, i_min: -30}
+    u:    {p: 50.0,    i: 10.0,   d: 0.0,   pid_max: 30, pid_min: -30}
+    # pitch:    {p: 10.0,    i: 0.0,   d: 10.0,  i_max: 20, i_min: -20}
+    # yaw:      {p: 10.0,    i: 1.0,   d: 10.0,  i_max: 30, i_min: -30}
+
+  4dof:
+    z:        {p: 10.0,   i: 0.2 ,  d: 5.0,  pid_max: 40, pid_min: -40}
+    u:        {p: 100.0,    i: 2.0,   d: 0.0,   pid_max: 60, pid_min: -10}
+    pitch:    {p: 10.0,   i: 1.0,  d: 1.0,  pid_max: 40, pid_min: -40}
+    yaw:      {p: 15.0,   i: 2.0,   d: 5.0,  pid_max: 50, pid_min: -50}
+
+thruster_ids:
+  surge:
+    control_tf: surge_thruster_link
+    command_topic: control/thruster/surge
+    force_topic: control/force/surge
+    limits: [-10.0, 60.0] #[min, max]
+    polynomials: [0.3281, 44.1281, 22.8029, 84.2361, -6.5710, -41.5185]
+
+  sway_bow:
+    control_tf: sway_bow_thruster_link
+    command_topic: control/thruster/sway_bow
+    force_topic: control/force/sway_bow
+    limits: [-25.0, 25.0] #[min, max]
+    polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
+
+  heave_stern:
+      control_tf: heave_stern_thruster_link
+      command_topic: control/thruster/heave_stern
+      force_topic: control/force/heave_stern
+      limits: [-20.0, 20.0] #[min, max]
+      polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
+
+  heave_bow:
+    control_tf: heave_bow_thruster_link
+    command_topic: control/thruster/heave_bow
+    force_topic: control/force/heave_bow
+    limits: [-20.0, 20.0] #[min, max]
+    polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]

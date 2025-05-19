@@ -1,106 +1,51 @@
-##################################################################
-######################## Serial Interface ########################
-##################################################################
-
-Interface:
-  # Note: USB device name
-  device: /dev/ttyUSB0
-
-  # Note: baudarate of serial device
-  baudrate: 115200
-
-  # Note: Emulates a sonar if Ping360 cannot be initialized
-  emulates: true
-
-  #If serial, use "serial", elif ethernet, "udp"
-  connection_type: "udp"
-
-  udp_address: "192.168.2.105"
-
-  udp_port: 12345
-###################################################################
-###################### Sonar Configuration ########################
-###################################################################
-
-Configuration: 
-  # Note: Sonar gain (0 = low, 1 = normal, 2 = high)
-  # Default: 0
-  gain: 0
-
-  # Note: Sonar operating frequency [kHz], from 650 to 850
-  # Default: 750
-  frequency: 750
-
-  # Note: Sonar max range [m], from 1 to 50
-  # Default: 2
-  range: 50
-
-  # Note: Sonar angular resolution [degrees], from 1 to 20.
-  # Default: 1
-  angle_step: 1
-
-  # Note: Speed of sound [m/s], from 1450 to 1550
-  # Default: 1500
-  speed_of_sound: 1500
-
-  # Note: trigger rate [Hz], example: 10hz, 0.1s to trigger sonar rotate some degree, from 1 to ?
-  # Default: 10
-  trigger_rate: 10
-##################################################################
-####################### Sector Settings ##########################
-##################################################################
-Sector:
-  legacy_mode:
-    # Note: Scanned angular sector around sonar heading [degrees], from 60 to 360. Will oscillate if not 360.
-    angle_sector: 360
-
-  custom_mode:
-    enabled: true
-    angle_min: 0
-    angle_max: 210
-    # The transducer reads from 0->angle_max->angle_min.
-    # Set slice to true, if you want to restrict the angle_min to min_angle after the first reading. 
-    # (Useful for scans that doesn't require 0 angle reading)
-    slice: yes
-    min_angle: 45
-
-###################################################################
-########################### ROS Driver ############################
-###################################################################
-
-Driver:
-  # Note: frame_id in ROS messages
-  frame_id: alpha_rise/ping360_link
-
-  # Note: Publish images on Sensors_msgs/Image
-  # Default: true
-  image_publish: true
-
-  # Note: Output image size [pixels], from 100 to 1000
-  # Default: 300
-  image_size: 300
-
-  # Note: Image publishing rate [ms], from 50 to 2000
-  # Default: 100
-  image_rate_ms: 100
-
-  # Note: Publish scan on Sensors_msgs/LaserScan
-  # Default: false
-  scan_publish: false
-
-  # Note: Intensity threshold for LaserScan message, from 1 to 255
-  # Default: 200
-  scan_threshold: 200
-
-  # Note: publish raw echo on ping360_msgs/SonarEcho
-  # Default: false
-  echo_publish: true
-
-  #Note: publish PointCloud2 message
-  pcl_publish : true 
-
-
-
-##################################################################
-############################ Just Test ###########################
-##################################################################
+/alpha_rise/ping360_node:
+  ros__parameters:
+    Interface:
+      # USB device name
+      device: "/dev/ttyUSB0"
+      # baudarate of serial device
+      baudrate: 115200
+      # Emulates a sonar if Ping360 cannot be initialized
+      fallback_emulated: true
+      #If serial, use "serial", elif ethernet, "udp"
+      connection_type: "udp"
+      udp_address: "192.168.2.105"
+      udp_port: 12345
+    Configuration:
+      # Frame ID for msgs
+      frame: ping360_link
+      # Sonar gain (0 = low, 1 = normal, 2 = high)"
+      gain: 0
+      # Sonar operating frequency [kHz]" [650-850]
+      frequency: 750
+      # Sonar max range [m] [1-50]"
+      range_max: 50
+      # Scanned angular sector around sonar heading [degrees]. Will oscillate if not 360. 
+      angle_sector: 360
+      # If you want a custom sector. 
+      custom_enabled: true
+      angle_min: 0
+      angle_max: 210
+      # The transducer reads from 0->angle_max->angle_min.
+      # Set constrain_min to true, if you want to restrict the angle_min to min_angle after the first reading. 
+      # (Useful for scans that doesn't require 0 angle reading)
+      constrain_min: true
+      constrained_min_angle: 45
+      # Sonar angular resolution [degrees] [0-20]
+      angle_step: 1
+      # "Output image size [pixels]"
+      image_size: 300
+      # Intensity threshold for LaserScan message
+      scan_threshold: 200
+      # Speed of sound [m/s]
+      speed_of_sound: 1500
+      # Image publishing rate [ms]
+      image_rate: 100
+      # Sonar timeout [ms]
+      sonar_timeout: 2000
+    Topics:
+      # Bools for topics
+      publish_image: true
+      publish_scan: false
+      publish_echo: true
+      publish_pcl: true

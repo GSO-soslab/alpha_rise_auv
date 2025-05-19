@@ -1,7 +1,18 @@
-ip: 192.168.2.102
-port: 16171
-velocity_covariance: [0, 0, 0, 0, 0, 0, 0, 0, 0]
-positoin_covariance: [0, 0, 0, 0, 0, 0, 0, 0, 0]
-speed_of_sound: 1500
-mounting_rotation_offset: 0
-acoustics_enabled: true
+/alpha_rise/waterlinked_dvl:
+  ros__parameters:
+    ip: 192.168.2.102
+    port: 16171
+    frame_id: dvl
+    velocity_covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    position_covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    speed_of_sound: 1500
+    mounting_rotation_offset: 0
+    acoustics_enabled: true
+    range_mode: "auto"
+    periodic_cycling_enabled: true
+    # Brief: 0 - Time I/O: use the ROS time when data arrived computer
+    # Brief: 1 - Time of validity: Timestamp of the surface re�ection, aka 'center of ping' 
+    #            (Unix timestamp in microseconds) 
+    # Brief: 2 - Time of transmission: Timestamp from immediately before sending of 
+    #            the report over TCP (Unix timestamp in microseconds)
+    time_type: 0
