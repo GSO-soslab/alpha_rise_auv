@@ -13,7 +13,7 @@ def generate_launch_description():
     arg_robot_name = 'alpha_rise'
     robot_bringup = arg_robot_name + '_bringup'
 
-    #Power Monitor
+    #Roslaunch Manager
     roslaunch_manager = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','roslaunch_manager.launch.py')]),
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
