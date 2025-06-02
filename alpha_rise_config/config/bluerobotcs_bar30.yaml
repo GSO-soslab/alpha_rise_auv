@@ -1,13 +1,15 @@
-sensor:
-    # brief: MODEL_02BA = 0, MODEL_30BA = 1
-    model: 1
+/alpha/bluerobotics_pressure_node:
+    ros__parameters:
+        sensor:
+            # brief: MODEL_02BA = 0, MODEL_30BA = 1
+            model: 1
 
-    # brief: Default I2C bus is 1
-    bus: 1
+            # brief: Default I2C bus is 1
+            bus: 1
 
-    # brief: Fluid Density (kg/m^3); fresh: 997.0474; seawater: 1023.6
-    fluid_density: 997.0474
+            # brief: Fluid Density (kg/m^3); fresh: 997.0474; seawater: 1023.6
+            fluid_density: 997.0474
 
-system:
-    # brief: sensor publish rate
-    rate: 10
+        system:
+            # brief: sensor publish rate
+            rate: 1

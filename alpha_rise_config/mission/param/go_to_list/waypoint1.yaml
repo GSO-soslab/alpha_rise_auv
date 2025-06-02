@@ -1,7 +1,0 @@
-
-frame_id: "world"
-
-waypoints:
-  - {x: 0,  y: 25,  z: -10}
-  - {x: -10,  y: 40, z: -20}
-  - {x: 45, y: 0, z: 0}

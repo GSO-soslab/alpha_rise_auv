@@ -3,6 +3,7 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
+from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, PythonExpression
@@ -14,6 +15,7 @@ import time
 def generate_launch_description():
     arg_robot_name = 'alpha_rise'
     robot_bringup = arg_robot_name + '_bringup'
+    robot_description = arg_robot_name + '_description'
 
     # simulation
     simulation = IncludeLaunchDescription(
@@ -23,7 +25,7 @@ def generate_launch_description():
 
     # robot localization
     localization = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','localization.launch.py')]),
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','localization_sim.launch.py')]),
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
     
@@ -36,7 +38,7 @@ def generate_launch_description():
 
     #mvp_control
     mvp_control = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','mvp_control.launch.py')]),
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','mvp_control_sim.launch.py')]),
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
 
@@ -57,7 +59,16 @@ def generate_launch_description():
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
 
+    #Rviz
+    rviz_config_dir = os.path.join( get_package_share_directory(robot_description), 'rviz', 'config.rviz' )
 
+    rviz = Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', [rviz_config_dir]],
+        )
+    
     return LaunchDescription([
         simulation,
         localization,
@@ -65,5 +76,6 @@ def generate_launch_description():
         mvp_control,
         mvp_mission,
         # usbl_test
-        joy
+        joy,
+        rviz
     ])

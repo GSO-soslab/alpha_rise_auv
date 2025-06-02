@@ -1,21 +1,25 @@
-pwm_frequency: 47.2
-# pwm_ms_bias: 0.080
-pwm_ms_bias: 0.1
+/alpha_rise/pwm_driver_node:
+  ros__parameters:
+    # pwm_frequency: 47.2
+    pwm_frequency: 47.2
 
-thruster_ch_list: [0, 1, 2, 4]
+    pwm_ms_bias: -0.05
+    no_pwm_timeout: 10.0
+  
+    thruster_ch_list: [0, 1, 2, 3]
+    thruster_topic_list: [thruster_1, thruster_2, thruster_3, thruster_4]
+    thruster_min_us: [1100, 1100, 1100, 1100]
+    thruster_max_us: [1900, 1900, 1900, 1900]
+    thruster_init_us: [1500, 1500, 1500, 1500]
 
-thruster_topic_list: [control/thruster/sway_bow, 
-                      control/thruster/heave_bow, 
-                      control/thruster/heave_stern,
-                      control/thruster/surge,                      
-                      ]
-thruster_min_us:  [1100, 1100, 1100, 1100]
-thruster_max_us:  [1900, 1900, 1900, 1900]
-thruster_init_us: [1500, 1500, 1500, 1500]
-thruster_direction: [1, 1, 1, 1]
+    # led_ch_list: [5]
+    # led_topic_list: [led_1]
+    # led_min_us: [1100]
+    # led_max_us: [1900]
+    # led_init_us: [1100]
 
-# led_ch_list: [12]
-# led_topic_list: [lumen_brightness]
-# led_min_us: [1100]
-# led_max_us: [1900]
-# led_init_us: [1100]
+    # servo_ch_list: [0]
+    # servo_topic_list: [servo_1]
+    # servo_min_us: [700]
+    # servo_max_us: [2300]
+    # servo_center_us: [1500]

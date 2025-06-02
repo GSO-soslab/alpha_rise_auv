@@ -16,6 +16,7 @@ find_package(rclcpp REQUIRED)
 install(DIRECTORY 
   mvp_control_config
   mvp_mission_config
+  config
   DESTINATION share/${PROJECT_NAME}
 )
 

@@ -25,8 +25,9 @@ def generate_launch_description():
     
     localization_param_file = os.path.join(get_package_share_directory(robot_config),
         'config',
-        'robot_localization.yaml'
+        'robot_localization_sim.yaml'
         )
+    
     navsat_param_file = os.path.join(robot_param_path, 'navsat.yaml') 
 
 

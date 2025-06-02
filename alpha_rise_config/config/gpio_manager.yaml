@@ -1,10 +1,5 @@
-device_name: [24v_payload, regular_payload, jetson]
-#Wring PI GPIO number
-gpio: [13, 12, 11]
-
-
-# pwm_name: [lumen_brightness]
-# pwm_io: [23]
-
-pwm_range: 200
-pwm_clock: 100
+/alpha_rise/gpio_manager_node:
+  ros__parameters:
+    gpio_devices: [payload_24v, regular_payload, jetson]
+    #Wring PI GPIO number
+    wiringpi_gpio: [13, 12, 11]
