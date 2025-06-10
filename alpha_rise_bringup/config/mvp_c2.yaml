@@ -7,7 +7,7 @@
 /alpha_rise/reporter_c2_udp_comm:
   ros__parameters:
     type: client
-    server_ip: 192.168.2.16
+    server_ip: 192.168.2.17
     server_port: 5000
     client_ip: 192.168.2.50
     client_port: 6000
@@ -19,7 +19,7 @@
     dccl_tx_interval: 1.0
     helm_state_list: ['start', 'kill', 'teleop', 'survey', 'direct_control'] #this has to match the helm
     launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup']
-    launch_files: ['bringup_simulation', 'bringup_mvp_mission', 'bringup_power_manager']
+    launch_files: ['bringup_simulation', 'bringup_mvp', 'bringup_utilities']
     gpio_devices: ['payload_24v', 'regular_payload', 'jetson']  # this needs to match the gpio manager yaml
 
 ## topside stuff
@@ -28,14 +28,14 @@
     dccl_tx_interval: 1.0
     helm_state_list: ['start', 'kill', 'teleop', 'survey', 'direct_control'] #this has to match the helm
     launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup']
-    launch_files: ['bringup_simulation', 'bringup_mvp_mission', 'bringup_power_manager']
+    launch_files: ['bringup_simulation', 'bringup_mvp', 'bringup_utilities']
     gpio_devices: ['payload_24v', 'regular_payload', 'jetson']  # this needs to match the gpio manager yaml
 
 
 /alpha_rise/commander_c2_udp_comm:
   ros__parameters:
     type: server
-    server_ip: 192.168.2.16
+    server_ip: 192.168.2.17
     server_port: 5000
     client_ip: 192.168.2.50
     client_port: 6000
