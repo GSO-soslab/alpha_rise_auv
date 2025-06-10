@@ -23,8 +23,9 @@ def generate_launch_description():
         'config/magnetic/'
         )
     
-    localization_param_file = os.path.join(get_package_share_directory(robot_config),
+    localization_param_file = os.path.join(get_package_share_directory(robot_bringup),
         'config',
+        'localization',
         'robot_localization.yaml'
         )
     navsat_param_file = os.path.join(robot_param_path, 'navsat.yaml') 
