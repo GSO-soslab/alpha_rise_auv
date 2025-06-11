@@ -53,18 +53,18 @@ def generate_launch_description():
             parameters=[topside_setting_file],
         ),
 
-        # Node(
-        #     package="joy",
-        #     executable="joy_node",
-        #     name="joy_node",
-        #     namespace='commander',
-        #     output="screen",
-        #     parameters=[
-        #         {'coalesce_interval': 10},
-        #         {'autorepeat_rate': 0.0}
-        #     ],
-        #     remappings=[
-        #         ('joy', 'remote/id_2/joy'),
-        #     ]   
-        # ),
+        Node(
+            package="joy",
+            executable="joy_node",
+            name="joy_node",
+            namespace='commander',
+            output="screen",
+            parameters=[
+                {'coalesce_interval': 10},
+                {'autorepeat_rate': 0.0}
+            ],
+            remappings=[
+                ('joy', 'remote/id_2/joy'),
+            ]   
+        ),
     ])

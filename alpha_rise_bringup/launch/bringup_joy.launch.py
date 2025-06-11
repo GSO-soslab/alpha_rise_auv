@@ -1,22 +1,20 @@
+import os
+
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 
 def generate_launch_description():
 
     arg_robot_name = 'alpha_rise'
+    robot_bringup = arg_robot_name + '_bringup'
 
-    joy_node = Node(
-        package='joy',
-        executable='joy_node',
-        name='joy_node',
-        namespace=arg_robot_name,
-        output='screen',
-        remappings=[
-            ('joy', 'helm/teleop/joy')
-        ]
+    joy_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','joy.launch.py')]),
+        launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
+
 
     return LaunchDescription([joy_node])

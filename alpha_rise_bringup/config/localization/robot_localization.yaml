@@ -155,7 +155,14 @@
   ros__parameters:
     acceptable_var: 5.0
     m_gps_wait_time: 30.0
-    datum_latitude: 41.0
-    datum_longitude: -71.0
+    ## Allen Harbour
+    datum_latitude: 41.621623
+    datum_longitude: -71.4116317
+    ## Salt Pond
+    # datum_latitude: 41.4271
+    # datum_longitude: -71.4966
+    ## Beach Pond
+    # datum_latitude: 41.573822
+    # datum_longitude: -71.787280
     position_accuracy: 3.0
     mag_declination_auto: false
