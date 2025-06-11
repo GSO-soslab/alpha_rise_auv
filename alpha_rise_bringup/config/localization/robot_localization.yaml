@@ -18,7 +18,7 @@
     world_frame: alpha_rise/odom           # Defaults to the value of odom_frame if unspecified
 
     #imu data input
-    imu0: imu/data
+    imu0: ekf/imu/data
     imu0_config: [false, false, false,
                   true,  true,  true,
                   false, false, false,
