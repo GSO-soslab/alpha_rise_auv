@@ -57,7 +57,7 @@ def generate_launch_description():
             package="joy",
             executable="joy_node",
             name="joy_node",
-            namespace='commander',
+            namespace=robot_name,
             output="screen",
             parameters=[
                 {'coalesce_interval': 10},
