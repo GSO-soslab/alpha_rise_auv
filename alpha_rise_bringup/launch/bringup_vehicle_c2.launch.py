@@ -16,7 +16,7 @@ def generate_launch_description():
     robot_bringup = arg_robot_name + '_bringup'
 
     mvp_c2 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','mvp_c2.launch.py')]),
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','mvp_c2_vehicle.launch.py')]),
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
 

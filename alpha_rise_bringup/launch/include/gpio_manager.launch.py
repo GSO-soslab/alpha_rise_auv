@@ -11,11 +11,12 @@ from launch.actions import DeclareLaunchArgument
 
 def generate_launch_description():
     robot_name = 'alpha_rise'
-    robot_config = robot_name + '_config'
+    robot_bringup = robot_name + '_bringup'
 
     gpio_param_file = os.path.join(
-        get_package_share_directory(robot_config),
+        get_package_share_directory(robot_bringup),
         'config',
+        'sensors',
         'gpio_manager.yaml',
         )
 

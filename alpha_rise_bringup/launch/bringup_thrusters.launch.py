@@ -6,9 +6,9 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     robot_name = 'alpha_rise'
-    robot_config = robot_name + '_config'
+    robot_bringup = robot_name + '_bringup'
 
-    param_path = os.path.join(get_package_share_directory(robot_config), 'config', 'pwm_driver.yaml')
+    param_path = os.path.join(get_package_share_directory(robot_bringup), 'config', 'sensors', 'pwm_driver.yaml')
 
     return LaunchDescription([
         Node(

@@ -7,6 +7,9 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, PythonExpression
 import time
+from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
+from launch.substitutions import PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
@@ -33,8 +36,14 @@ def generate_launch_description():
     
     #Foxglove Bridge
     foxglove = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','foxglove_bridge.launch.xml')]),
-        launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
+        XMLLaunchDescriptionSource(
+            PathJoinSubstitution([
+                FindPackageShare(robot_bringup),
+                'launch',
+                'include',
+                'foxglove_bridge_launch.xml'
+            ])
+        )
     )
 
     return LaunchDescription([
