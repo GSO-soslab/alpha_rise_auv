@@ -8,12 +8,12 @@ bhv_teleop:
   ##RB and RT controls depth
   ## LB has to be pressed 
   ##LT resets desired states to zero for all.
-  tele_s_surge: 2.0
+  tele_s_surge: 1.0
   tele_s_sway: 1.0
   tele_d_yaw: 10.0 
   tele_d_pitch: 10.0
-  tele_d_depth: 0.5
-  no_joy_timeout: 500.0
+  tele_d_depth: 0.2
+  no_joy_timeout: 100.0
 
 bhv_direct_control:
   ########################################
@@ -24,7 +24,7 @@ bhv_direct_control:
   # position
   desired_x: 0.0
   desired_y: 0.0
-  desired_z: 0.5
+  desired_z: 0.2
 
   # orientation (0.4 rad = 23 degree)
   desired_roll: 0.0 
@@ -55,14 +55,14 @@ bhv_path_following:
   default_bhv_child_link: cg_link
 
   state_done: start
-  state_fail: start
+  state_fail: kill
   acceptance_radius: 3.0
-  lookahead_distance: 5.0
-  overshoot_timeout: 30.0
+  lookahead_distance: 3.0
+  overshoot_timeout: 600.0
   surge_velocity: 0.8
   
-  sigma: 0.01 #integral gain
-  beta_gain: 2.5 #sideslip compensation gain
+  sigma: 0.0 #integral gain
+  beta_gain: 0.0 #sideslip compensation gain
 
   pitch_gain: 0.0
   pitch_assist_band: 0.5
@@ -71,9 +71,9 @@ bhv_path_following:
   lookahead_adaptive_flag: true
   lookahead_max: 15.0
   lookahead_min: 3.0
-  lookahead_gamma: 0.5
-  turning_surge_velocity: 0.1
-  turning_angle_sector: 0.7
+  lookahead_gamma: 1.0
+  turning_surge_velocity: 0.2
+  turning_angle_sector: 1.04 #rad
 
   waypoint_x: [30.0, 0.0]
   waypoint_y: [0.0, 20.0]
