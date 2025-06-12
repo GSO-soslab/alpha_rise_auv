@@ -2,7 +2,7 @@
   ros__parameters:
     ip: 192.168.2.102
     port: 16171
-    frame_id: dvl
+    frame_id: alpha_rise/dvl
     velocity_covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     position_covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     speed_of_sound: 1500

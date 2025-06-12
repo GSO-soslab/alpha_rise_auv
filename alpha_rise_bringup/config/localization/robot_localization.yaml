@@ -38,7 +38,7 @@
     
 
     #dvl data
-    twist0: dvl/twist
+    twist0: dvl/raw_twist
     twist0_config: [false, false, false,
                     false, false, false,
                     true,  true,  true,
@@ -48,7 +48,7 @@
     twist0_rejection_threshold: 2.0
 
     #pressure sensor
-    odom0: depth
+    odom0: depth/odometry
     odom0_config: [false,  false, true,
                     false, false, false,
                     false, false, false,
@@ -127,13 +127,13 @@
    # ### set larger value for trusted sensor measurements
     process_noise_covariance: [0.01, 0.0,  0.0,  0.0,  0.0,  0.0,  0.0,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
                               0.0,  0.01, 0.0,  0.0,  0.0,  0.0,  0.0,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
-                              0.0,  0.0,  0.1,  0.0,  0.0,  0.0,  0.0,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                              0.0,  0.0,  0.01,  0.0,  0.0,  0.0,  0.0,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
                               0.0,  0.0,  0.0,  0.1,  0.0,  0.0,  0.0,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
                               0.0,  0.0,  0.0,  0.0,  0.1,  0.0,  0.0,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
                               0.0,  0.0,  0.0,  0.0,  0.0,  0.1,  0.0,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
-                              0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.1,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
-                              0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,   0.1,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
-                              0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,   0.0,   0.1,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                              0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.5,   0.0,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                              0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,   0.5,   0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                              0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,   0.0,   0.5,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
                               0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,   0.0,   0.0,  0.1,  0.0,  0.0,  0.0,  0.0,  0.0,
                               0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,   0.0,   0.0,  0.0,  0.1,  0.0,  0.0,  0.0,  0.0,
                               0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,   0.0,   0.0,  0.0,  0.0,  0.1,  0.0,  0.0,  0.0,
@@ -147,22 +147,3 @@
     # are ordered as x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az. Defaults to the diagonal values below
     # if unspecified. In this example, we specify only the diagonal of the matrix.
     # initial_estimate_covariance: [1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9]
-
-
-
-
-/alpha_rise/world_odom_transform_node:
-  ros__parameters:
-    acceptable_var: 5.0
-    m_gps_wait_time: 30.0
-    ## Allen Harbour
-    datum_latitude: 41.621605
-    datum_longitude: -71.411018
-    ## Salt Pond
-    # datum_latitude: 41.4271
-    # datum_longitude: -71.4966
-    ## Beach Pond
-    # datum_latitude: 41.573822
-    # datum_longitude: -71.787280
-    position_accuracy: 3.0
-    mag_declination_auto: false

@@ -1,32 +1,47 @@
 import os
-
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration, PythonExpression
-import time
-
 
 def generate_launch_description():
-    arg_robot_name = 'alpha_rise'
-    robot_bringup = arg_robot_name + '_bringup'
 
-    #Localization
-    localization = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','localization.launch.py')]),
-        launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
-    )
+    robot_name = 'alpha_rise'
 
-    #description URDF
+    # Vehicle description
     description = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','description.launch.py')]),
-        launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory('alpha_rise_bringup'), 
+            'launch/include/description.launch.py')]),
+        launch_arguments={
+            'robot_name': robot_name,
+            'description_delay': '0.0'
+        }.items()  
     )
 
+    # Vehicle localization
+    localization = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory('alpha_rise_bringup'), 
+            'launch/include/localization.launch.py')]),
+        launch_arguments={
+            'robot_name': robot_name,
+            'localization_delay': '2.0'
+        }.items()  
+    )
+
+    initialization = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory('alpha_rise_bringup'), 
+            'launch/include/initialization.launch.py')]),
+        launch_arguments={
+            'robot_name': robot_name,
+            'localization_delay': '10.0'
+        }.items()  
+    )
 
     return LaunchDescription([
+        description,
         localization,
-        description
+        # initialization
     ])

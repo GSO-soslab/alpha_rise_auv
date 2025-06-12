@@ -1,5 +1,8 @@
-/alpha/bluerobotics_pressure_node:
+/alpha_rise/bluerobotics_pressure_node:
     ros__parameters:
+        ros:
+            frame_id: 'alpha_rise/pressure'
+
         sensor:
             # brief: MODEL_02BA = 0, MODEL_30BA = 1
             model: 1
@@ -9,6 +12,12 @@
 
             # brief: Fluid Density (kg/m^3); fresh: 997.0474; seawater: 1023.6
             fluid_density: 1022.0
+
+            child_frame: 'alpha_rise/pressure'
+
+            parent_frame: 'alpha_rise/world'
+
+            z_covariance: 0.0
 
         system:
             # brief: sensor publish rate
