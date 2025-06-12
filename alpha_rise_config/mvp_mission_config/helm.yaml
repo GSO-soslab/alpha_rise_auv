@@ -26,7 +26,7 @@ finite_state_machine:
     # exit_state: start
     
   survey:
-    control_mode: 4dof
+    control_mode: flight
     transitions: [start, kill, teleop]
     # max_duration: 100
     # exit_state: start
