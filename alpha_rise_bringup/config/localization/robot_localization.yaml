@@ -156,8 +156,8 @@
     acceptable_var: 5.0
     m_gps_wait_time: 30.0
     ## Allen Harbour
-    datum_latitude: 41.621623
-    datum_longitude: -71.4116317
+    datum_latitude: 41.621605
+    datum_longitude: -71.411018
     ## Salt Pond
     # datum_latitude: 41.4271
     # datum_longitude: -71.4966
