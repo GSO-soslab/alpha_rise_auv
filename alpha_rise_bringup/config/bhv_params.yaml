@@ -68,7 +68,7 @@ bhv_path_following:
   pitch_assist_band: 0.5
   max_pitch: 0.35
 
-  lookahead_adaptive_flag: true
+  lookahead_adaptive_flag: false
   lookahead_max: 15.0
   lookahead_min: 3.0
   lookahead_gamma: 1.0
