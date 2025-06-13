@@ -1,7 +1,9 @@
 /alpha_rise/world_odom_transform_node:
   ros__parameters:
-    acceptable_var: 5.0
     m_gps_wait_time: 30.0
+    ## Bay Campus
+    # datum_latitude: 41.491602
+    # datum_longitude: -71.422054
     ## Allen Harbour
     datum_latitude: 41.621605
     datum_longitude: -71.411018
