@@ -56,6 +56,6 @@ def generate_launch_description():
                 ],
             remappings=[
                     ('odometry', 'odometry/filtered'),
-                ],
+                    ('depth', 'depth/odometry')]
            ),
 ])

@@ -48,7 +48,7 @@
     twist0_rejection_threshold: 2.0
 
     #pressure sensor
-    odom0: depth
+    odom0: depth/odometry
     odom0_config: [false,  false, true,
                     false, false, false,
                     false, false, false,
