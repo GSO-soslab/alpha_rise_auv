@@ -26,6 +26,7 @@ thruster_ids:
     command_topic: control/thruster/surge
     force_topic: control/force/surge
     limits: [-10.0, 60.0] #[min, max]
+    delta_limit: 1.0
     polynomials: [0.3281, 44.1281, 22.8029, 84.2361, -6.5710, -41.5185]
 
   sway_bow:
@@ -33,6 +34,7 @@ thruster_ids:
     command_topic: control/thruster/sway_bow
     force_topic: control/force/sway_bow
     limits: [-25.0, 25.0] #[min, max]
+    delta_limit: 1.0
     polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
 
   heave_stern:
@@ -40,6 +42,7 @@ thruster_ids:
       command_topic: control/thruster/heave_stern
       force_topic: control/force/heave_stern
       limits: [-20.0, 20.0] #[min, max]
+      delta_limit: 1.0
       polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
 
   heave_bow:
@@ -47,4 +50,5 @@ thruster_ids:
     command_topic: control/thruster/heave_bow
     force_topic: control/force/heave_bow
     limits: [-20.0, 20.0] #[min, max]
+    delta_limit: 1.0
     polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]

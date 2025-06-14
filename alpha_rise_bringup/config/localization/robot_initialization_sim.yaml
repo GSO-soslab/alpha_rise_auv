@@ -1,0 +1,11 @@
+/alpha_rise/world_odom_transform_node:
+  ros__parameters:
+    m_gps_wait_time: 30.0
+    ## This lat, long sets the world <> odom transform.
+    ## If you need to change the lat, long in the gps msg, 
+    ## Change the world scenario file in the world_of_stonefish.
+    datum_latitude: 41.0
+    datum_longitude: -71.0
+    position_accuracy: 10.0
+    acceptable_var: 10.0
+    mag_declination_auto: false

@@ -29,6 +29,12 @@ def generate_launch_description():
         'robot_localization_sim.yaml'
         )
     
+    inititializatin_param_file = os.path.join(get_package_share_directory(robot_bringup),
+        'config',
+        'localization',
+        'robot_initialization_sim.yaml'
+        )
+    
     navsat_param_file = os.path.join(robot_param_path, 'navsat.yaml') 
 
 
@@ -52,7 +58,7 @@ def generate_launch_description():
             parameters=[
                 {'tf_prefix': robot_name},
                 {'mag_model_path': mag_model_path},
-                localization_param_file
+                inititializatin_param_file
                 ],
             remappings=[
                     ('odometry', 'odometry/filtered'),
