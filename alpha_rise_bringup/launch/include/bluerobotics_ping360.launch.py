@@ -18,7 +18,7 @@ def generate_launch_description():
         get_package_share_directory(robot_bringup),
         'config',
         'sensors',
-        'bluerobotcs_ping360.yaml'
+        'bluerobotics_ping360.yaml'
     )
 
     node = Node(

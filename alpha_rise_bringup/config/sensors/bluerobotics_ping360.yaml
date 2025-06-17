@@ -13,7 +13,7 @@
       udp_port: 12345
     Configuration:
       # Frame ID for msgs
-      frame: ping360_link
+      frame: alpha_rise/ping360_link
       # Sonar gain (0 = low, 1 = normal, 2 = high)"
       gain: 0
       # Sonar operating frequency [kHz]" [650-850]

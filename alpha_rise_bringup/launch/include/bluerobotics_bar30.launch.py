@@ -18,7 +18,7 @@ def generate_launch_description():
         get_package_share_directory(robot_bringup),
         'config',
         'sensors',
-        'bluerobotcs_bar30.yaml'
+        'bluerobotics_bar30.yaml'
     )
 
     node = Node(
