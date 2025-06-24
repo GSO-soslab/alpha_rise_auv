@@ -1,4 +1,4 @@
-/alpha_rise/mvp2_helm_node:
+/alpha_rise/mvp_helm:
   ros__parameters:
     frequency: 10.0
     default_child_link: cg_link
