@@ -39,7 +39,7 @@ def generate_launch_description():
             package='tf2_ros',
             executable='static_transform_publisher',
             name='world2ned',
-            arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", robot_name+'/world', robot_name+'/world_ned']    
+            arguments = ["0.0", "0.0", "0.0", "1.5707963267948966", "0.0", "3.141592653589793", robot_name+'/world', robot_name+'/world_ned']    
         ),
 
         # Node(
