@@ -59,7 +59,7 @@ bhv_path_following:
   acceptance_radius: 3.0
   lookahead_distance: 3.0
   overshoot_timeout: 600.0
-  surge_velocity: 0.8
+  # surge_velocity: 0.8
   
   sigma: 0.0 #integral gain
   beta_gain: 0.0 #sideslip compensation gain
@@ -75,12 +75,20 @@ bhv_path_following:
   turning_surge_velocity: 0.2
   turning_angle_sector: 1.04 #rad
 
-  waypoint_x: [30.0, 0.0]
-  waypoint_y: [0.0, 20.0]
-  waypoint_z: [4.0, 5.0]
+  waypoint_x: [30.0, 0.0, 15.0]
+  waypoint_y: [0.0, 20.0, 30.0]
+  waypoint_z: [4.0, 5.0, 3.0]
+  waypoint_u: [0.5, 0.8, 0.8]
 
   waypoint_file_package: alpha_rise_bringup
   waypoint_path: config/go_to_list/
+
+bhv_surfacing:
+  default_bhv_world_link: world_ned
+  default_bhv_child_link: cg_link
+  no_gps_timeout: 20.0
+  surfacing_duration: 10.0
+  surfacing_depth: 0.0
 
 # bhv_altitude_tracking:
 #   desired_altitude: 10.0 #distance from the bottom always positive
