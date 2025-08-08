@@ -7,7 +7,7 @@
 /alpha_rise/reporter_c2_udp_comm:
   ros__parameters:
     type: client
-    server_ip: 192.168.2.20
+    server_ip: 192.168.2.200
     server_port: 5000
     client_ip: 192.168.2.50
     client_port: 6000
@@ -35,7 +35,7 @@
 /alpha_rise/commander_c2_udp_comm:
   ros__parameters:
     type: server
-    server_ip: 192.168.2.20
+    server_ip: 192.168.2.200
     server_port: 5000
     client_ip: 192.168.2.50
     client_port: 6000

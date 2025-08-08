@@ -7,8 +7,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, PythonExpression
 import time
-
-
+from launch.actions import ExecuteProcess
 
 
 def generate_launch_description():
@@ -20,6 +19,12 @@ def generate_launch_description():
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
 
+    zenoh = ExecuteProcess(
+            cmd=['ros2', 'run', 'rmw_zenoh_cpp', 'rmw_zenohd'],
+            output='screen'
+        )
+
     return LaunchDescription([
+        zenoh,
         mvp_c2,
     ])
