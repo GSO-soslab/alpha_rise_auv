@@ -13,7 +13,7 @@ bhv_teleop:
   tele_d_yaw: 10.0 
   tele_d_pitch: 10.0
   tele_d_depth: 0.2
-  no_joy_timeout: 100.0
+  no_joy_timeout: 10.0
 
 bhv_direct_control:
   ########################################
@@ -58,7 +58,7 @@ bhv_path_following:
   state_fail: kill
   acceptance_radius: 3.0
   lookahead_distance: 3.0
-  overshoot_timeout: 600.0
+  overshoot_timeout: 30.0
   # surge_velocity: 0.8
   
   sigma: 0.0 #integral gain
