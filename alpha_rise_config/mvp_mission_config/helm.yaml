@@ -3,7 +3,7 @@ finite_state_machine:
   start:
     initial: true
     control_mode: idle
-    transitions: [kill, teleop, direct_control, survey]
+    transitions: [kill, teleop, survey]
     # max_duration: 100
     # exit_state: start
   
@@ -16,20 +16,14 @@ finite_state_machine:
   teleop:
     control_mode: teleop
     transitions: [start, kill] 
-    # max_duration: 100
-    # exit_state: start
-
-  direct_control:
-    control_mode: teleop
-    transitions: [start, kill] 
-    # max_duration: 100
-    # exit_state: start
+    max_duration: 500
+    exit_state: kill
     
   survey:
     control_mode: flight
     transitions: [start, kill, teleop]
-    # max_duration: 100
-    # exit_state: start
+    max_duration: 500
+    exit_state: kill
 
 behaviors:
 
