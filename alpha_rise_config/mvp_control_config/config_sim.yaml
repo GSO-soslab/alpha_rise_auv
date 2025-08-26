@@ -28,6 +28,7 @@ thruster_ids:
     limits: [-10.0, 60.0] #[min, max]
     delta_limit: 1.0
     polynomials: [0.3281, 44.1281, 22.8029, 84.2361, -6.5710, -41.5185]
+    xyz_flag : [0.0, 0.0, 0.0]
 
   sway_bow:
     control_tf: sway_bow_thruster_link

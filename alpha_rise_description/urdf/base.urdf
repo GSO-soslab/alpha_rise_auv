@@ -99,7 +99,7 @@
     <!-- thrusters -->
     <link name="surge_thruster_link"/>
     <joint name="surge_thruster_joint" type="fixed">
-        <origin xyz="-0.77 0.0 0.02" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.77 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="surge_thruster_link"/>
     </joint>
