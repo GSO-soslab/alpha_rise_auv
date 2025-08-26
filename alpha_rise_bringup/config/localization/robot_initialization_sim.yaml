@@ -9,3 +9,4 @@
     position_accuracy: 10.0
     acceptable_var: 10.0
     mag_declination_auto: false
+    manual_position_covariance: 9.0

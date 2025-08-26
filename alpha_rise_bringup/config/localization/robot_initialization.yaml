@@ -5,14 +5,15 @@
     # datum_latitude: 41.491602
     # datum_longitude: -71.422054
     ## Allen Harbour
-    datum_latitude: 41.621605
-    datum_longitude: -71.411018
+    # datum_latitude: 41.621605
+    # datum_longitude: -71.411018
     ## Salt Pond
     # datum_latitude: 41.4271
     # datum_longitude: -71.4966
     ## Beach Pond
-    # datum_latitude: 41.573822
-    # datum_longitude: -71.787280
+    datum_latitude: 41.573822
+    datum_longitude: -71.787280
     position_accuracy: 10.0
     acceptable_var: 10.0
     mag_declination_auto: true
+    manual_position_covariance: 9.0
