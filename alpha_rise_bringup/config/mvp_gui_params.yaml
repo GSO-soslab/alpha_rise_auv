@@ -1,0 +1,65 @@
+flask_node:
+  ros__parameters:
+    # The path to the directory containing offline map tile sets.
+    # This path is relative to the package's share directory.
+    # Example structure: <install_space>/share/mvp_gui_2/mvp_gui_offline_map/
+    tiles_dir: "mvp_gui_offline_map/"
+    db_filename: "mvp_gui.db" # Database will be stored in the package share dir
+    kml_upload_folder: "kml_uploads" # Also in package share dir
+
+    # Thresholds for color-coding vehicle status values
+    status_thresholds:
+      roll:
+        yellow: 20.0 # abs degrees
+        red: 40.0   # abs degrees
+      pitch:
+        yellow: 20.0 # abs degrees
+        red: 40.0   # abs degrees
+      voltage:
+        yellow: 18.0 # volts, lower is worse
+        red: 16.0    # volts, lower is worse
+      current:
+        yellow: 10.0 # amps, higher is worse
+        red: 15.0    # amps, higher is worse
+      cpu_temp:
+        yellow: 50.0 # Celsius, higher is worse
+        red: 65.0    # Celsius, higher is worse
+      cpu_usage:
+        yellow: 70.0 # percent, higher is worse
+        red: 90.0    # percent, higher is worse
+      mem_usage:
+        yellow: 70.0 # percent, higher is worse
+        red: 90.0    # percent, higher is worse
+
+ros_interface_node:
+  ros__parameters:
+    #----------------------------
+    # Topics
+    #----------------------------
+    topic_ns: "/alpha_rise/remote/id_2/"
+    ## pose
+    poses_source: "odometry"
+    geo_pose_source: "geopose"
+    topside_geo_pose_source: "topside/geopose"
+    secondary_geo_pose_source: "secondary/geopose"
+    survey_geopath_source: "survey/geopath"
+    ## state
+    helm_state_get: "helm/state"
+    controller_state_get: "controller_state"
+    gpio_power_get: "gpio_power_state"
+    roslaunch_state_get: "roslaunch_state"
+    ## Info
+    computer_info_source: "computer_info"
+    power_info_source: "power_info"
+
+    #----------------------------
+    # Services
+    #----------------------------
+    service_ns: "/alpha_rise/remote/id_2/"
+    helm_state_set: "mvp_helm/change_state"
+    controller_state_set: "controller/set"
+    pub_waypoints_service: "mvp_helm/set_waypoints"
+    set_power_service: "gpio_manager/set_power/"
+    
+    # Name of the node to fetch dynamic launch/power configurations from
+    c2_commander_node: "/alpha_rise/mvp_c2_commander"
