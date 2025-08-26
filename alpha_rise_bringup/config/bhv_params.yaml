@@ -86,7 +86,7 @@ bhv_path_following:
 bhv_surfacing:
   default_bhv_world_link: world_ned
   default_bhv_child_link: cg_link
-  no_gps_timeout: 20.0
+  no_gps_timeout: 40.0
   surfacing_duration: 10.0
   surfacing_depth: 0.2
   navigation_fail_state: start
