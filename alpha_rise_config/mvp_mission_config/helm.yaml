@@ -32,10 +32,10 @@ behaviors:
     priority:
       teleop: 1
   
-  bhv_direct_control:
-    plugin: helm/DirectControl
-    priority:
-      direct_control: 1
+  # bhv_direct_control:
+  #   plugin: helm/DirectControl
+  #   priority:
+  #     direct_control: 1
 
   bhv_path_following:
     plugin: helm/PathFollowing

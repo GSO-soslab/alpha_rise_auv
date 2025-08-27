@@ -15,31 +15,31 @@ bhv_teleop:
   tele_d_depth: 0.2
   no_joy_timeout: 10.0
 
-bhv_direct_control:
-  ########################################
-  ############## Desire ##################
-  ########################################
-  default_bhv_world_link: world_ned
-  default_bhv_child_link: cg_link
-  # position
-  desired_x: 0.0
-  desired_y: 0.0
-  desired_z: 0.2
+# bhv_direct_control:
+#   ########################################
+#   ############## Desire ##################
+#   ########################################
+#   default_bhv_world_link: world_ned
+#   default_bhv_child_link: cg_link
+#   # position
+#   desired_x: 0.0
+#   desired_y: 0.0
+#   desired_z: 0.2
 
-  # orientation (0.4 rad = 23 degree)
-  desired_roll: 0.0 
-  desired_pitch: 0.0
-  desired_yaw: 0.0
+#   # orientation (0.4 rad = 23 degree)
+#   desired_roll: 0.0 
+#   desired_pitch: 0.0
+#   desired_yaw: 0.0
 
-  # velocity
-  desired_u: 0.0
-  desired_v: 0.0
-  desired_w: 0.0
+#   # velocity
+#   desired_u: 0.0
+#   desired_v: 0.0
+#   desired_w: 0.0
 
-  # angular velocity
-  desired_p: 0.0
-  desired_q: 0.0
-  desired_r: 0.0
+#   # angular velocity
+#   desired_p: 0.0
+#   desired_q: 0.0
+#   desired_r: 0.0
 
 # bhv_profiling:
 #   no_depth_time: 10.0
@@ -86,7 +86,7 @@ bhv_path_following:
 bhv_surfacing:
   default_bhv_world_link: world_ned
   default_bhv_child_link: cg_link
-  no_gps_timeout: 40.0
+  no_gps_timeout: 60.0
   surfacing_duration: 10.0
   surfacing_depth: 0.2
   navigation_fail_state: start
