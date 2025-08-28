@@ -1,0 +1,8 @@
+workspace_name: "ros2_ws"
+
+# Packages whose *config/*.yaml files that needs to be saved
+package_names:
+  - "alpha_rise_bringup"
+  - "alpha_rise_config"
+
+bag_output_dir: "/mnt/ssd/" 
