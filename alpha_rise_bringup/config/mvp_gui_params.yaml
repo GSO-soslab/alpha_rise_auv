@@ -15,6 +15,9 @@ flask_node:
       pitch:
         yellow: 20.0 # abs degrees
         red: 40.0   # abs degrees
+      altimeter:
+        yellow: 3.0
+        red: 1.0
       voltage:
         yellow: 18.0 # volts, lower is worse
         red: 16.0    # volts, lower is worse
@@ -40,9 +43,8 @@ ros_interface_node:
     ## pose
     poses_source: "odometry"
     geo_pose_source: "geopose"
-    topside_geo_pose_source: "topside/geopose"
-    secondary_geo_pose_source: "secondary/geopose"
     survey_geopath_source: "survey/geopath"
+    altimeter_source: "altimeter"
     ## state
     helm_state_get: "helm/state"
     controller_state_get: "controller_state"
