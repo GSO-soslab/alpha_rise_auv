@@ -35,7 +35,7 @@ def generate_launch_description():
         'robot_initialization_sim.yaml'
         )
     
-    navsat_param_file = os.path.join(robot_param_path, 'navsat.yaml') 
+    # navsat_param_file = os.path.join(robot_param_path, 'navsat.yaml') 
 
 
     return LaunchDescription([
