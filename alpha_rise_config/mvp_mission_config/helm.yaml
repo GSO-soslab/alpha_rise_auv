@@ -47,7 +47,7 @@ behaviors:
     priority:
       survey: 2
 
-  # bhv_altitude_tracking:
-  #   plugin: helm/AltitudeTracking
-  #   priority: 
-  #     survey: 2
+  bhv_altitude_tracking:
+    plugin: helm/AltitudeTracking
+    priority: 
+      survey: 2
