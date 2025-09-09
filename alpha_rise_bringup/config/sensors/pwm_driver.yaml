@@ -6,6 +6,8 @@
     pwm_ms_bias: 0.1
     no_pwm_timeout: 10.0
   
+    mcu_installed: true
+    
     thruster_ch_list: [0, 1, 2, 4]
     thruster_topic_list: [control/thruster/sway_bow, control/thruster/heave_bow, control/thruster/heave_stern, control/thruster/surge]
     thruster_min_us: [1100, 1100, 1100, 1100]
