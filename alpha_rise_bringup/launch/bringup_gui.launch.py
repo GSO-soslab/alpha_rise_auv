@@ -37,7 +37,7 @@ def generate_launch_description():
     # the actions inside, which in this case is launching the node.
     # This is useful to ensure the flask_node's web server is ready.
     delayed_ros_interface_node = TimerAction(
-        period=5.0,
+        period=3.0,
         actions=[ros_interface_node]
     )
 
