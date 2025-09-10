@@ -33,6 +33,9 @@ flask_node:
       mem_usage:
         yellow: 70.0 # percent, higher is worse
         red: 90.0    # percent, higher is worse
+      time_since_update:
+        yellow: 60.0 # seconds
+        red: 180.0   # seconds
 
 ros_interface_node:
   ros__parameters:
