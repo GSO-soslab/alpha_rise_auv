@@ -43,7 +43,7 @@ thruster_ids:
       command_topic: control/thruster/heave_stern
       force_topic: control/force/heave_stern
       limits: [-20.0, 20.0] #[min, max]
-      delta_limit: 1.0
+      delta_limit: 2.0
       polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
 
   heave_bow:
@@ -51,5 +51,5 @@ thruster_ids:
     command_topic: control/thruster/heave_bow
     force_topic: control/force/heave_bow
     limits: [-20.0, 20.0] #[min, max]
-    delta_limit: 1.0
+    delta_limit: 2.0
     polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
