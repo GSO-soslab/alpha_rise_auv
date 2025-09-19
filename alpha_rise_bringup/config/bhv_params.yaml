@@ -61,7 +61,7 @@ bhv_path_following:
   overshoot_timeout: 30.0
   # surge_velocity: 0.8
   
-  sigma: 0.0 #integral gain
+  sigma: 0.00 #integral gain
   beta_gain: 0.0 #sideslip compensation gain
 
   pitch_gain: 0.0
@@ -96,7 +96,7 @@ bhv_surfacing:
   imu_topic: ekf/imu/data
   
 bhv_altitude_tracking:
-  desired_altitude: 3.0 #distance from the bottom always positive
+  desired_altitude: 2.0 #distance from the bottom always positive
   altitude_tracking_mode: 0  # 0: safety mode 1:bottom altitude tracking
   altitude_measurement_topic: dvl/altitude
   desired_altitude_topic: desired_altitude
