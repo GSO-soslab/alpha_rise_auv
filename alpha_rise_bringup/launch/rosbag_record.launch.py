@@ -36,10 +36,12 @@ def merge_yaml_files(config_paths: list[Path], output_path: Path):
     yaml_files = []
     for config_root in config_paths:
         if config_root.exists():
-            yaml_files.extend(config_root.rglob("*.yaml"))
+            yaml_files.extend([
+                yfile for yfile in config_root.rglob("*.yaml")
+            ])
 
     if not yaml_files:
-        print("[ERROR] No YAML files found.")
+        print("[ERROR] No YAML files found (excluding *_sim.yaml).")
         return
 
     master_data = {}
@@ -48,7 +50,8 @@ def merge_yaml_files(config_paths: list[Path], output_path: Path):
             with open(yfile, "r") as f:
                 data = yaml.safe_load(f)
                 if isinstance(data, dict):
-                    master_data.update(data)
+                    key_name = yfile.name  # or yfile.stem if you want to strip ".yaml"
+                    master_data[key_name] = data
                 else:
                     print(f"[WARNING] Skipping non-dictionary file: {yfile}")
         except yaml.YAMLError as e:
@@ -56,9 +59,9 @@ def merge_yaml_files(config_paths: list[Path], output_path: Path):
 
     output_file = output_path / "params.yaml"
     with open(output_file, "w") as f:
-        yaml.dump(master_data, f)
-    print(f"[INFO] Merged YAML written to: {output_file}")
+        yaml.dump(master_data, f, default_flow_style=False)
 
+    print(f"[INFO] Merged YAML written to: {output_file}")
 
 def post_process(context, *args, **kwargs):
     try:
