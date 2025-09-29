@@ -20,7 +20,7 @@
     helm_state_list: ['start', 'kill', 'teleop', 'survey'] #this has to match the helm
     launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup',  'alpha_rise_bringup', 'alpha_rise_bringup']
     launch_files: ['bringup_utilities', 'bringup_sensors', bringup_localization, 'bringup_mvp', 'bringup_thrusters', 'rosbag_record']
-    gpio_devices: ['payload_24v', 'regular_payload', 'jetson']  # this needs to match the gpio manager yaml
+    gpio_devices: ['payload_24v', 'regular_payload', 'backseat']  # this needs to match the gpio manager yaml
 
 ## topside stuff
 /alpha_rise/mvp_c2_commander:
@@ -29,7 +29,7 @@
     helm_state_list: ['start', 'kill', 'teleop', 'survey'] #this has to match the helm
     launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup',  'alpha_rise_bringup', 'alpha_rise_bringup']
     launch_files: ['bringup_utilities', 'bringup_sensors', bringup_localization, 'bringup_mvp', 'bringup_thrusters', 'rosbag_record']
-    gpio_devices: ['payload_24v', 'regular_payload', 'jetson']  # this needs to match the gpio manager yaml
+    gpio_devices: ['payload_24v', 'regular_payload', 'backseat']  # this needs to match the gpio manager yaml
 
 
 /alpha_rise/commander_c2_udp_comm:
