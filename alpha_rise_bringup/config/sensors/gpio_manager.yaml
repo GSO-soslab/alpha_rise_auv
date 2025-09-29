@@ -1,5 +1,5 @@
 /alpha_rise/gpio_manager_node:
   ros__parameters:
-    gpio_devices: [payload_24v, regular_payload, jetson]
+    gpio_devices: [payload_24v, regular_payload, backseat]
     #Wring PI GPIO number
     wiringpi_gpio: [13, 12, 11]
