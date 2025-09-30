@@ -86,9 +86,10 @@ bhv_path_following:
 bhv_surfacing:
   default_bhv_world_link: world_ned
   default_bhv_child_link: cg_link
-  no_gps_timeout: 120.0 #120 for z=5m(NED), 360 for z=15m 
+  no_gps_timeout: 60.0 #120 for z=5m(NED), 360 for z=15m 
   surfacing_duration: 20.0
   surfacing_depth: 0.2
+  min_gps_count_at_surface: 20
   navigation_fail_state: start
   no_imu_timeout: 10.0
   no_dvl_timeout: 10.0
