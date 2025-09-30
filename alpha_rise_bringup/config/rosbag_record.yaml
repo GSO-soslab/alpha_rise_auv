@@ -5,4 +5,4 @@ package_names:
   - "alpha_rise_bringup"
   - "alpha_rise_config"
 
-bag_output_dir: "/mnt/ssd/allen_harbor_09_22/" 
+bag_output_dir: "/home/mvp_admin/ssd/beach_pond_10_02_25" 
