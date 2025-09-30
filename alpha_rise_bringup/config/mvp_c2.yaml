@@ -1,17 +1,17 @@
 #####vehicle side stuff
 /alpha_rise/reporter_c2_serial_comm:
   ros__parameters:
-    port: /dev/ttyUSB1
-    baudrate: 115200
+    port: /dev/ttyAMA0
+    baudrate: 57600
 
-/alpha_rise/reporter_c2_udp_comm:
-  ros__parameters:
-    type: client
-    server_ip: 192.168.2.200
-    server_port: 5000
-    client_ip: 192.168.2.50
-    client_port: 6000
-    dccl_tx_interval: 1.0
+# /alpha_rise/reporter_c2_udp_comm:
+#   ros__parameters:
+#     type: client
+#     server_ip: 192.168.2.200
+#     server_port: 5000
+#     client_ip: 192.168.2.50
+#     client_port: 6000
+#     dccl_tx_interval: 1.0
 
 
 /alpha_rise/mvp_c2_reporter:
@@ -32,10 +32,15 @@
     gpio_devices: ['payload_24v', 'regular_payload', 'backseat']  # this needs to match the gpio manager yaml
 
 
-/alpha_rise/commander_c2_udp_comm:
+# /alpha_rise/commander_c2_udp_comm:
+#   ros__parameters:
+#     type: server
+#     server_ip: 192.168.2.200
+#     server_port: 5000
+#     client_ip: 192.168.2.50
+#     client_port: 6000
+
+/alpha_rise/commander_c2_serial_comm:
   ros__parameters:
-    type: server
-    server_ip: 192.168.2.200
-    server_port: 5000
-    client_ip: 192.168.2.50
-    client_port: 6000
+    port: /dev/ttyUSB0
+    baudrate: 57600
