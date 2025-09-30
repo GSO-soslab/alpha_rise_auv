@@ -20,12 +20,17 @@ def generate_launch_description():
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
 
-    #DVL
+    #Waterlinked DVL
+    # dvl = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','waterlinked_dvl.launch.py')]),
+    #     launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
+    # )
+
+    # Nortek DVL
     dvl = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','waterlinked_dvl.launch.py')]),
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','nortek_dvl.launch.py')]),
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
-
     #Pressure
     pressure = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','bluerobotics_bar30.launch.py')]),
