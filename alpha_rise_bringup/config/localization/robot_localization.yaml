@@ -38,7 +38,7 @@
     
 
     #dvl data
-    twist0: dvl/raw_twist
+    twist0: nucleus_node/bottom_lock_velocity_common
     twist0_config: [false, false, false,
                     false, false, false,
                     true,  true,  true,
