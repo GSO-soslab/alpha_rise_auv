@@ -14,21 +14,21 @@
     
     <link name="base_link"/>
     <joint name="base_link" type="fixed">
-        <origin xyz="0.72 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.76 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="nose_tip_link"/>
     </joint>
 
     <link name="cg_link"/>
     <joint name="cg_joint" type="fixed">
-        <origin xyz="-0.06 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.0 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="cg_link"/>
     </joint>
 
     <link name="imu"/>
     <joint name="imu_joint" type="fixed">
-        <origin xyz="-0.18 -0.0 -0.15" rpy="0 0.0 0.0"/>
+        <origin xyz="-0.04 -0.0 -0.15" rpy="0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="imu"/>
     </joint>
@@ -42,7 +42,7 @@
 
     <link name="dvl"/>
     <joint name="dvl_joint" type="fixed">
-        <origin xyz="-0.18 0.0 -0.127" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.04 0.0 -0.17" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="dvl"/>
     </joint>
@@ -63,7 +63,7 @@
 
     <link name="unicore_gps"/>
     <joint name="unicore_gps_joint" type="fixed">
-        <origin xyz="-0.5875 0.0 0.2" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.5 0.0 0.2" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="unicore_gps"/>
     </joint>
@@ -77,7 +77,7 @@
 
     <link name="ping360_link"/>
     <joint name="ping360_joint" type="fixed">
-        <origin xyz="0.63 0.0 -0.11" rpy="0.0 0.0 3.1415926"/>
+        <origin xyz="0.70 0.0 -0.11" rpy="0.0 0.0 3.1415926"/>
         <parent link="base_link"/>
         <child link="ping360_link"/>
     </joint>
@@ -91,7 +91,7 @@
     
     <link name="fls_link"/>
     <joint name="fls_link_joint" type="fixed">
-        <origin xyz="-0.3 -0.2 0.0" rpy="1.57 0.0 -1.57"/>
+        <origin xyz="-0.26 -0.2 0.0" rpy="1.57 0.0 -1.57"/>
         <parent link="base_link"/>
         <child link="fls_link"/>
     </joint>
@@ -106,14 +106,14 @@
     <!-- thrusters -->
     <link name="surge_thruster_link"/>
     <joint name="surge_thruster_joint" type="fixed">
-        <origin xyz="-0.77 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.74 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="surge_thruster_link"/>
     </joint>
 
     <link name="heave_bow_thruster_link"/>
     <joint name="heave_bow_thruster_joint" type="fixed">
-        <origin xyz="0.387 0.0 0.0" rpy="0.0 -1.57079632679 0.0"/>
+        <origin xyz="0.42 0.0 0.0" rpy="0.0 -1.57079632679 0.0"/>
         <parent link="base_link"/>
         <child link="heave_bow_thruster_link"/>
     </joint>
