@@ -36,7 +36,8 @@ def generate_launch_description():
                 {'mag_model_path': mag_model_path},
                 init_file
                 ],
-            remappings=[('odometry', 'odometry/filtered'),
+            remappings=[('gps/fix', 'unicore_rtk_driver/fix'),
+                        ('odometry', 'odometry/filtered'),
                         ('depth', 'depth/odometry')],
             emulate_tty=True        
     )

@@ -1,0 +1,22 @@
+# /wamv_rise/unicore_rtk:
+/alpha_rise/unicore_rtk_driver:
+    ros__parameters:
+
+        # The usb device for unicore gps
+        device: /dev/ttyUSB0
+        baudrate: 115200
+        heading_frame_id: alpha_rise/world_ned
+        gps_frame_id: alpha_rise/unicore_gps
+
+        heading_enu_frame_id: alpha_rise/unicore_gps
+
+        # True: use the gps timestamp, False: use IO time when gps message arrived
+        use_gnss_time: True
+
+        # True: send NMEA string to GPSD, use '127.0.0.1' by default
+        use_gpsd_udp: True
+        virtual_port: 5006
+
+        # True: it will print some debug msg for each sentence
+        # False: logger used as INFO
+        debug: False

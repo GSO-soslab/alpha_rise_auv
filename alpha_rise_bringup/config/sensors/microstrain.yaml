@@ -35,7 +35,9 @@
     # During operation, we will assume that we are in a wheeled vehicle for more accurate heading
     # If using a drone, disable this option, and enable "filter_enable_magnetometer_aiding"
     filter_enable_wheeled_vehicle_constraint : False
-    filter_enable_magnetometer_aiding: True
+    filter_enable_magnetometer_aiding: False
+    filter_enable_external_heading_aiding : True
+    subscribe_ext_heading_enu: True
 
     # Disable some heading options that do not work for this device
     filter_enable_gnss_pos_vel_aiding : False
@@ -49,7 +51,11 @@
     filter_declination_source : 3
     filter_declination        : 0.0
 
-    filter_heading_source : 1
+    filter_heading_source : 0
+
+    filter_adaptive_level : 3
+
+    filter_adaptive_time_limit_ms : 15000
 
 
     # The speed at which the individual IMU publishers will publish at.

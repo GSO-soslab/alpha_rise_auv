@@ -28,7 +28,7 @@
 
     <link name="imu"/>
     <joint name="imu_joint" type="fixed">
-        <origin xyz="-0.18 -0.0 0.15" rpy="0 0.0 0.0"/>
+        <origin xyz="-0.18 -0.0 -0.15" rpy="0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="imu"/>
     </joint>
@@ -42,7 +42,7 @@
 
     <link name="dvl"/>
     <joint name="dvl_joint" type="fixed">
-        <origin xyz="-0.18 0.0 -0.1" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.18 0.0 -0.127" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="dvl"/>
     </joint>
@@ -53,14 +53,21 @@
         <parent link="base_link"/>
         <child link="dvl_sf"/>
     </joint>
-
+<!-- 
     <link name="gps"/>
     <joint name="gps_joint" type="fixed">
         <origin xyz="0.05 0.0 0.32" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="gps"/>
-    </joint>
+    </joint> -->
 
+    <link name="unicore_gps"/>
+    <joint name="unicore_gps_joint" type="fixed">
+        <origin xyz="-0.5875 0.0 0.2" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="unicore_gps"/>
+    </joint>
+    
     <link name="pressure"/>
     <joint name="pressure_joint" type="fixed">
         <origin xyz="0.3 0.0 0.05" rpy="3.1415926 0.0 0.0"/>

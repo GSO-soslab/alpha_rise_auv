@@ -28,7 +28,8 @@ def generate_launch_description():
         name='microstrain_inertial_driver',
         namespace="alpha_rise",
         output='screen',
-        parameters=[param_config]        
+        parameters=[param_config], 
+        remappings=[('ext/heading_enu', 'unicore_rtk_driver/heading_enu_pose')]        
     )
 
     ld.add_action(node)

@@ -38,14 +38,20 @@ def generate_launch_description():
     )
 
     #GPS
+    # gps = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','gps_gpsd.launch.py')]),
+    #     launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
+    # )
+
+    # Unicore GPS
     gps = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','gps_gpsd.launch.py')]),
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','unicore_rtk.launch.py')]),
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
 
     return LaunchDescription([
         imu,
-        dvl,
+        # dvl,
         pressure, 
         gps
     ])
