@@ -57,7 +57,7 @@ def generate_launch_description():
                 ('mvp_helm/set_waypoints', 'bhv_path_following/update_waypoints'),
                 ('/alpha_rise/local/power_monitor', '/alpha_rise/power_monitor_node/power_monitor'),
                 ('/alpha_rise/local/computer_info', '/alpha_rise/pi/computer_info'),
-                ('local/altimeter', 'dvl/altitude')
+                ('local/altimeter', 'nucleus_node/altimeter_common')
             ]
         ),
 
