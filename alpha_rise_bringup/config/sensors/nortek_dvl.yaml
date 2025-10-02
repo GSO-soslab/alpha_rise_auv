@@ -9,7 +9,7 @@
     # tcp_password: 'nortek'
 
     # --- Serial Connection Settings (used if connection_type is 'serial') ---
-    serial_port: '/dev/ttyUSB0'
+    serial_port: '/dev/ttyUSB1'
 
     # --- Frame ID ---
     # The TF frame_id to be used in stamped messages
