@@ -54,6 +54,7 @@ def generate_launch_description():
                         output="screen",
                         remappings=[
                             ('datum', 'gps/datum'),
+                            ('gps/fix', 'unicore_rtk_driver/fix')
                         ],
                         parameters=[
                             {'helm_config_file': mvp_helm_config_file},
