@@ -1,4 +1,0 @@
- global_costmap:
-  global_frame: alpha_rise/odom
-  robot_base_frame: alpha_rise/base_link
-  update_frequency: 5.0  

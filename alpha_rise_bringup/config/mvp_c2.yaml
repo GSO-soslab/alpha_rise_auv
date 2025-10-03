@@ -18,8 +18,8 @@
   ros__parameters:
     dccl_tx_interval: 1.0
     helm_state_list: ['start', 'kill', 'teleop', 'survey'] #this has to match the helm
-    launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup',  'alpha_rise_bringup', 'alpha_rise_bringup']
-    launch_files: ['bringup_utilities', 'bringup_sensors', bringup_localization, 'bringup_mvp', 'bringup_thrusters', 'rosbag_record']
+    launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup',  'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup']
+    launch_files: ['bringup_utilities', 'bringup_sensors', bringup_localization, 'bringup_mvp', 'bringup_thrusters', 'rosbag_record', 'bringup_acomm']
     gpio_devices: ['payload_24v', 'regular_payload', 'backseat']  # this needs to match the gpio manager yaml
 
 ## topside stuff
@@ -27,8 +27,8 @@
   ros__parameters:
     dccl_tx_interval: 1.0
     helm_state_list: ['start', 'kill', 'teleop', 'survey'] #this has to match the helm
-    launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup',  'alpha_rise_bringup', 'alpha_rise_bringup']
-    launch_files: ['bringup_utilities', 'bringup_sensors', bringup_localization, 'bringup_mvp', 'bringup_thrusters', 'rosbag_record']
+    launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup',  'alpha_rise_bringup', 'alpha_rise_bringup', alpha_rise_bringup]
+    launch_files: ['bringup_utilities', 'bringup_sensors', bringup_localization, 'bringup_mvp', 'bringup_thrusters', 'rosbag_record', 'bringup_acomm' ]
     gpio_devices: ['payload_24v', 'regular_payload', 'backseat']  # this needs to match the gpio manager yaml
 
 
