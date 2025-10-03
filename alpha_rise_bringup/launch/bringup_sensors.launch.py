@@ -51,7 +51,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         imu,
-        # dvl,
+        dvl,
         pressure, 
         gps
     ])
