@@ -10,8 +10,6 @@ def generate_launch_description():
     robot_name = 'alpha_rise'
     robot_bringup = robot_name + '_bringup'
 
-    ld = LaunchDescription()
-
     # Driver Node
     param_config = os.path.join(
         get_package_share_directory(robot_bringup),
@@ -53,9 +51,7 @@ def generate_launch_description():
     )
 
 
-    ld.add_action(
+    return LaunchDescription([
         oculus_sonar_node,
         fls_pcl
-        )
-
-    return ld
+    ])

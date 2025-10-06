@@ -11,12 +11,12 @@ def generate_launch_description():
 
     msis = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','bluerobotics_ping360.launch.py')]),
-        launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
+        launch_arguments = {'arg_robot_name': robot_name}.items()  
     )
 
     fls = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','blueprint_oculus_sonar.launch.py')]),
-        launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
+        launch_arguments = {'arg_robot_name': robot_name}.items()  
     )
 
 
