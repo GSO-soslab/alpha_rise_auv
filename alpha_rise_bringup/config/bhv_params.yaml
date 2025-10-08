@@ -91,15 +91,17 @@ bhv_surfacing:
   surfacing_depth: 0.2
   min_gps_count_at_surface: 20
   navigation_fail_state: start
-  no_imu_timeout: 10.0
-  no_dvl_timeout: 10.0
+  no_imu_timeout: 10.0 #if you don't get any imu measurements in no_imu_timeout(s), then switch state.
+  no_dvl_timeout: 10.0 #if you don't get any dvl measurements in no_dvl_timeout(s), then switch state.
   dvl_topic: nucleus_node/bottom_lock_velocity_common
   imu_topic: ekf/imu/data
   
 bhv_altitude_tracking:
-  desired_altitude: 10.0 #distance from the bottom always positive
+  desired_altitude: 2.0 #distance from the bottom always positive
   altitude_tracking_mode: 0  # 0: safety mode 1:bottom altitude tracking
-  altitude_measurement_topic: nucleus_node/altimeter_common
+  altitude_measurement_topics: [nucleus_node/altimeter_common, nucleus_node/altimeter_beam1_common,altimeter_beam2_common, altimeter_beam3_common, altimeter_beamavg_common]
+  preset_water_depth: 30 #depth of water column (m)
+  no_altitude_timeout: 5.0 #if you don't get any altitude measurements in no_altitude_timeout(s), then switch state.
   desired_altitude_topic: desired_altitude
   pitch_gain: 0.0
   pitch_assist_band: 0.5

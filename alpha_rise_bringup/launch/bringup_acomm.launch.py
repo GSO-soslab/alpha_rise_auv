@@ -11,17 +11,16 @@ def generate_launch_description():
 
     # robot
     robot_name = 'alpha_rise'
+    robot_bringup = robot_name + '_bringup'
 
-    # param path
-    param_path = os.path.join(
-        get_package_share_directory('evologics_ros'),
-        'config'
-        )
+    # acomm param path
+    acomm_path = os.path.join(get_package_share_directory(robot_bringup),
+    'config')
     
     # different param
-    evologics_param_file = os.path.join(param_path, 'evologics_modem2.yaml') 
+    evologics_param_file = os.path.join(acomm_path, 'mvp_acomm.yaml') 
 
-    goby_param_file = os.path.join(param_path, 'goby.yaml') 
+    goby_param_file = os.path.join(acomm_path, 'goby.yaml') 
 
     # launch the node
     return LaunchDescription([
