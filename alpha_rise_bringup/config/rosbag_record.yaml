@@ -5,4 +5,4 @@ package_names:
   - "alpha_rise_bringup"
   - "alpha_rise_config"
 
-bag_output_dir: "/home/mvp_admin/ssd/nb_10_07/" 
+bag_output_dir: "/home/mvp_admin/ssd/whale_rock_10_10/" 
