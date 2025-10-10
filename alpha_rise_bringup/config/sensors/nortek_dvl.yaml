@@ -36,17 +36,20 @@
       - 'SETAHRS,FREQ=1,MODE=0,DS="OFF"'
       # Nav
       - 'SETNAV,DS="OFF"'
-      # Bottom Track AUTO, FAST_ACQ, CRAWLER
-      - 'SETBT,MODE="FAST_ACQ",WT="ON"'
-      # Altimeter
-      - 'SETALTI,PL=0'
-      # Water Track
-      # - 'SETWT,MODE="ESTCUR"'
+      # Bottom Track (Modes: AUTO, FAST_ACQ, CRAWLER)
+      # (PLMODE: [MAX, USER], default MAX)
+      # (PL(only set in USER mode): [-20, 0], default -2)
+      - 'SETBT,MODE="FAST_ACQ",WT="ON",PLMODE="MAX"'
+      # Water Track (FIXED, ESTCUR)
       # - 'SETWT,MODE="FIXED"'
+      # Altimeter (Power level [0, -20], default 0)
+      - 'SETALTI,PL=0'
       # Mission (50m-2Hz, 49m-3Hz, 44m-3.5Hz, 36m-4Hz, 30m-4.5Hz, 25m-5Hz, 21m-5.5Hz, 18m-6Hz, 15m-6.5Hz, 13m-7Hz, 11m-7.5Hz, <=9m-8Hz)
-      - 'SETMISSION,RANGE=25'
+      # SV (Sound Velocity [0;1700], default 1500, 0 use sensor measured sound velocity)
+      # SA (Salinity [0;50], default 35)
+      - 'SETMISSION,RANGE=25,SV=0'
       # Trigger and Frequency
-      - 'SETTRIG,SRC="INTERNAL",FREQ=5,ALTI=4,CP=0'
+      - 'SETTRIG,SRC="INTERNAL",FREQ=5,ALTI=5,CP=0'
   
     # Fluid Density
     fluid_density: 1023.0

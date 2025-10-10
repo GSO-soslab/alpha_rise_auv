@@ -22,7 +22,7 @@ finite_state_machine:
   survey:
     control_mode: flight
     transitions: [start, kill, teleop]
-    max_duration: 1000
+    max_duration: 1500
     exit_state: kill
 
 behaviors:

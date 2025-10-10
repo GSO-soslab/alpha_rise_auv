@@ -99,8 +99,8 @@ bhv_surfacing:
 bhv_altitude_tracking:
   desired_altitude: 2.0 #distance from the bottom always positive
   altitude_tracking_mode: 0  # 0: safety mode 1:bottom altitude tracking
-  altitude_measurement_topics: [nucleus_node/altimeter_common, nucleus_node/altimeter_beam1_common,altimeter_beam2_common, altimeter_beam3_common]
-  preset_water_depth: 30 #depth of water column (m)
+  altitude_measurement_topics: [nucleus_node/altimeter_common, nucleus_node/altimeter_beam1_common, nucleus_node/altimeter_beam2_common, nucleus_node/altimeter_beam3_common]
+  preset_water_depth: 20.0 #depth of water column (m)
   no_altitude_timeout: 5.0 #if you don't get any altitude measurements in no_altitude_timeout(s), then switch state.
   desired_altitude_topic: desired_altitude
   pitch_gain: 0.0
