@@ -86,10 +86,10 @@ bhv_path_following:
 bhv_surfacing:
   default_bhv_world_link: world_ned
   default_bhv_child_link: cg_link
-  no_gps_timeout: 120.0 #120 for z=5m(NED), 360 for z=15m 
+  no_gps_timeout: 200.0 #120 for z=5m(NED), 360 for z=15m 
   surfacing_duration: 20.0
   surfacing_depth: 0.2
-  min_gps_count_at_surface: 20
+  min_gps_count_at_surface: 10
   navigation_fail_state: start
   no_imu_timeout: 10.0 #if you don't get any imu measurements in no_imu_timeout(s), then switch state.
   no_dvl_timeout: 10.0 #if you don't get any dvl measurements in no_dvl_timeout(s), then switch state.
@@ -100,7 +100,7 @@ bhv_altitude_tracking:
   desired_altitude: 2.0 #distance from the bottom always positive
   altitude_tracking_mode: 0  # 0: safety mode 1:bottom altitude tracking
   altitude_measurement_topics: [nucleus_node/altimeter_common, nucleus_node/altimeter_beam1_common, nucleus_node/altimeter_beam2_common, nucleus_node/altimeter_beam3_common]
-  preset_water_depth: 20.0 #depth of water column (m)
+  preset_water_depth: 9.0 #depth of water column (m)
   no_altitude_timeout: 5.0 #if you don't get any altitude measurements in no_altitude_timeout(s), then switch state.
   desired_altitude_topic: desired_altitude
   pitch_gain: 0.0
