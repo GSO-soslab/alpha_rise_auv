@@ -1,0 +1,108 @@
+bhv_teleop:
+  default_bhv_world_link: world_ned
+  default_bhv_child_link: cg_link
+  ####tele-op, ang in degrees####
+  ##left up/down controls surge
+  ##X and B controls yaw
+  ##Y and A controls pitch
+  ##RB and RT controls depth
+  ## LB has to be pressed 
+  ##LT resets desired states to zero for all.
+  tele_s_surge: 1.0
+  tele_s_sway: 1.0
+  tele_d_yaw: 10.0 
+  tele_d_pitch: 10.0
+  tele_d_depth: 0.2
+  no_joy_timeout: 10.0
+
+# bhv_direct_control:
+#   ########################################
+#   ############## Desire ##################
+#   ########################################
+#   default_bhv_world_link: world_ned
+#   default_bhv_child_link: cg_link
+#   # position
+#   desired_x: 0.0
+#   desired_y: 0.0
+#   desired_z: 0.2
+
+#   # orientation (0.4 rad = 23 degree)
+#   desired_roll: 0.0 
+#   desired_pitch: 0.0
+#   desired_yaw: 0.0
+
+#   # velocity
+#   desired_u: 0.0
+#   desired_v: 0.0
+#   desired_w: 0.0
+
+#   # angular velocity
+#   desired_p: 0.0
+#   desired_q: 0.0
+#   desired_r: 0.0
+
+# bhv_profiling:
+#   no_depth_time: 10.0
+#   depth_band: 0.5
+#   depth_list: [5.0]
+#   depth_time_list: [10.0]
+#   dive_ang_list: [-0.43]
+#   climb_ang_list: [0.43]
+
+bhv_path_following:
+
+  default_bhv_world_link: world_ned
+  default_bhv_child_link: cg_link
+
+  state_done: start
+  state_fail: kill
+  acceptance_radius: 3.0
+  lookahead_distance: 3.0
+  overshoot_timeout: 30.0
+  # surge_velocity: 0.8
+  
+  sigma: 0.00 #integral gain
+  beta_gain: 0.0 #sideslip compensation gain
+
+  pitch_gain: 0.0
+  pitch_assist_band: 0.5
+  max_pitch: 0.35
+
+  lookahead_adaptive_flag: false
+  lookahead_max: 15.0
+  lookahead_min: 3.0
+  lookahead_gamma: 1.0
+  turning_surge_velocity: 0.2
+  turning_angle_sector: 1.04 #rad
+
+  waypoint_x: [30.0, 0.0, 15.0]
+  waypoint_y: [0.0, 20.0, 30.0]
+  waypoint_z: [4.0, 5.0, 3.0]
+  waypoint_u: [0.5, 0.8, 0.8]
+
+  waypoint_file_package: alpha_rise_bringup
+  waypoint_path: config/go_to_list/
+
+# bhv_surfacing:
+#   default_bhv_world_link: world_ned
+#   default_bhv_child_link: cg_link
+#   no_gps_timeout: 200.0 #120 for z=5m(NED), 360 for z=15m 
+#   surfacing_duration: 20.0
+#   surfacing_depth: 0.2
+#   min_gps_count_at_surface: 10
+#   navigation_fail_state: start
+#   no_imu_timeout: 10.0 #if you don't get any imu measurements in no_imu_timeout(s), then switch state.
+#   no_dvl_timeout: 10.0 #if you don't get any dvl measurements in no_dvl_timeout(s), then switch state.
+#   dvl_topic: nucleus_node/bottom_lock_velocity_common
+#   imu_topic: ekf/imu/data
+  
+# bhv_altitude_tracking:
+#   desired_altitude: 2.0 #distance from the bottom always positive
+#   altitude_tracking_mode: 0  # 0: safety mode 1:bottom altitude tracking
+#   altitude_measurement_topics: [nucleus_node/altimeter_common, nucleus_node/altimeter_beam1_common, nucleus_node/altimeter_beam2_common, nucleus_node/altimeter_beam3_common]
+#   preset_water_depth: 9.0 #depth of water column (m)
+#   no_altitude_timeout: 5.0 #if you don't get any altitude measurements in no_altitude_timeout(s), then switch state.
+#   desired_altitude_topic: desired_altitude
+#   pitch_gain: 0.0
+#   pitch_assist_band: 0.5
+#   max_pitch: 0.0

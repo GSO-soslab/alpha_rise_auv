@@ -1,0 +1,53 @@
+finite_state_machine:
+
+  start:
+    initial: true
+    control_mode: idle
+    transitions: [kill, teleop, survey]
+    # max_duration: 100
+    # exit_state: start
+  
+  kill:
+    control_mode: idle
+    transitions: [start]
+    # max_duration: 100
+    # exit_state: start
+
+  teleop:
+    control_mode: teleop
+    transitions: [start, kill] 
+    max_duration: 30
+    exit_state: kill
+    
+  survey:
+    control_mode: flight
+    transitions: [start, kill, teleop]
+    max_duration: 2000
+    exit_state: kill
+
+behaviors:
+
+  bhv_teleop:
+    plugin: helm/Teleoperation
+    priority:
+      teleop: 1
+  
+  # bhv_direct_control:
+  #   plugin: helm/DirectControl
+  #   priority:
+  #     direct_control: 1
+
+  bhv_path_following:
+    plugin: helm/PathFollowing
+    priority:
+      survey: 1
+      
+  # bhv_surfacing:
+  #   plugin: helm/Surfacing
+  #   priority:
+  #     survey: 3
+
+  # bhv_altitude_tracking:
+  #   plugin: helm/AltitudeTracking
+  #   priority: 
+  #     survey: 2

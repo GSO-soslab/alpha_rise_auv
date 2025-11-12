@@ -62,7 +62,7 @@ def generate_launch_description():
         name='path_generator',
         namespace="alpha_rise",
         output='screen',
-        parameters=[param_config]
+        parameters=[path_gen_param_config]
     )
 
     return LaunchDescription([
