@@ -14,7 +14,7 @@
     # --- Frame ID ---
     # The TF frame_id to be used in stamped messages
     frame_id: 'alpha_rise/dvl'
-    
+    world_frame_id: 'alpha_rise/world'
     # --- Automatic Control ---
     # If true, the node will attempt to connect to the sensor on startup.
     auto_connect: true
