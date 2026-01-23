@@ -3,7 +3,7 @@
     ros__parameters:
 
         # The usb device for unicore gps
-        device: /dev/ttyUSB0
+        device: /dev/gps
         baudrate: 115200
         heading_frame_id: alpha_rise/world_ned
         gps_frame_id: alpha_rise/unicore_gps
