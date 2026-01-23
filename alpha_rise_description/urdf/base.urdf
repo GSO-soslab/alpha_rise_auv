@@ -32,7 +32,7 @@
         <parent link="base_link"/>
         <child link="imu"/>
     </joint>
-nose_tip_link
+
     <link name="imu_sf"/>
     <joint name="imu__sf_joint" type="fixed">
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
