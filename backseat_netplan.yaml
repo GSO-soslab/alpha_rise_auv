@@ -1,0 +1,44 @@
+network:
+  version: 2
+  wifis:
+    wlan0:
+      optional: true
+      dhcp4: no
+      addresses:
+       - 192.168.1.185/24
+      nameservers:
+       addresses:
+           - 8.8.8.8
+           - 1.1.1.1
+      routes:
+         - to: 0.0.0.0
+           via: 192.168.1.1
+      access-points:
+        "soslab":
+          auth:
+            key-management: "psk"
+            password: "d4735688c0f567c5f535a78dd633065e2af25d2f35c3bc88151f5889c390033f"
+
+  ethernets:
+     eth0:
+       dhcp4: no
+       addresses: 
+        - 192.168.2.70/24
+       nameservers:
+         addresses: 
+           - 8.8.8.8
+           - 1.1.1.1
+       routes:
+         - to: 0.0.0.0/0
+           via: 192.168.2.1
+     enx207bd271dc95:
+       match:
+         macaddress: 20:7b:d2:71:dc:95
+       dhcp4: no
+       optional: true
+       addresses:
+        - 192.168.3.70/24
+       routes:
+         - to: 0.0.0.0/0
+           via: 192.168.3.1
+
