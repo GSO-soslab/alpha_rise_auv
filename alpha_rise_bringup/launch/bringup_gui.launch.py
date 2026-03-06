@@ -10,7 +10,7 @@ def generate_launch_description():
     pkg_share_dir = get_package_share_directory('alpha_rise_bringup')
     
     # Define the path to the parameter file
-    params_file = os.path.join(pkg_share_dir, 'config', 'mvp_gui_params.yaml')
+    params_file = os.path.join(pkg_share_dir, 'config', 'c2', 'mvp_gui_params.yaml')
 
     # Node for the Flask web server
     flask_node = Node(
