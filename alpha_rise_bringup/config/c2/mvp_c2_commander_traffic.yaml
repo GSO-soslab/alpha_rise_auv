@@ -4,7 +4,7 @@
     max_frame_size: 200  #maximum size per transmission packet
     tx_interval: 1.0
 
-    tdma_enable: True
+    tdma_enable: False
 
     tdma:
       slot_id: 0
@@ -22,6 +22,7 @@
       dccl_intake_message_list: ["Joy", "SetPowerPort", "SetController", "SetHelm", "SetWpt", "RosLaunch"]
 
     # --- Message Specific Rules ---
+    # Higher means priority
     message_rules:
       RosLaunch:
         priority: 10
