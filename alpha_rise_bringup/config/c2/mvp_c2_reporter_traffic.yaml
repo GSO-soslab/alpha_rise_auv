@@ -3,7 +3,7 @@
 
     max_frame_size: 200  #maximum size per transmission packet
     tx_interval: 2.0
-    tdma_enable: False
+    tdma_enable: True
 
     tdma:
       slot_id: 1

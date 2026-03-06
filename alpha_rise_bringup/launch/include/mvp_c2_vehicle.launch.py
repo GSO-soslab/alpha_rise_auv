@@ -7,10 +7,10 @@ from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
-    robot_name = 'robot_name'
+    robot_name = 'alpha_rise'
     robot_bringup = robot_name + '_bringup'
     reporter_setting_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'c2', 'mvp_c2.yaml') 
-    reporter_traffic_manager_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'c2', `'mvp_c2_reporter_traffic.yaml') 
+    reporter_traffic_manager_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'c2', 'mvp_c2_reporter_traffic.yaml') 
     
     return LaunchDescription([
         # serial_comm
