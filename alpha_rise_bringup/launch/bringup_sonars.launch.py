@@ -19,8 +19,12 @@ def generate_launch_description():
         launch_arguments = {'robot_name': robot_name}.items()  
     )
 
-
+    mbes = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','cerulean_sonar_mbes.launch.py')]),
+        launch_arguments = {'robot_name': robot_name}.items()  
+    )
     return LaunchDescription([
     msis,
-    fls
+    fls,
+    mbes
     ])

@@ -1,0 +1,29 @@
+/alpha_rise/cerulean_sonar_mbes:
+  ros__parameters:
+    interface:
+      # Connection method: "serial" for USB/serial, "udp" for ethernet
+      connection_type: "udp"
+
+      # Serial port the Surveyor240 is connected to (used when connection_type is "serial")
+      device: "/dev/ttyUSB0"
+
+      # Baud rate of the serial connection
+      baudrate: 115200
+
+      # IP address of the Surveyor240 (used when connection_type is "udp")
+      udp_address: "192.168.3.122"
+
+      # UDP port of the Surveyor240 (used when connection_type is "udp")
+      udp_port: 62312
+
+    configuration:
+      # TF frame ID attached to all published messages
+      frame_id: "alpha_rise/mbes_link"
+
+      auto_range: True
+
+      # If auto_range is False, then maximum sonar range in meters. Max range is 100m
+      range: 100.0
+      
+      # Speed of sound (m/s) used in angle calculations. Default is 1500.0
+      sound_speed: 1500.0

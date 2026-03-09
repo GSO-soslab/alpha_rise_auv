@@ -77,9 +77,16 @@
 
     <link name="ping360_link"/>
     <joint name="ping360_joint" type="fixed">
-        <origin xyz="0.70 0.0 -0.11" rpy="0.0 0.0 3.1415926"/>
+        <origin xyz="0.74 0.0 -0.11" rpy="0.0 0.0 3.1415926"/>
         <parent link="base_link"/>
         <child link="ping360_link"/>
+    </joint>
+
+    <link name="mbes_link"/>
+    <joint name="mbes_joint" type="fixed">
+        <origin xyz="0.74 -0.10 -0.0" rpy="0.0 1.57 -0.7854"/>
+        <parent link="base_link"/>
+        <child link="mbes_link"/>
     </joint>
 
     <link name="ping360_link_sf"/>
