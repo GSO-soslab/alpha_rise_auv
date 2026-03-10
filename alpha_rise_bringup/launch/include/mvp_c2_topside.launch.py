@@ -15,21 +15,7 @@ def generate_launch_description():
     topside_traffic_manager_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'c2', 'mvp_c2_commander_traffic.yaml') 
 
     return LaunchDescription([
-        
-        # Node(
-        #     package = 'mvp_c2',
-        #     namespace = 'commander',
-        #     executable='mvp_c2_serial_comm',
-        #     name = 'commander_c2_serial_comm',
-        #     output='screen',
-        #     prefix=['stdbuf -o L'],
-        #     parameters=[topside_setting_file],
-        #     remappings=[
-        #         ('dccl_msg_tx', 'mvp_c2/dccl_msg_tx'),
-        #         ('dccl_msg_rx', 'mvp_c2/dccl_msg_rx'),
-        #     ]
-        # ),
-
+        #serial
         Node(
             package = 'mvp_c2',
             namespace = robot_name,
@@ -43,6 +29,21 @@ def generate_launch_description():
                 ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
             ]
         ),
+
+        #udp
+        # Node(
+        #     package = 'mvp_c2',
+        #     namespace = robot_name,
+        #     executable='mvp_c2_udp_comm',
+        #     name = 'commander_c2_udp_comm',
+        #     output='screen',
+        #     prefix=['stdbuf -o L'],
+        #     parameters=[topside_setting_file],
+        #     remappings=[
+        #         ('dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_controlled_tx'),
+        #         ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
+        #     ]
+        # ),
     #commander node
         Node(
             package='mvp_c2',
@@ -68,18 +69,18 @@ def generate_launch_description():
             parameters=[topside_traffic_manager_file],
         ),
 
-        # Node(
-        #     package="joy",
-        #     executable="joy_node",
-        #     name="joy_node",
-        #     namespace='commander',
-        #     output="screen",
-        #     parameters=[
-        #         {'coalesce_interval': 10},
-        #         {'autorepeat_rate': 0.0}
-        #     ],
-        #     remappings=[
-        #         ('joy', 'remote/id_2/joy'),
-        #     ]   
-        # ),
+        Node(
+            package="joy",
+            executable="joy_node",
+            name="joy_node",
+            namespace=robot_name,
+            output="screen",
+            parameters=[
+                {'coalesce_interval': 10},
+                {'autorepeat_rate': 0.0}
+            ],
+            remappings=[
+                ('joy', 'remote/id_2/joy'),
+            ]   
+        ),
     ])
