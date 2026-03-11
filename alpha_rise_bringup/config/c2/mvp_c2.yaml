@@ -17,6 +17,7 @@
 /alpha_rise/mvp_c2_reporter:
   ros__parameters:
     dccl_tx_interval: 1.0
+    dccl_rx_interval: 0.2
     helm_state_list: ['start', 'kill', 'teleop', 'survey'] #this has to match the helm
     launch_packages: ['alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup',  'alpha_rise_bringup', 'alpha_rise_bringup', 'alpha_rise_bringup']
     launch_files: ['bringup_utilities', 'bringup_sensors', bringup_localization, 'bringup_mvp', 'bringup_thrusters', 'rosbag_record', 'bringup_acomm']

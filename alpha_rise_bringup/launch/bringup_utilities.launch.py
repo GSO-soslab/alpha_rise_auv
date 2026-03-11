@@ -50,6 +50,6 @@ def generate_launch_description():
         power_monitor,
         computer_monitor,
         gpio_manager
-        # foxglove
+        foxglove
     ])
     

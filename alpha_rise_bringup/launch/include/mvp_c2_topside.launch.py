@@ -77,7 +77,7 @@ def generate_launch_description():
             output="screen",
             parameters=[
                 {'coalesce_interval': 10},
-                {'autorepeat_rate': 0.0}
+                {'autorepeat_rate': 2.0}
             ],
             remappings=[
                 ('joy', 'mvp_c2_commander/remote/id_2/joy'),
