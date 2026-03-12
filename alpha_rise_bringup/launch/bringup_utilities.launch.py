@@ -49,7 +49,7 @@ def generate_launch_description():
     return LaunchDescription([
         power_monitor,
         computer_monitor,
-        gpio_manager
+        gpio_manager,
         foxglove
     ])
     
