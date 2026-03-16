@@ -42,7 +42,7 @@ ros_interface_node:
     #----------------------------
     # Topics
     #----------------------------
-    topic_ns: "/alpha_rise/remote/id_2/"
+    topic_ns: "/alpha_rise/mvp_c2_commander/remote/id_2/"
     ## pose
     poses_source: "odometry"
     geo_pose_source: "geopose"
@@ -60,7 +60,7 @@ ros_interface_node:
     #----------------------------
     # Services
     #----------------------------
-    service_ns: "/alpha_rise/remote/id_2/"
+    service_ns: "/alpha_rise/mvp_c2_commander/remote/id_2/"
     helm_state_set: "mvp_helm/change_state"
     controller_state_set: "controller/set"
     pub_waypoints_service: "mvp_helm/set_waypoints"

@@ -16,7 +16,7 @@ finite_state_machine:
   teleop:
     control_mode: teleop
     transitions: [start, kill] 
-    max_duration: 30
+    max_duration: 3000
     exit_state: kill
     
   survey:

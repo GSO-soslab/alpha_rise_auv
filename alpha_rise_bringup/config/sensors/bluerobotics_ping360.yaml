@@ -15,7 +15,7 @@
       # Frame ID for msgs
       frame: alpha_rise/ping360_link
       # Sonar gain (0 = low, 1 = normal, 2 = high)"
-      gain: 2
+      gain: 1
       # Sonar operating frequency [kHz]" [650-850]
       frequency: 750
       # Sonar max range [m] [1-50]"
