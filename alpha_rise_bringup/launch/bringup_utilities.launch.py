@@ -6,7 +6,7 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, PythonExpression
-import time
+from launch_ros.actions import Node
 from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
@@ -35,21 +35,17 @@ def generate_launch_description():
     )
     
     #Foxglove Bridge
-    foxglove = IncludeLaunchDescription(
-        XMLLaunchDescriptionSource(
-            PathJoinSubstitution([
-                FindPackageShare(robot_bringup),
-                'launch',
-                'include',
-                'foxglove_bridge_launch.xml'
-            ])
-        )
+    foxglove = Node(
+        package='foxglove_bridge',
+        executable='foxglove_bridge',
+        name='foxglove_bridge',
+        output='screen'
     )
 
     return LaunchDescription([
         power_monitor,
         computer_monitor,
         gpio_manager,
-        foxglove
+        # foxglove
     ])
     
