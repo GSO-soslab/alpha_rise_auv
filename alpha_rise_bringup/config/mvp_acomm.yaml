@@ -36,9 +36,9 @@
       # Retry Timeout should exced the two-way travel time of the maximum operating range plus 1 second
       retry_timeout: 4000
       #Note: Keep Online Count (0 = acoustic connection will remain online, 1-255 = number of message exchanges to keep the connection online)
-      keep_online_count: 1
+      keep_online_count: 0
       #Note: Idle Timeout (0-3600s) The timeout before closing an idle acoustic connection
-      idle_timeout: 1
+      idle_timeout: 120
       #Note: Channel Protocol ID (0-7) The data channel messages are exchanged on
       channel_protocol_id: 0
       #Note: Sound Speed (1300-1700m/s) The sound speed used to evaluate the range to the remote device
