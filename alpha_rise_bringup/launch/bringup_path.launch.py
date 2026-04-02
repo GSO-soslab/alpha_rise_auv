@@ -66,7 +66,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        msis_pcl,
-        costmap,
+        # msis_pcl,
+        # costmap,
         path_gen_node
     ])

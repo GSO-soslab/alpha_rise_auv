@@ -5,6 +5,7 @@
     costmap_topic: '/alpha_rise/costmap'
     path_topic: 'path'
     debug: false
+    costmap_method: 'custom'
     enable_search_mode: false
     msis_vertical_beamwidth: 25 #degree
     canny_min_threshold: 200

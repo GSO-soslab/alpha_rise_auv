@@ -2,6 +2,7 @@ from launch import LaunchDescription
 from launch.actions import ExecuteProcess, RegisterEventHandler, OpaqueFunction
 from launch.event_handlers import OnProcessStart
 import os
+import shutil
 import yaml
 from pathlib import Path
 import datetime
@@ -14,6 +15,7 @@ with open(CONFIG_PATH, "r") as f:
 
 WORKSPACE_NAME = config["workspace_name"]
 PACKAGE_NAMES = config["package_names"]
+URDF_PACKAGE_NAMES = config["urdf_package_names"]
 
 USER_NAME = os.getenv("USER") or os.getlogin()
 INSTALL_BASE = Path(f"/home/{USER_NAME}/{WORKSPACE_NAME}/install")
@@ -63,6 +65,18 @@ def merge_yaml_files(config_paths: list[Path], output_path: Path):
 
     print(f"[INFO] Merged YAML written to: {output_file}")
 
+def copy_urdf_files(package_paths: list[Path], output_path: Path):
+    for pkg_path in package_paths:
+        urdf_files = list(pkg_path.rglob("*.urdf"))
+        if not urdf_files:
+            print(f"[WARNING] No .urdf files found in: {pkg_path}")
+            continue
+        for urdf_file in urdf_files:
+            dest = output_path / urdf_file.name
+            shutil.copy2(urdf_file, dest)
+            print(f"[INFO] Copied URDF: {urdf_file} -> {dest}")
+
+
 def post_process(context, *args, **kwargs):
     try:
         package_paths = [
@@ -80,6 +94,11 @@ def post_process(context, *args, **kwargs):
 
         print(f"[INFO] Writing merged config into: {SESSION_DIR}")
         merge_yaml_files(config_paths, SESSION_DIR)
+
+        urdf_package_paths = [
+            INSTALL_BASE / pkg / "share" / pkg for pkg in URDF_PACKAGE_NAMES
+        ]
+        copy_urdf_files(urdf_package_paths, SESSION_DIR)
 
     except Exception as e:
         print(f"[ERROR] Post-processing failed: {e}")
