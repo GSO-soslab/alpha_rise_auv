@@ -5,4 +5,8 @@ package_names:
   - "alpha_rise_bringup"
   - "alpha_rise_config"
 
-bag_output_dir: "/home/mvp_admin/ssd/allen_harbour_3_13_26/" 
+# Packages whose .urdf files need to be copied into the bag session folder
+urdf_package_names:
+  - "alpha_rise_description"
+
+bag_output_dir: "/home/mvp_admin/ssd/"
