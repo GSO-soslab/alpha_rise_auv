@@ -14,7 +14,7 @@
         tcp_port: 9200
 
       # Note: Transducer Source Level (0 = Maximum, 1 = -6dB, 2 = -12dB, 3 = -20dB)
-      source_level: 0
+      source_level: 1
       # Note: Source Control Level (0 = Cannot be changed by remote, 1 = Can be changed by remote)
       source_control: 1
       # Note: Gain (0 = Normal gain, 1 = Low gain (-20dB sensitivity) (short distance/testing))
