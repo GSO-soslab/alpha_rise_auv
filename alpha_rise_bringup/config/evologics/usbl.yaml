@@ -32,10 +32,10 @@
       # Note: Highest Address (2,6,14,30,62,126,254)
       highest_address: 6
       # Note: Cluster Size (1-31) (Communication between moving objects should be <10. Stationary cases may be higher)
-      cluster_size: 1
+      cluster_size: 5
       # Note: Packet Time (500-1200ms) (Shorter packet time is recomended for challenging hydroacoustic channels)
       # MUST BE EQUAL FOR ALL COMMUNICATING DEVICES
-      packet_time: 750
+      packet_time: 1000
       # Note: Retry Count (0-255) The number of connection establishment retries
       retry_count: 3
       # Note: Retry Timeout (500-12000ms) The time interval the devices waits for a response to an acoustic connection establishment request
@@ -44,7 +44,7 @@
       #Note: Keep Online Count (0 = acoustic connection will remain online, 1-255 = number of message exchanges to keep the connection online)
       keep_online_count: 1
       #Note: Idle Timeout (0-3600s) The timeout before closing an idle acoustic connection
-      idle_timeout: 1
+      idle_timeout: 0
       #Note: Channel Protocol ID (0-7) The data channel messages are exchanged on
       channel_protocol_id: 0
       #Note: Sound Speed (1300-1700m/s) The sound speed used to evaluate the range to the remote device

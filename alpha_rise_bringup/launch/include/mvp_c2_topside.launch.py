@@ -112,7 +112,7 @@ def generate_launch_description():
         serial_node,
         udp_node,
         traffic_manager,
-        commander,
+        commander_node,
         # mvp_geopoint,
         joy     
     ])

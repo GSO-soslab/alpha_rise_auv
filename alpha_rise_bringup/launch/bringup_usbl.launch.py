@@ -93,7 +93,7 @@ def generate_launch_description():
         # serial_node,
         # udp_node,
         usbl_node,
-        commander_node,
+        #commander_node,
         # traffic_manager,
         usbl_traffic_manager,
         # mvp_geopoint,
