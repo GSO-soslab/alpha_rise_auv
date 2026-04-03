@@ -106,12 +106,13 @@ def generate_launch_description():
                 remappings=[
                     ('joy', 'mvp_c2_commander/remote/id_2/joy'),
                 ]   
-            ),
+            )
     
     return LaunchDescription([
         serial_node,
         udp_node,
         traffic_manager,
+        commander,
         # mvp_geopoint,
         joy     
     ])
