@@ -1,4 +1,4 @@
-/alpha_rise/mvp_c2_traffic_control:
+/alpha_rise_top/mvp_c2_traffic_control:
   ros__parameters:
 
     max_frame_size: 200  #maximum size per transmission packet

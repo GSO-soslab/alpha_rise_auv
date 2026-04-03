@@ -2,7 +2,7 @@
   ros__parameters:
 
     max_frame_size: 300  #maximum size per transmission packet
-    tx_interval: 1.0
+    tx_interval: 2.0
     tdma_enable: false
 
     tdma:
@@ -19,14 +19,19 @@
         - "PowerMonitor"
         - "AltimeterPointStamped"
         - "CPUMonitor"
+        - "ReportRosLaunch"
 
     # --- Message Specific Rules ---
     message_rules:
 
+      ReportRosLaunch:
+        priority: 7
+        ttl_seconds: 100
+
       AltimeterPointStamped:
         priority: 5
         ttl_seconds: 100
-
+      
       CPUMonitor:
         priority: 4
         ttl_seconds: 100

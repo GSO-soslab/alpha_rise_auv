@@ -2,7 +2,7 @@
 ###################### Configuration ##############################
 ###################################################################
 
-/alpha_rise/evologics_ros_node_usbl:
+/alpha_rise_top/evologics_ros_node_usbl:
   ros__parameters:
     type: "usbl"
     transmit_flag: true

@@ -16,9 +16,8 @@ def generate_launch_description():
     goby_param_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'evologics', 'goby.yaml') 
     acomm_traffic_manager_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'evologics', 'mvp_c2_acomm_reporter_traffic.yaml') 
 
-    return LaunchDescription([
-        # serial_comm
-        Node(
+    # serial_comm
+    serial_node = Node(
             package = 'mvp_c2',
             namespace = robot_name,
             executable='mvp_c2_serial_comm',
@@ -30,80 +29,88 @@ def generate_launch_description():
                 ('dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_controlled_tx'),
                 ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
             ]
-        ),
+        )
         
         #udp
-        Node(
-            package = 'mvp_c2',
-            namespace = robot_name,
-            executable='mvp_c2_udp_comm',
-            name = 'reporter_c2_udp_comm',
-            output='screen',
-            prefix=['stdbuf -o L'],
-            parameters=[reporter_setting_file],
-            remappings=[
-                ('dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_controlled_tx'),
-                ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
-            ]
-        ),
+    udp_node = Node(
+                package = 'mvp_c2',
+                namespace = robot_name,
+                executable='mvp_c2_udp_comm',
+                name = 'reporter_c2_udp_comm',
+                output='screen',
+                prefix=['stdbuf -o L'],
+                parameters=[reporter_setting_file],
+                remappings=[
+                    ('dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_controlled_tx'),
+                    ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
+                ]
+            )
 
         #acomm
-         Node(
-            package = 'evologics_ros',
-            namespace = robot_name,
-            executable='evologics_ros_node',
-            name = 'evologics_ros_acomm_node',
-            output='screen',
-            prefix=['stdbuf -o L'],
-            parameters=[acomm_param_file,goby_param_file],
-        ),
+    acomm_node = Node(
+                    package = 'evologics_ros',
+                    namespace = robot_name,
+                    executable='evologics_ros_node',
+                    name = 'evologics_ros_acomm_node',
+                    output='screen',
+                    prefix=['stdbuf -o L'],
+                    parameters=[acomm_param_file,goby_param_file],
+                )
 
         #DCCL reporter node
-        Node(
-            package = 'mvp_c2',
-            namespace = robot_name,
-            executable='mvp_c2_reporter_ros',
-            name='mvp_c2_reporter',
-            output='screen',
-            prefix=['stdbuf -o L'],
-            parameters=[reporter_setting_file],
-            remappings=[
-                ('local/odometry', 'odometry/filtered'),
-                ('local/geopose', 'odometry/geopose'),
-                ('local/altimeter', 'nucleus_node/altimeter_common'),
-                ('joy', 'mvp_helm/bhv_teleop/joy'),
-                ('mvp_helm/path', 'bhv_path_following/get_next_waypoints'),
-                ('mvp_helm/set_waypoints', 'bhv_path_following/update_waypoints'),
-                ('mvp_c2/reporter/dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_tx'),
-                ('local/power_monitor', 'power_monitor_node/power_monitor'),
-                ('local/computer_info', 'pi/computer_info'),
-                ('mvp_c2/reporter/dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_controlled_rx'),
-            ]
-        ),
+    reporter_node =  Node(
+                        package = 'mvp_c2',
+                        namespace = robot_name,
+                        executable='mvp_c2_reporter_ros',
+                        name='mvp_c2_reporter',
+                        output='screen',
+                        prefix=['stdbuf -o L'],
+                        parameters=[reporter_setting_file],
+                        remappings=[
+                            ('local/odometry', 'odometry/filtered'),
+                            ('local/geopose', 'odometry/geopose'),
+                            ('local/altimeter', 'nucleus_node/altimeter_common'),
+                            ('joy', 'mvp_helm/bhv_teleop/joy'),
+                            ('mvp_helm/path', 'bhv_path_following/get_next_waypoints'),
+                            ('mvp_helm/set_waypoints', 'bhv_path_following/update_waypoints'),
+                            ('mvp_c2/reporter/dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_tx'),
+                            ('local/power_monitor', 'power_monitor_node/power_monitor'),
+                            ('local/computer_info', 'pi/computer_info'),
+                            ('mvp_c2/reporter/dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_controlled_rx'),
+                        ]
+                    )
 
-        Node(
-            package='mvp_c2',
-            namespace=robot_name,
-            executable='mvp_c2_traffic_control_ros',
-            name='mvp_c2_traffic_control',
-            output='screen',
-            prefix=['stdbuf -o L'],
-            parameters=[reporter_traffic_manager_file],
-        ),
+    traffic_control =  Node(
+                            package='mvp_c2',
+                            namespace=robot_name,
+                            executable='mvp_c2_traffic_control_ros',
+                            name='mvp_c2_traffic_control',
+                            output='screen',
+                            prefix=['stdbuf -o L'],
+                            parameters=[reporter_traffic_manager_file],
+                        )
 
-        ##traffic manager for usbl
-        Node(
-            package='mvp_c2',
-            namespace=robot_name,
-            executable='mvp_c2_traffic_control_ros',
-            name='mvp_c2_acomm_traffic_control',
-            output='screen',
-            prefix=['stdbuf -o L'],
-            parameters=[acomm_traffic_manager_file],
-            remappings=[
-                ('mvp_c2/traffic_control/dccl_msg_controlled_tx', 'modem/tx_multibytearray'),
-                ('mvp_c2/traffic_control/dccl_msg_rx', 'modem/rx_multibytearray'),
-            ]
-        ),
-
+    ##traffic manager for usbl
+    acomm_traffic_control = Node(
+                                package='mvp_c2',
+                                namespace=robot_name,
+                                executable='mvp_c2_traffic_control_ros',
+                                name='mvp_c2_acomm_traffic_control',
+                                output='screen',
+                                prefix=['stdbuf -o L'],
+                                parameters=[acomm_traffic_manager_file],
+                                remappings=[
+                                    ('mvp_c2/traffic_control/dccl_msg_controlled_tx', 'modem/tx_multibytearray'),
+                                    ('mvp_c2/traffic_control/dccl_msg_rx', 'modem/rx_multibytearray'),
+                                ]
+                            )
+    
+    return LaunchDescription([
+        # serial_node,
+        # udp_node,
+        acomm_node,
+        # traffic_control,
+        acomm_traffic_control,
+        reporter_node,
     ])
+
