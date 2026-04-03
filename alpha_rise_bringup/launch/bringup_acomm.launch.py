@@ -27,29 +27,6 @@ def generate_launch_description():
                     parameters=[acomm_param_file,goby_param_file],
                 )
 
-        #DCCL reporter node
-    reporter_node =  Node(
-                        package = 'mvp_c2',
-                        namespace = robot_name,
-                        executable='mvp_c2_reporter_ros',
-                        name='mvp_c2_reporter',
-                        output='screen',
-                        prefix=['stdbuf -o L'],
-                        parameters=[reporter_setting_file],
-                        remappings=[
-                            ('local/odometry', 'odometry/filtered'),
-                            ('local/geopose', 'odometry/geopose'),
-                            ('local/altimeter', 'nucleus_node/altimeter_common'),
-                            ('joy', 'mvp_helm/bhv_teleop/joy'),
-                            ('mvp_helm/path', 'bhv_path_following/get_next_waypoints'),
-                            ('mvp_helm/set_waypoints', 'bhv_path_following/update_waypoints'),
-                            ('mvp_c2/reporter/dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_tx'),
-                            ('local/power_monitor', 'power_monitor_node/power_monitor'),
-                            ('local/computer_info', 'pi/computer_info'),
-                            ('mvp_c2/reporter/dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_controlled_rx'),
-                        ]
-                    )
-
     ##traffic manager for usbl
     acomm_traffic_control = Node(
                                 package='mvp_c2',
@@ -68,6 +45,5 @@ def generate_launch_description():
     return LaunchDescription([
         acomm_node,
         acomm_traffic_control,
-        reporter_node,
     ])
 
