@@ -17,6 +17,7 @@
         - "Odometry"
         - "GeoPose"
         - "PowerMonitor"
+        - "ReportPowerPort"
         - "AltimeterPointStamped"
         - "CPUMonitor"
         - "ReportRosLaunch"
@@ -28,6 +29,10 @@
         priority: 7
         ttl_seconds: 100
 
+      ReportPowerPort:
+        priority: 6
+        ttl_seconds: 100
+        
       AltimeterPointStamped:
         priority: 5
         ttl_seconds: 100
