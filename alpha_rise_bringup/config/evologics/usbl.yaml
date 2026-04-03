@@ -1,14 +1,20 @@
 ###################################################################
 ###################### Configuration ##############################
 ###################################################################
-/alpha_rise/evologics_ros_node:
+
+/alpha_rise/evologics_ros_node_usbl:
   ros__parameters:
-    type: "modem"
+    type: "usbl"
     transmit_flag: true
+
     config:
+      async_ping_mode: false
+      async_ping_period_ms: 5000
+      unified_goby_message_mode: true
+      unified_goby_subbuffer_id: "dccl"
       interface:
         connection_type: "tcp"
-        tcp_address: "192.168.2.108"
+        tcp_address: "192.168.2.109"
         tcp_port: 9200
 
       # Note: Transducer Source Level (0 = Maximum, 1 = -6dB, 2 = -12dB, 3 = -20dB)
@@ -18,11 +24,11 @@
       # Note: Gain (0 = Normal gain, 1 = Low gain (-20dB sensitivity) (short distance/testing))
       gain_level: 0
       # Note: Carrier Waveform ID (0-3) (0-1 for 2 devices, 2-2 and 3-3 for networking)
-      carrier_waveform_id: 1
+      carrier_waveform_id: 0
       # Note: Local Address (1-Highest Address)
-      local_address: 2
+      local_address: 1
       # Note: Remote Address (0-Highest Address) (0 can listen to all transmission but cannot send to any)
-      remote_address: 1
+      remote_address: 2
       # Note: Highest Address (2,6,14,30,62,126,254)
       highest_address: 6
       # Note: Cluster Size (1-31) (Communication between moving objects should be <10. Stationary cases may be higher)
@@ -34,11 +40,11 @@
       retry_count: 3
       # Note: Retry Timeout (500-12000ms) The time interval the devices waits for a response to an acoustic connection establishment request
       # Retry Timeout should exced the two-way travel time of the maximum operating range plus 1 second
-      retry_timeout: 4000
+      retry_timeout: 3000
       #Note: Keep Online Count (0 = acoustic connection will remain online, 1-255 = number of message exchanges to keep the connection online)
-      keep_online_count: 0
+      keep_online_count: 1
       #Note: Idle Timeout (0-3600s) The timeout before closing an idle acoustic connection
-      idle_timeout: 120
+      idle_timeout: 1
       #Note: Channel Protocol ID (0-7) The data channel messages are exchanged on
       channel_protocol_id: 0
       #Note: Sound Speed (1300-1700m/s) The sound speed used to evaluate the range to the remote device

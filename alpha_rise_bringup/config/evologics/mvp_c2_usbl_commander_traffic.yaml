@@ -1,0 +1,42 @@
+/alpha_rise/mvp_c2_usbl_traffic_control:
+  ros__parameters:
+
+    max_frame_size: 200  #maximum size per transmission packet
+    tx_interval: 1.0
+
+    tdma_enable: False
+
+    tdma:
+      slot_id: 0
+      role: "master"
+      slot_duration: 5.0
+      num_slots: 2
+      slot_guard_time_ms: 100
+      sync_slot_interval: 5
+      sync_msg_repeat_num: 5
+      
+    # --- Buffer Global Settings ---
+    dynamic_buffer:
+      max_total_size: 150 # how many dccl message entries will be stored
+      overflow_remove_by_time: False
+      dccl_intake_message_list: ["SetPowerPort", "SetController", "SetHelm", "SetWpt"]
+
+    # --- Message Specific Rules ---
+    # Higher means priority
+    message_rules:
+
+      SetPowerPort:
+        priority: 9
+        ttl_seconds: 100
+
+      SetController:
+        priority: 8
+        ttl_seconds: 100
+
+      SetHelm:
+        priority: 7
+        ttl_seconds: 100
+
+      SetWpt:
+        priority: 6
+        ttl_seconds: 100

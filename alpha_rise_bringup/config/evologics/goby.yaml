@@ -1,19 +1,19 @@
-/alpha_rise/evologics_ros_node:
+/**/**:
   ros__parameters:
     goby:
-      max_frame_bytes: 1000
+      max_frame_bytes: 200
       mac_slot_time: 5
       valid_depth: -1
 
       dynamic_buffer:
         #select the subbuffer_id(s) to load to the dynamic buffer
-        messages: ["vampire_state"]
+        messages: ["dccl"]
 
         #buffer configuration (https://goby.software/3.0/md_doc101_acomms-queue.html)
-        vampire_state:
+        dccl:
           ack: false
           blackout_time: 0
-          max_queue: 1
+          max_queue: 10
           newest_first: true 
           ttl: 1800
           value_base: 1
