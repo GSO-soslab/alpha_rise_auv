@@ -79,7 +79,7 @@ def generate_launch_description():
     
     return LaunchDescription([
         serial_node,
-        udp_node,
+        # udp_node,
         # acomm_node,
         traffic_control,
         # acomm_traffic_control,
