@@ -29,7 +29,7 @@ def generate_launch_description():
         namespace="alpha_rise",
         output='screen',
         parameters=[param_config], 
-        remappings=[('ext/heading_enu', 'unicore_rtk_driver/heading_enu_pose')]        
+        remappings=[('ext/heading_enu', 'unicore_rtk_driver/heading_enu_pose/tf_corrected')]        
     )
 
     ld.add_action(node)
