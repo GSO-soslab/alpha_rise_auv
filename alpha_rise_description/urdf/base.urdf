@@ -63,7 +63,7 @@
 
     <link name="unicore_gps"/>
     <joint name="unicore_gps_joint" type="fixed">
-        <origin xyz="-0.5 0.0 0.2" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.5 0.0 0.2" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="unicore_gps"/>
     </joint>
