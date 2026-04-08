@@ -7,7 +7,7 @@
         baudrate: 115200
         heading_frame_id: alpha_rise/world_ned
         gps_frame_id: alpha_rise/unicore_gps
-        desired_frame_id: alpha_rise/imu
+        imu_topic : /alpha_rise/imu/data
         heading_enu_frame_id: alpha_rise/world
 
         # True: use the gps timestamp, False: use IO time when gps message arrived
