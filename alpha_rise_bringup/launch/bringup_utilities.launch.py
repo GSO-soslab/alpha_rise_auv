@@ -42,10 +42,17 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Unicore GPS for time sync
+    gps = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','unicore_rtk.launch.py')]),
+        launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
+    )
+
     return LaunchDescription([
         power_monitor,
         computer_monitor,
         gpio_manager,
+        gps
         # foxglove
     ])
     
