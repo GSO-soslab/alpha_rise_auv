@@ -29,9 +29,9 @@ def generate_launch_description():
         namespace="alpha_rise",
         output='screen',
         parameters=[param_config], 
-        remappings=[('ext/heading_enu', 'unicore_rtk_driver/heading_enu_pose')]
+        # remappings=[('ext/heading_enu', 'unicore_rtk_driver/heading_enu_pose')]
         # remappings=[('ext/heading_enu', 'unicore_rtk_driver/heading_enu_pose/imu/manual')]         
-        # remappings=[('ext/heading_enu', 'unicore_rtk_driver/heading_enu_pose/imu')]         
+        remappings=[('ext/heading_enu', 'unicore_rtk_driver/heading_enu_pose/imu')]         
 
     )
 
