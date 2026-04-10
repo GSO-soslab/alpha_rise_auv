@@ -8,17 +8,6 @@ def generate_launch_description():
 
     robot_name = 'alpha_rise'
 
-    # Vehicle description
-    description = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory('alpha_rise_bringup'), 
-            'launch/include/description.launch.py')]),
-        launch_arguments={
-            'robot_name': robot_name,
-            'description_delay': '0.0'
-        }.items()  
-    )
-
     # Vehicle localization base_link <> odom
     localization = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -42,7 +31,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        description,
         localization,
         initialization
     ])
