@@ -1,0 +1,35 @@
+/**:
+  ros__parameters:
+    # shared
+    vertical_fov_deg: 12.0
+    marker_topic: '/alpha_rise/fls/geometry'
+
+    # fls_voxel_node
+    range_max: 40.0
+    horizontal_fov_deg: 70.0
+    resolution: 1.0
+    
+    # fls_pcl_node
+    world_frame_id: 'alpha_rise/world'
+    pointcloud_pub_topic: '/alpha_rise/fls/pointcloud'
+    # # Real
+    sim: False
+    sensor_frame_id: 'alpha_rise/fls_link'
+    image_sub_topic: '/alpha_rise/oculus/raw_image'
+    ping_sub_topic: '/alpha_rise/oculus/ping'
+    max_depth: -1.0     # World Frame (ENU)
+    min_depth: -15.0    # World Frame (ENU)
+    threshold_intensity: 30     # 0-255 pixel values
+    threshold_min_range: 5.0    # m
+    probabilistic_intensity:
+      intensity:
+        lower_bound_intensity: 56   # Noise floor
+        upper_bound_intensity: 100  # Lower bound for signal
+        min_probability: 0.2
+        max_probability: 0.9
+      sonar_params:
+        frequency: 1.2e6        # Frequency: 1.2 MHz. e is exponent.
+        sound_speed: 1500       # m/s
+        aperture_size: 0.0067   # 0.0067 m
+    save_as_pcd: False
+    pcd_filename: "ice1_sampled.pcd"

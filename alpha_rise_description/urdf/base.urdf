@@ -89,6 +89,13 @@
         <child link="mbes_link"/>
     </joint>
 
+    <link name="mbes_link_sf"/>
+    <joint name="mbes_sf_joint" type="fixed">
+        <origin xyz="0.74 -0.10 -0.0" rpy="3.1415926 -0.0 -0.785"/>
+        <parent link="base_link"/>
+        <child link="mbes_link_sf"/>
+    </joint>
+
     <link name="ping360_link_sf"/>
     <joint name="ping360_sf_joint" type="fixed">
         <origin xyz="0.63 0.0 -0.11" rpy="3.14 0.0 0.0"/>

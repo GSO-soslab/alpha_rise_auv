@@ -1,0 +1,10 @@
+/**:
+  ros__parameters:
+    # Simulation parameters
+    stonefish: false
+    laserscan_topic: /alpha_rise/stonefish/multibeam/data
+    
+    # Real parameters
+    pointcloud_topic: "/alpha_rise/surveyor/pointcloud"
+    pointcloud_pub_topic: "/alpha_rise/mbes/pointcloud/probability"
+    range_resolution: 1.0

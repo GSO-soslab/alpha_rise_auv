@@ -1,0 +1,55 @@
+/alpha_rise/voxel_log_odds_visualizer:
+  ros__parameters:
+
+      # --- Frames ---
+      # Frame of the map
+      frame_id: "alpha_rise/odom"
+
+      # TF frame of the robot, used to centre the local costmap
+      robot_frame_id: "alpha_rise/base_link"
+
+      # --- Topics ---
+      # Pointcloud topics to subscribe
+      pointcloud_sub_topics:
+        - "/alpha_rise/fls/pointcloud/probability"
+        - "/alpha_rise/msis/pointcloud/probability"
+        - "/alpha_rise/mbes/pointcloud/probability"
+
+      # Odometry topic used to track vehicle depth (Z position)
+      odometry_sub_topic: "/alpha_rise/odometry/filtered"
+
+      # 3D voxel map output
+      voxel_pub_topic: "/alpha_rise/costmap/voxel"
+
+      # 2D occupancy grid output
+      global_costmap_pub_topic: "/alpha_rise/costmap/global"
+      local_costmap_pub_topic: "/alpha_rise/costmap/local"
+
+      # --- Voxel map ---
+      # Side length of individual voxel (m)
+      voxel_resolution: 1.0
+
+      # Log-odds clipping bounds
+      logodds_min: -20.0
+      logodds_max: 20.0
+
+      # Only voxels above this probability are visualized
+      probability_threshold: 0.9
+
+      # --- Costmaps ---
+      # Global costmap side length (m); cell count = ceil(dimension / voxel_resolution)
+      global_costmap_dimension: 500.0
+
+      # Local costmap side length (m); cell count = ceil(dimension / voxel_resolution)
+      local_costmap_dimension: 100.0
+
+      # Symmetric depth deviation (m) around vehicle Z for OccupancyGrid filtering.
+      # E.g. vehicle_z = -2m, depth_deviation = 1m → voxel Z range [-3m, -1m]
+      depth_deviation: 1.0
+
+      # Hard upper-bound on Z (m): voxels above this value are always discarded
+      z_cutoff: -1.0
+
+      # --- PCD export ---
+      save_pcd: false
+      output_pcd_file: "anisotropic_diffusion_0_9_.pcd"

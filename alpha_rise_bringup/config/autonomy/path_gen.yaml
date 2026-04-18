@@ -3,9 +3,9 @@
     odom_frame: "alpha_rise/odom"
     base_frame: "alpha_rise/base_link"
     costmap_topic: '/alpha_rise/costmap'
+    costmap_method: 'custom' #nav2 or custom
     path_topic: 'path'
     debug: false
-    costmap_method: 'custom'
     enable_search_mode: false
     msis_vertical_beamwidth: 25 #degree
     canny_min_threshold: 200
