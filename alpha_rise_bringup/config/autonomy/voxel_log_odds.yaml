@@ -50,6 +50,11 @@
       # Hard upper-bound on Z (m): voxels above this value are always discarded
       z_cutoff: -1.0
 
+      # --- Decay ---
+      # Seconds a voxel survives without a new measurement before reverting to 0.5 probability.
+      # Set to -1 to disable decay (voxels accumulate indefinitely). This is in seconds
+      decay_time: 300.0
+
       # --- PCD export ---
       save_pcd: false
       output_pcd_file: "anisotropic_diffusion_0_9_.pcd"

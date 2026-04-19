@@ -2,7 +2,7 @@
   ros__parameters:
     odom_frame: "alpha_rise/odom"
     base_frame: "alpha_rise/base_link"
-    costmap_topic: '/alpha_rise/costmap'
+    costmap_topic: '/alpha_rise/costmap/local'
     costmap_method: 'custom' #nav2 or custom
     path_topic: 'path'
     debug: false
