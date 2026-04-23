@@ -11,9 +11,9 @@
       # --- Topics ---
       # Pointcloud topics to subscribe
       pointcloud_sub_topics:
-        - "/alpha_rise/fls/pointcloud/probability"
+        - "/alpha_rise/oculus/pointcloud/probability"
         - "/alpha_rise/msis/pointcloud/probability"
-        - "/alpha_rise/mbes/pointcloud/probability"
+        - "/alpha_rise/surveyor/pointcloud/probability"
 
       # Odometry topic used to track vehicle depth (Z position)
       odometry_sub_topic: "/alpha_rise/odometry/filtered"
@@ -45,7 +45,7 @@
 
       # Symmetric depth deviation (m) around vehicle Z for OccupancyGrid filtering.
       # E.g. vehicle_z = -2m, depth_deviation = 1m → voxel Z range [-3m, -1m]
-      depth_deviation: 1.0
+      depth_deviation: 7.0
 
       # Hard upper-bound on Z (m): voxels above this value are always discarded
       z_cutoff: -1.0
@@ -53,7 +53,11 @@
       # --- Decay ---
       # Seconds a voxel survives without a new measurement before reverting to 0.5 probability.
       # Set to -1 to disable decay (voxels accumulate indefinitely). This is in seconds
-      decay_time: 300.0
+      decay_time: 180.0
+
+      # --- Publish rate ---
+      # Rate (Hz) at which the voxel map and costmaps are published
+      map_publish_rate: 5.0
 
       # --- PCD export ---
       save_pcd: false

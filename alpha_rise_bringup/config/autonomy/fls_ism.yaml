@@ -2,21 +2,21 @@
   ros__parameters:
     # shared
     vertical_fov_deg: 12.0
-    marker_topic: '/alpha_rise/fls/geometry'
+    marker_topic: '/alpha_rise/oculus/geometry'
 
     # fls_voxel_node
     range_max: 40.0
     horizontal_fov_deg: 70.0
     resolution: 1.0
-    
+    sensor_frame_id: 'alpha_rise/fls'
+
     # fls_pcl_node
     world_frame_id: 'alpha_rise/world'
-    pointcloud_pub_topic: '/alpha_rise/fls/pointcloud'
+    stonefish: False
     # # Real
-    sim: False
-    sensor_frame_id: 'alpha_rise/fls_link'
     image_sub_topic: '/alpha_rise/oculus/raw_image'
     ping_sub_topic: '/alpha_rise/oculus/ping'
+    pointcloud_pub_topic: '/alpha_rise/oculus/pointcloud'
     max_depth: -1.0     # World Frame (ENU)
     threshold_intensity: 30     # 0-255 pixel values
     threshold_min_range: 5.0    # m

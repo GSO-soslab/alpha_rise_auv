@@ -1,10 +1,11 @@
-/**:
+/alpha_rise/mbes_ism:
   ros__parameters:
-    # Simulation parameters
     stonefish: false
+    # Stonefish has Multibeam has Laserscan msg.
     laserscan_topic: /alpha_rise/stonefish/multibeam/data
-    
-    # Real parameters
     pointcloud_topic: "/alpha_rise/surveyor/pointcloud"
-    pointcloud_pub_topic: "/alpha_rise/mbes/pointcloud/probability"
+    pointcloud_pub_topic: "/alpha_rise/surveyor/pointcloud/probability"
     range_resolution: 1.0
+    # Octomap uses 0.7 for detect and 0.4 for free.
+    p_hit: 0.7
+    p_miss: 0.4
