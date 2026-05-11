@@ -45,7 +45,7 @@
 
       # Symmetric depth deviation (m) around vehicle Z for OccupancyGrid filtering.
       # E.g. vehicle_z = -2m, depth_deviation = 1m → voxel Z range [-3m, -1m]
-      depth_deviation: 7.0
+      depth_deviation: 5.0
 
       # Hard upper-bound on Z (m): voxels above this value are always discarded
       z_cutoff: -1.0
