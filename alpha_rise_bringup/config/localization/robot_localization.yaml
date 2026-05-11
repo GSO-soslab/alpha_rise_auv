@@ -46,6 +46,24 @@
                     false, false, false]
     twist0_queue_size: 3
     twist0_rejection_threshold: 2.0
+  
+    twist1: nucleus_node/water_track_velocity_common
+    twist1_config: [false, false, false,
+                    false, false, false,
+                    true,  true,  true,
+                    false, false, false,
+                    false, false, false]
+    twist1_queue_size: 3
+    twist1_rejection_threshold: 2.0
+
+    twist2: surge/twist
+    twist2_config: [false, false, false,
+                    false, false, false,
+                    true,  false,  false,
+                    false, false, false,
+                    false, false, false]
+    twist2_queue_size: 3
+    twist2_rejection_threshold: 2.0
 
     #dvl data
     # twist0: dvl/predicted
@@ -85,7 +103,7 @@
     odom1_pose_rejection_threshold: 10.0
     odom1_twist_rejection_threshold: 1.0
 
-    #RTK Heading
+    # #RTK Heading
     # odom2: unicore_rtk_driver/heading_odometry
     # odom2_config: [false,  false,  false,
     #                 false, false, true,
@@ -96,8 +114,8 @@
     # odom2_differential: false
     # odom2_relative: false
     # odom2_pose_use_child_frame: true
-    # odom2_pose_rejection_threshold: 10.0
-    # odom2_twist_rejection_threshold: 1.0
+    # # sqrt(chi(.99,1) = 2.5. Keep 99% of measurements.
+    # odom2_pose_rejection_threshold: 2.5
 
     # [ADVANCED]  The EKF and UKF models follow a standard predict/correct cycle. During prediction, if there is no
     # acceleration reference, the velocity at time t+1 is simply predicted to be the same as the velocity at time t. During
