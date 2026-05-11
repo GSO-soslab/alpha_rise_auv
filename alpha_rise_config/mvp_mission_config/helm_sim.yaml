@@ -49,11 +49,10 @@ behaviors:
       survey: 1
       mapping: 1
       
-  # bhv_surfacing:
-  #   plugin: helm/Surfacing
-  #   priority:
-  #     survey: 3
-  #     mapping: 3
+  bhv_surfacing:
+    plugin: helm/Surfacing
+    priority:
+      survey: 3
 
   # bhv_altitude_tracking:
   #   plugin: helm/AltitudeTracking
