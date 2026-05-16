@@ -24,7 +24,7 @@
     gpio_devices: ['payload_24v', 'regular_payload', 'backseat']  # this needs to match the gpio manager yaml
 
 ## topside stuff
-/alpha_rise/mvp_c2_commander:
+/alpha_rise_top/mvp_c2_commander:
   ros__parameters:
     dccl_tx_interval: 1.0
     dccl_rx_interval: 0.5
@@ -34,7 +34,7 @@
     gpio_devices: ['payload_24v', 'regular_payload', 'backseat']  # this needs to match the gpio manager yaml
 
 
-/alpha_rise/commander_c2_udp_comm:
+/alpha_rise_top/commander_c2_udp_comm:
   ros__parameters:
     type: server
     server_ip: 192.168.2.200
@@ -42,7 +42,7 @@
     client_ip: 192.168.2.50
     client_port: 6000
 
-/alpha_rise/commander_c2_serial_comm:
+/alpha_rise_top/commander_c2_serial_comm:
   ros__parameters:
     port: /dev/ttyUSB0
     baudrate: 57600

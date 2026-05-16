@@ -26,5 +26,5 @@ def generate_launch_description():
 
     return LaunchDescription([
         zenoh,
-        mvp_c2,
+        mvp_c2
     ])

@@ -1,0 +1,54 @@
+/alpha_rise/mvp_c2_acomm_traffic_control:
+  ros__parameters:
+
+    max_frame_size: 300  #maximum size per transmission packet
+    tx_interval: 2.0
+    tdma_enable: false
+
+    tdma:
+      slot_id: 1
+      role: "slave"
+
+    # --- Buffer Global Settings ---
+    dynamic_buffer:
+      max_total_size: 300 # how many dccl message entries will be stored
+      overflow_remove_by_time: True
+      dccl_intake_message_list: 
+        - "Odometry"
+        - "GeoPose"
+        - "PowerMonitor"
+        - "ReportPowerPort"
+        - "AltimeterPointStamped"
+        - "CPUMonitor"
+        - "ReportRosLaunch"
+
+    # --- Message Specific Rules ---
+    message_rules:
+
+      ReportRosLaunch:
+        priority: 7
+        ttl_seconds: 100
+
+      ReportPowerPort:
+        priority: 6
+        ttl_seconds: 100
+        
+      AltimeterPointStamped:
+        priority: 5
+        ttl_seconds: 100
+      
+      CPUMonitor:
+        priority: 4
+        ttl_seconds: 100
+
+      PowerMonitor:
+        priority: 3
+        ttl_seconds: 100
+
+      GeoPose:
+        priority: 2
+        ttl_seconds: 100
+
+      Odometry:
+        priority: 1
+        ttl_seconds: 5
