@@ -54,7 +54,7 @@ def generate_launch_description():
             os.path.join(get_package_share_directory('alpha_rise_bringup'), 
             'launch/include/description.launch.py')]),
         launch_arguments={
-            'robot_name': robot_name,
+            'robot_name': arg_robot_name,
             'description_delay': '0.0'
         }.items()  
     )
