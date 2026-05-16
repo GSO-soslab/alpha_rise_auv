@@ -1,0 +1,24 @@
+/**:
+  ros__parameters:
+    # common (msis_voxel_node + msis_prob_clouds)
+    stonefish: false
+    cloud_sub_topic: "/alpha_rise/msis/pointcloud"
+    sensor_frame_id: "alpha_rise/ping360_link"
+    vertical_fov_deg: 25.0
+    resolution: 1.0
+    marker_topic: /alpha_rise/msis/geometry
+
+    # msis_voxel_node
+    range_max: 50.0
+    horizontal_fov_deg: 2.0
+    echo_sub_topic: "/alpha_rise/msis/echo" #For angles
+
+    # msis_prob_clouds
+    sound_speed: 1500.0
+    frequency: 750000.0 #750kHz
+    aperture_size: 0.0049
+    world_frame_id: "alpha_rise/world"
+    noise_floor: 20.0
+    min_range: 5.0
+    z_max: -1.0
+    fan_pub_topic: /alpha_rise/msis/pointcloud/probability

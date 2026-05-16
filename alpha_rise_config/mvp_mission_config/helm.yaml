@@ -3,7 +3,7 @@ finite_state_machine:
   start:
     initial: true
     control_mode: idle
-    transitions: [kill, teleop, survey]
+    transitions: [kill, teleop, survey, mapping]
     # max_duration: 100
     # exit_state: start
   
@@ -16,12 +16,18 @@ finite_state_machine:
   teleop:
     control_mode: teleop
     transitions: [start, kill] 
-    max_duration: 3000
+    max_duration: 30
     exit_state: kill
     
   survey:
     control_mode: flight
     transitions: [start, kill, teleop]
+    max_duration: 4000
+    exit_state: kill
+
+  mapping:
+    control_mode: flight
+    transitions: [start, kill, survey]
     max_duration: 4000
     exit_state: kill
 
@@ -41,6 +47,7 @@ behaviors:
     plugin: helm/PathFollowing
     priority:
       survey: 1
+      mapping: 1
       
   bhv_surfacing:
     plugin: helm/Surfacing

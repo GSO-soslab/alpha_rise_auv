@@ -49,7 +49,8 @@
       # SA (Salinity [0;50], default 35)
       - 'SETMISSION,RANGE=25,SV=0'
       # Trigger and Frequency
-      - 'SETTRIG,SRC="INTERNAL",FREQ=5,ALTI=5,CP=0'
+      # - 'SETTRIG,SRC="INTERNAL",FREQ=5,ALTI=5,CP=0'
+      - 'SETTRIG,SRC="INTERNAL",FREQ=5,ALTI=0,CP=5'
   
     # Fluid Density
     fluid_density: 1023.0

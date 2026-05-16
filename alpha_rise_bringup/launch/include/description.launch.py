@@ -19,12 +19,18 @@ def generate_launch_description():
     robot_name = 'alpha_rise'
     robot_description = robot_name + '_description'
 
+    use_sim_time_arg = DeclareLaunchArgument('use_sim_time', default_value='false')
+
     path_to_urdf = os.path.join( get_package_share_directory(robot_description), 'urdf', 'base.urdf' )
-    
+
     with open(path_to_urdf, 'r') as infp:
         robot_desc = infp.read()
 
-    return LaunchDescription([        
+    from launch.substitutions import LaunchConfiguration
+    use_sim_time = LaunchConfiguration('use_sim_time')
+
+    return LaunchDescription([
+        use_sim_time_arg,
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
@@ -32,14 +38,16 @@ def generate_launch_description():
             namespace=robot_name,
             # output='screen',
             parameters=[{'robot_description' : robot_desc},
-                        {'frame_prefix': robot_name +'/'}],
+                        {'frame_prefix': robot_name +'/'},
+                        {'use_sim_time': use_sim_time}],
            ),
 
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
             name='world2ned',
-            arguments = ["0.0", "0.0", "0.0", "1.5707963267948966", "0.0", "3.141592653589793", robot_name+'/world', robot_name+'/world_ned']    
+            parameters=[{'use_sim_time': use_sim_time}],
+            arguments = ["0.0", "0.0", "0.0", "1.5707963267948966", "0.0", "3.141592653589793", robot_name+'/world', robot_name+'/world_ned']
         ),
 
         # Node(

@@ -74,23 +74,23 @@ def generate_launch_description():
                         )
 
     ##mvp_utilities for tracking the usbl fixes
-    mvp_geopoint =   Node(
-                            package='mvp_acomm_utilities',
-                            executable='acomm_geopoint_node',
-                            name='acomm_geopoint_node',
-                            namespace=robot_name,
-                            output='screen',
-                            prefix=['stdbuf -o L'],
-                            parameters=[
-                                {'tf_prefix': robot_name},
-                                # {'use_reference_geopose_orientation': True},
-                                {'usbl_frame_id': 'usbl'},
-                                {'world_frame_id': 'world'},
-                                ],
-                            # remappings=[
-                            #         ('reference_geopose', robot_name + '/geopose'),
-                            #     ],
-                            )
+#     mvp_geopoint =   Node(
+#                             package='mvp_acomm_utilities',
+#                             executable='acomm_geopoint_node',
+#                             name='acomm_geopoint_node',
+#                             namespace=robot_name,
+#                             output='screen',
+#                             prefix=['stdbuf -o L'],
+#                             parameters=[
+#                                 {'tf_prefix': robot_name},
+#                                 # {'use_reference_geopose_orientation': True},
+#                                 {'usbl_frame_id': 'usbl'},
+#                                 {'world_frame_id': 'world'},
+#                                 ],
+#                             # remappings=[
+#                             #         ('reference_geopose', robot_name + '/geopose'),
+#                             #     ],
+#                             )
 
     ##joy stick
     joy =  Node(
@@ -110,7 +110,7 @@ def generate_launch_description():
     
     return LaunchDescription([
         serial_node,
-        udp_node,
+#         udp_node,
         traffic_manager,
         commander_node,
         # mvp_geopoint,

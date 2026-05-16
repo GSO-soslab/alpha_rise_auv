@@ -2,12 +2,13 @@
   ros__parameters:
     odom_frame: "alpha_rise/odom"
     base_frame: "alpha_rise/base_link"
-    costmap_topic: '/alpha_rise/costmap'
+    edge_frame: "alpha_rise/costmap/edge_frame"
+    line_frame: "alpha_rise/costmap/line_frame"
+    costmap_topic: '/alpha_rise/costmap/local'
+    costmap_method: 'custom' #nav2 or custom
     path_topic: 'path'
     debug: false
-    costmap_method: 'custom'
-    enable_search_mode: false
-    msis_vertical_beamwidth: 25 #degree
+    minimum_depth_for_path: -1.0
     canny_min_threshold: 200
     canny_max_threshold: 255
 
@@ -15,8 +16,8 @@
     standoff_distance_meters: 20.0 
     points_to_sample_from_curve: 20
 
-    min_scan_angle: -90 #degrees
-    max_scan_angle: 90
+    min_scan_angle: -45 #degrees
+    max_scan_angle: 45
     distance_constraint: 15.0 #meters
     max_yaw_rate: 0.8 #rad/s #0.8rad is 45degree
-    surge_velocity: 0.8 #m/s 
+    surge_velocity: 0.7 #m/s 

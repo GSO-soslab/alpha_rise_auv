@@ -1,0 +1,45 @@
+/alpha_rise/waypoint_admin:
+  ros__parameters:
+    # Frames
+    odom_frame: "alpha_rise/odom"
+    base_frame: "alpha_rise/base_link"
+    line_frame: "alpha_rise/costmap/line_frame"
+    edge_frame: "alpha_rise/costmap/edge_frame"
+
+    # Topics & Services
+    update_waypoint_topic: "/alpha_rise/mvp_helm/bhv_path_following/update_waypoints"
+    get_state_service: "/alpha_rise/mvp_helm/get_state"
+    change_state_service: "/alpha_rise/mvp_helm/change_state"
+
+    # Timers
+    ## How often the get_state_service is called.
+    check_state_update_rate: 1 #sec
+    search_mode_timer: 1200 #sec
+    follow_mode_timer: 1200 #sec
+
+    # Navigation
+    path_topic: "/alpha_rise/path"
+
+    search_mode_initial_radius: 20.0 #m
+    search_mode_max_circles: 2
+    search_mode_depth: -15.0 #m
+    search_mode_surge: 0.7 #m/s
+
+    exit_mode_surge: 0.8 #m/s
+    exit_mode_distance: 30.0 #m
+    exit_mode_depth: -15.0 #m
+
+    reacquisition_s_param: 1.0
+    reacquisition_surge: 0.5 #m/s
+    reacquisition_proximity_radius: 10.0 #m
+    #       x
+    #       |
+    #       |-->y
+    #       
+    #
+    reacquisition_end_angle: 0.0 #degrees
+
+    stand_off_distance: 20.0
+    n_points: 20
+    operating_depth: -15.0
+    follow_mode_surge: 0.7 #m/s

@@ -106,14 +106,31 @@ def post_process(context, *args, **kwargs):
     return []
 
 
+# ───────────── QOS OVERRIDES ───────────── #
+QOS_OVERRIDES = {
+    "/tf_static": {
+        "reliability": "reliable",
+        "durability": "transient_local",
+        "history": "keep_last",
+        "depth": 1,
+    }
+}
+
+
 # ───────────── MAIN LAUNCH DESCRIPTION ───────────── #
 def generate_launch_description():
     # Create session directory before anything runs
     SESSION_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Write QoS overrides so /tf_static is recorded with transient_local durability
+    qos_file = SESSION_DIR / "qos_overrides.yaml"
+    with open(qos_file, "w") as f:
+        yaml.dump(QOS_OVERRIDES, f)
+
     # Start rosbag recording in the session directory (rosbag2_0 will be created by ros2)
     rosbag_record = ExecuteProcess(
-        cmd=["ros2", "bag", "record", "-a"],
+        cmd=["ros2", "bag", "record", "-a",
+             "--qos-profile-overrides-path", str(qos_file)],
         cwd=str(SESSION_DIR),
         output="screen"
     )

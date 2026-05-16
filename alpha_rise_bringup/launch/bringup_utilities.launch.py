@@ -42,10 +42,29 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Unicore GPS for time sync
+    gps = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','unicore_rtk.launch.py')]),
+        launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
+    )
+
+    # Vehicle description
+    description = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory('alpha_rise_bringup'), 
+            'launch/include/description.launch.py')]),
+        launch_arguments={
+            'robot_name': arg_robot_name,
+            'description_delay': '0.0'
+        }.items()  
+    )
+
     return LaunchDescription([
         power_monitor,
         computer_monitor,
         gpio_manager,
+        gps,
+        description
         # foxglove
     ])
     

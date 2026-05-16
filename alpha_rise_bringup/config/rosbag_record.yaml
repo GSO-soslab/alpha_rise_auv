@@ -9,4 +9,4 @@ package_names:
 urdf_package_names:
   - "alpha_rise_description"
 
-bag_output_dir: "/home/mvp_admin/ssd/"
+bag_output_dir: "/home/mvp_admin/ssd/fogo_island_05_2026"

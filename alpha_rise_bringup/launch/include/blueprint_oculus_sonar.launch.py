@@ -41,8 +41,8 @@ def generate_launch_description():
         'fls_pcl.yaml'
     )
 
-    fls_pcl = Node(
-        package='fls_pcl',
+    fls_ism = Node(
+        package='fls_ism',
         executable='fls_pcl.py',
         name='fls_pcl_node',
         namespace="alpha_rise",
@@ -53,5 +53,5 @@ def generate_launch_description():
 
     return LaunchDescription([
         oculus_sonar_node,
-        # fls_pcl
+        # fls_ism
     ])
