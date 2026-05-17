@@ -16,7 +16,7 @@ def generate_launch_description():
     usbl_param_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'evologics', 'usbl.yaml') 
     goby_param_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'evologics', 'goby.yaml') 
     usbl_traffic_manager_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'evologics', 'mvp_c2_usbl_commander_traffic.yaml') 
-
+    mvp_acomm_navsatfix_transform_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'evologics', 'mvp_acomm_navsatfix_transform.yaml') 
 
     #usbl comm
     usbl_node = Node(
@@ -87,6 +87,16 @@ def generate_launch_description():
                             #         ('reference_geopose', robot_name + '/geopose'),
                             #     ],
                             )
+    
+    mvp_acomm_navsatfix_transform = Node(
+                                        package='mvp_acomm_navsatfix_transform',
+                                        executable='mvp_acomm_navsatfix_transform',
+                                        name='mvp_acomm_navsatfix_transform_node',
+                                        namespace=robot_name,
+                                        parameters=[mvp_acomm_navsatfix_transform_file],
+                                        output='screen'
+                                    )
+
 
     
     return LaunchDescription([
@@ -97,5 +107,6 @@ def generate_launch_description():
         # traffic_manager,
         usbl_traffic_manager,
         # mvp_geopoint,
+        mvp_acomm_navsatfix_transform,
         # joy     
     ])

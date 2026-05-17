@@ -1,0 +1,8 @@
+/**:
+  ros__parameters:
+    geopose_topic: '/wamv_rise/mvp_c2_commander/remote/id_4/geopose'
+    usbl_topic: '/alpha_rise/usbl/fix'
+    modem_navsatfix_topic: '/alpha_rise/acomm/fix'
+    world_frame: 'alpha_rise/acomm'
+    # sensor2baselink_tf: [-0.14, -0.096718, -0.84, 0.0, 0.0, -0.349065844]
+    sensor2baselink_tf: [-0.14, 0.0, -0.84, 0.0, 0.0, -0.349065844]
