@@ -44,6 +44,6 @@ def generate_launch_description():
     
     return LaunchDescription([
         acomm_node,
-        acomm_traffic_control,
+#        acomm_traffic_control,
     ])
 
