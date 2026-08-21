@@ -109,8 +109,8 @@ def generate_launch_description():
             )
     
     return LaunchDescription([
-        serial_node,
-#         udp_node,
+        #serial_node,
+        udp_node,
         traffic_manager,
         commander_node,
         # mvp_geopoint,
