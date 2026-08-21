@@ -13,34 +13,34 @@ def generate_launch_description():
     reporter_traffic_manager_file = os.path.join(get_package_share_directory(robot_bringup), 'config', 'c2', 'mvp_c2_reporter_traffic.yaml') 
     
     # serial_comm
-    serial_node = Node(
-            package = 'mvp_c2',
-            namespace = robot_name,
-            executable='mvp_c2_serial_comm',
-            name = 'reporter_c2_serial_comm',
-            output='screen',
-            prefix=['stdbuf -o L'],
-            parameters=[reporter_setting_file],
-            remappings=[
-                ('dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_controlled_tx'),
-                ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
-            ]
-        )
+    # serial_node = Node(
+    #         package = 'mvp_c2',
+    #         namespace = robot_name,
+    #         executable='mvp_c2_serial_comm',
+    #         name = 'reporter_c2_serial_comm',
+    #         output='screen',
+    #         prefix=['stdbuf -o L'],
+    #         parameters=[reporter_setting_file],
+    #         remappings=[
+    #             ('dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_controlled_tx'),
+    #             ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
+    #         ]
+    #     )
         
         #udp
-        # udp= Node(
-        #     package = 'mvp_c2',
-        #     namespace = robot_name,
-        #     executable='mvp_c2_udp_comm',
-        #     name = 'reporter_c2_udp_comm',
-        #     output='screen',
-        #     prefix=['stdbuf -o L'],
-        #     parameters=[reporter_setting_file],
-        #     remappings=[
-        #         ('dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_controlled_tx'),
-        #         ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
-        #     ]
-        # ),
+    udp_node = Node(
+        package = 'mvp_c2',
+        namespace = robot_name,
+        executable='mvp_c2_udp_comm',
+        name = 'reporter_c2_udp_comm',
+        output='screen',
+        prefix=['stdbuf -o L'],
+        parameters=[reporter_setting_file],
+        remappings=[
+            ('dccl_msg_tx', 'mvp_c2/traffic_control/dccl_msg_controlled_tx'),
+            ('dccl_msg_rx', 'mvp_c2/traffic_control/dccl_msg_rx'),
+        ]
+    )
 
         #DCCL reporter node
     reporter_node =  Node(
@@ -77,8 +77,8 @@ def generate_launch_description():
 
     
     return LaunchDescription([
-        serial_node,
-        # udp_node,
+        # serial_node,
+        udp_node,
         # acomm_node,
         traffic_control,
         # acomm_traffic_control,
