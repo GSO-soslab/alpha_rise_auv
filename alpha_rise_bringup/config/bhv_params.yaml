@@ -8,12 +8,12 @@ bhv_teleop:
   ##RB and RT controls depth
   ## LB has to be pressed 
   ##LT resets desired states to zero for all.
-  tele_s_surge: 1.0
+  tele_s_surge: 0.5
   tele_s_sway: 1.0
   tele_d_yaw: 10.0 
   tele_d_pitch: 10.0
   tele_d_depth: 0.2
-  no_joy_timeout: 10.0
+  no_joy_timeout: 100.0
 
 # bhv_direct_control:
 #   ########################################
