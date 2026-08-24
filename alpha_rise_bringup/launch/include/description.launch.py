@@ -50,10 +50,11 @@ def generate_launch_description():
             arguments = ["0.0", "0.0", "0.0", "1.5707963267948966", "0.0", "3.141592653589793", robot_name+'/world', robot_name+'/world_ned']
         ),
 
+        ## If no GPS, then create a static tf with world and odom
         # Node(
         #     package='tf2_ros',
         #     executable='static_transform_publisher',
         #     name='odom2world',
-        #     arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", robot_name+'/odom', robot_name+'/world']    
+        #     arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", robot_name+'/world', robot_name+'/odom']    
         # )
 ])
