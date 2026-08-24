@@ -5,7 +5,7 @@ sudo systemctl stop gpsd.socket
 sleep 2
 
 echo "Setup USB0 baud rate!"
-sudo stty -F /dev/ttyUSB0 9600
+sudo stty -F /dev/gps 115200
 sleep 2
 
 echo "Restart GPSD!"
