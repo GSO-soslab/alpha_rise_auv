@@ -20,12 +20,6 @@ def generate_launch_description():
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
 
-    #Waterlinked DVL
-    # dvl = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','waterlinked_dvl.launch.py')]),
-    #     launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
-    # )
-
     # Nortek DVL
     dvl = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','nortek_dvl.launch.py')]),
@@ -36,12 +30,6 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','bluerobotics_bar30.launch.py')]),
         launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
     )
-
-    #GPS
-    # gps = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_bringup), 'launch','include','gps_gpsd.launch.py')]),
-    #     launch_arguments = {'arg_robot_name': arg_robot_name}.items()  
-    # )
 
 
     return LaunchDescription([
