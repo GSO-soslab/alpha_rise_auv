@@ -10,7 +10,7 @@ def generate_launch_description():
     robot_name = 'alpha_rise'
     robot_bringup = robot_name + '_bringup'
     
-    sim_world = 'ocean_rise.scn'
+    sim_world = 'ocean.scn'
 
     world_of_stonefish_dir = get_package_share_directory('world_of_stonefish')
 
