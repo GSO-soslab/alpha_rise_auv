@@ -2,15 +2,15 @@
 
 ## Introduction
 This is the configuration for our ALPHA RISE AUV.
-- ROS version Noetic,
-- Ubuntu 20.04
+- ROS2 version Jazzy,
+- Ubuntu 24.04
 
 ## Directory structure
 - `alpha_rise_auv`: Meta package for the standard ALPHA AUV.
 
-- `alpha_rise_bringup`: Launch files to bring the vehicle/simulation up runnning
+- `alpha_rise_bringup`: Launch files & configurations to bring the vehicle/simulation up runnning
 
-- `alpha_rise_config`: Configuration files for helm, controller, and devices. `mvp_mission` state machine is configured in `/mission/config/helm.yaml`. Parameters for different behaviors program for the helm is located in `/mission/param`. `mvp_control` configuration is under `/config/control.yaml`.
+- `alpha_rise_config`: Configuration files for helm and controller.
 
 - `alpha_rise_description`: URDF files, rviz configuration, and vehicle mesh
 
@@ -53,7 +53,7 @@ git clone https://github.com/GSO-soslab/stonefish
     git submodule update --init --recursive
     ```
 - You can run the similar commands for other AUVs.
-- 
+
 - Install pip and setup python3 as default
     ```bash
     sudo apt install python3-pip
@@ -61,33 +61,28 @@ git clone https://github.com/GSO-soslab/stonefish
 
 ### Install ROS-MVP 
 Currently MVP packages should be build from the source.
-Target platform must be Ubuntu 20.04 because of the dependencies.
+Target platform must be Ubuntu 24.04 because of the dependencies.
 
 Pull repository and other dependencies
 ```bash
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_msgs
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_control
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_mission
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_utilities.git
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/stonefish_mvp
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/world_of_stonefish.git
+git clone --single-branch --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_msgs
+git clone --single-branch --branch jazzy-devel https://github.com/GSO-soslab/stonefish_ros2.git
+git clone --single-branch --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_control
+git clone --single-branch --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_mission
+git clone --single-branch --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_utilities.git
+git clone --single-branch --branch jazzy-devel https://github.com/GSO-soslab/world_of_stonefish
 ```
 
-**stonefish_mvp** is a wrapper modified from [stonefish_ros](https://github.com/patrykcieslak/stonefish_ros) for ROS interface with ROS-MVP.
+**stonefish_ros2** is the ROS2 interface for Stonefish simulator.
 
 ### Hardware drivers (Not needed for simulation)
 - Clone **mvp_hardware_drivers** repo which include other hardware related source code, sensor drivers, and other utilities.
 
     ```bash
-    git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_hardware_drivers.git
+    git clone --single-branch --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_hardware_drivers.git
     ```
 
-- Install Dependencies
-
-```bash
-rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y
-```
-Install dependencies for **mvp_hardware_drivers**
+- Install dependencies for **mvp_hardware_drivers**
 ```
 cd mvp_hardware_drivers
 git submodule update --init --recursive
@@ -100,36 +95,36 @@ git submodule update <specific path to submodule>
 
 
 ### Compile the code
-go back to the ROS Workspace dir (e.g., catkin_ws), then do
+go back to the ROS Workspace dir (e.g., ros2_ws), then do
 ```bash
-catkin_make
+colcon build
 ```
 
 ## Quick test
-- Bring up the ALPHA Standard AUV with the Stonefish simualtor.
+- Bring up the ALPHA AUV with the Stonefish simualtor.
 
 ```bash
-roslaunch alpha_rise_bringup bringup_simulation.launch
+ros2 launch alpha_rise_bringup bringup_simulation.launch.py
 ```
 
 - Enable the controller in a separated terminal
 ```bash
-rosservice call /alpha_rise/controller/enable
+ros2 service call /alpha_rise/controller/set std_srvs/srv/SetBool data:\ true\ 
 ```
 
-- Start a path following mission in local frame where your waypoint is defined in `alpha_rise_config/mission/param/path_local.yaml`
+- Start a path following mission in local frame where your waypoint is defined in L78-81 under bhv_path_following in  `alpha_rise_auv/alpha_rise_bringup/config/bhv_params_sim.yaml` 
 
 ```bash
-rosservice call /alpha_rise/helm/change_state "state: 'survey_3d'"
+ros2 service call /alpha_rise/mvp_helm/change_state mvp_msgs/srv/ChangeState "{state: 'survey', caller: 'user'}"
 ```
 
 - You can put AUV in idle anytime by changing the state of the helm
 
 ```bash
-rosservice call /alpha_rise/helm/change_state "state: 'start'"
+ros2 service call /alpha_rise/mvp_helm/change_state mvp_msgs/srv/ChangeState "{state: 'start', caller: 'user'}"
 ```
 
-- Note: Make sure you selected the correct topics for the Markers in the RViz window.
+- Note: Make sure you selected the correct topics for the Markers in the RViz window. `/alpha_rise/bhv_path_following/path` & ``/alpha_rise/bhv_path_following/segment`
 
 
 ## Citation
