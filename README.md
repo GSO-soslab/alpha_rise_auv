@@ -124,7 +124,7 @@ ros2 service call /alpha_rise/mvp_helm/change_state mvp_msgs/srv/ChangeState "{s
 ros2 service call /alpha_rise/mvp_helm/change_state mvp_msgs/srv/ChangeState "{state: 'start', caller: 'user'}"
 ```
 
-- Note: Make sure you selected the correct topics for the Markers in the RViz window. `/alpha_rise/bhv_path_following/path` & ``/alpha_rise/bhv_path_following/segment`
+- Note: Make sure you selected the correct topics for the Markers in the RViz window. `/alpha_rise/bhv_path_following/path` & `/alpha_rise/bhv_path_following/segment`
 
 
 ## Citation
